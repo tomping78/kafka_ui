@@ -7,7 +7,7 @@
       "fetch": {
         "generatorName": "typescript-fetch",
         "output": "src/generated-sources",
-        "glob": "../kafka-ui-contract/src/main/resources/swagger/kafka-ui-api.yaml",
+        "glob": "kafka-ui-api.yaml",
         "additionalProperties": {
           "enumPropertyNaming": "UPPERCASE",
           "typescriptThreePlus": true,
