@@ -1,24 +1,14 @@
 # TCV for Kafka
 TCV for Kafka management
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.provectus%3Akafka-ui_frontend&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=com.provectus%3Akafka-ui_frontend)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=com.provectus%3Akafka-ui_frontend&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=com.provectus%3Akafka-ui_frontend)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=com.provectus%3Akafka-ui_frontend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=com.provectus%3Akafka-ui_frontend)
-
-## Table of contents
-- [Requirements](#requirements)
-- [Getting started](#getting-started)
-- [Links](#links)
-
 ## Requirements
-- [docker](https://www.docker.com/get-started) (required to run [Initialize application](#initialize-application))
-- [nvm](https://github.com/nvm-sh/nvm) with installed [Node.js](https://nodejs.org/en/) of expected version (check `.nvmrc`)
+- [Node버전] v16.15.0
 
 ## Getting started
 
-Go to react app folder
+Go to tcv for kafka folder
 ```sh
-cd ./kafka-ui-react-app
+cd ./tcv-for-kafka-frontend-master
 ```
 
 Install [pnpm](https://pnpm.io/installation)
@@ -32,6 +22,7 @@ pnpm install
 ```
 
 Generate API clients from OpenAPI document
+### 소스 폴더명에 공백이 있으면 종종 pnpm gen:sources 과정에서 에러가 납니다.
 ```sh
 pnpm gen:sources
 ```
@@ -41,29 +32,11 @@ pnpm gen:sources
 
 Create or update existing `.env.local` file with
 ```
-VITE_DEV_PROXY= https://api.server # your API server
+VITE_DEV_PROXY= http://192.168.10.103:8080/ # kafka server
+#VITE_DEV_PROXY= http://localhost:8080/ # local server
 ```
 
 Run the application
 ```sh
 pnpm dev
 ```
-
-### Docker way
-
-Have to be run from root directory.
-
-Start TCV for Kafka with your Kafka clusters:
-```sh
-docker-compose -f ./documentation/compose/kafka-ui.yaml up
-```
-
-Make sure that none of the `.env*` files contain `DEV_PROXY` variable
-
-Run the application
-```sh
-pnpm dev
-```
-## Links
-
-* [Vite](https://github.com/vitejs/vite)
