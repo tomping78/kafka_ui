@@ -22,6 +22,7 @@ pnpm install
 ```
 
 Generate API clients from OpenAPI document
+### 소스 폴더명에 공백이 있으면 종종 pnpm gen:sources 과정에서 에러가 납니다.
 ```sh
 pnpm gen:sources
 ```
@@ -32,7 +33,7 @@ pnpm gen:sources
 Create or update existing `.env.local` file with
 ```
 VITE_DEV_PROXY= http://192.168.10.103:8080/ # kafka server
-VITE_DEV_PROXY= http://localhost:8080/ # local server
+#VITE_DEV_PROXY= http://localhost:8080/ # local server
 ```
 
 Run the application
