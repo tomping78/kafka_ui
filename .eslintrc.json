@@ -15,17 +15,9 @@
     },
     "ecmaVersion": 2018,
     "sourceType": "module",
-    "project": [
-      "./tsconfig.json",
-      "./src/setupTests.ts"
-    ]
+    "project": ["./tsconfig.json", "./src/setupTests.ts"]
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "prettier",
-    "react-hooks"
-  ],
+  "plugins": ["react", "@typescript-eslint", "prettier", "react-hooks"],
   "extends": [
     "airbnb",
     "airbnb-typescript",
@@ -39,7 +31,12 @@
   "rules": {
     "react/no-unused-prop-types": "off",
     "react/require-default-props": "off",
-    "prettier/prettier": "warn",
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "import/prefer-default-export": "off",
@@ -57,13 +54,7 @@
     "import/order": [
       "error",
       {
-        "groups": [
-          "builtin",
-          "external",
-          "parent",
-          "sibling",
-          "index"
-        ],
+        "groups": ["builtin", "external", "parent", "sibling", "index"],
         "newlines-between": "ignore"
       }
     ],
@@ -74,9 +65,7 @@
       "error",
       {
         "props": true,
-        "ignorePropertyModificationsFor": [
-          "state"
-        ]
+        "ignorePropertyModificationsFor": ["state"]
       }
     ],
     "react/function-component-definition": [
@@ -91,17 +80,13 @@
   },
   "overrides": [
     {
-      "files": [
-        "**/*.tsx"
-      ],
+      "files": ["**/*.tsx"],
       "rules": {
         "react/prop-types": "off"
       }
     },
     {
-      "files": [
-        "*.spec.tsx"
-      ],
+      "files": ["*.spec.tsx"],
       "rules": {
         "react/jsx-props-no-spreading": "off"
       }
