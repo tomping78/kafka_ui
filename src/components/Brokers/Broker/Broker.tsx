@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import PageHeading from 'components/common/PageHeading/PageHeading';
 import * as Metrics from 'components/common/Metrics';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 import BytesFormatted from 'components/common/BytesFormatted/BytesFormatted';
 import useAppParams from 'lib/hooks/useAppParams';
 import {
@@ -54,40 +55,42 @@ const Broker: React.FC = () => {
         </Metrics.Section>
       </Metrics.Wrapper>
 
-      <Navbar role="navigation">
-        <NavLink
-          to={clusterBrokerPath(clusterName, brokerId)}
-          className={({ isActive }) => (isActive ? 'is-active' : '')}
-          end
-        >
-          Log directories
-        </NavLink>
-        <NavLink
-          to={clusterBrokerConfigsPath(clusterName, brokerId)}
-          className={({ isActive }) => (isActive ? 'is-active' : '')}
-        >
-          Configs
-        </NavLink>
-        <NavLink
-          to={clusterBrokerMetricsPath(clusterName, brokerId)}
-          className={({ isActive }) => (isActive ? 'is-active' : '')}
-        >
-          Metrics
-        </NavLink>
-      </Navbar>
-      <Suspense fallback={<PageLoader />}>
-        <Routes>
-          <Route index element={<BrokerLogdir />} />
-          <Route
-            path={clusterBrokerConfigsRelativePath}
-            element={<Configs />}
-          />
-          <Route
-            path={clusterBrokerMetricsRelativePath}
-            element={<BrokerMetrics />}
-          />
-        </Routes>
-      </Suspense>
+      <ContentArea>
+        <Navbar role="navigation">
+          <NavLink
+            to={clusterBrokerPath(clusterName, brokerId)}
+            className={({ isActive }) => (isActive ? 'is-active' : '')}
+            end
+          >
+            Log directories
+          </NavLink>
+          <NavLink
+            to={clusterBrokerConfigsPath(clusterName, brokerId)}
+            className={({ isActive }) => (isActive ? 'is-active' : '')}
+          >
+            Configs
+          </NavLink>
+          <NavLink
+            to={clusterBrokerMetricsPath(clusterName, brokerId)}
+            className={({ isActive }) => (isActive ? 'is-active' : '')}
+          >
+            Metrics
+          </NavLink>
+        </Navbar>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route index element={<BrokerLogdir />} />
+            <Route
+              path={clusterBrokerConfigsRelativePath}
+              element={<Configs />}
+            />
+            <Route
+              path={clusterBrokerMetricsRelativePath}
+              element={<BrokerMetrics />}
+            />
+          </Routes>
+        </Suspense>
+      </ContentArea>
     </>
   );
 };
