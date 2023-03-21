@@ -13,6 +13,8 @@ export default createGlobalStyle(
       text-rendering: optimizeLegibility;
       text-size-adjust: 100%;
       min-width: 300px;
+      display: flex;
+      height: 100%;
     }
 
     #root,
@@ -24,6 +26,10 @@ export default createGlobalStyle(
       font-size: 14px;
       font-weight: 400;
       line-height: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      background: #f2f3f6;
     }
 
     article,
@@ -61,13 +67,13 @@ export default createGlobalStyle(
 
     pre {
       overflow-x: auto;
-      white-space: pre
-      word-wrap: normal
+      white-space: pre;
+      word-wrap: normal;
 
       code {
         background-color: transparent;
-        color: currentColor
-        padding: 0
+        color: currentColor;
+        padding: 0;
       }
     }
 
@@ -101,7 +107,6 @@ export default createGlobalStyle(
     fieldset {
       border: none;
     }
-
 
     @keyframes fadein {
       from {

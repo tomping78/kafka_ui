@@ -31,14 +31,18 @@
   "rules": {
     "react/no-unused-prop-types": "off",
     "react/require-default-props": "off",
-    "prettier/prettier": "warn",
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "import/prefer-default-export": "off",
     "@typescript-eslint/no-explicit-any": "error",
-    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-    // breaks builds as we still have those warns
-    "react-hooks/exhaustive-deps": "off", // Checks effect dependencies
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "off",
     "import/no-extraneous-dependencies": [
       "error",
       {
@@ -71,8 +75,7 @@
       }
     ],
     "react/jsx-no-constructed-context-values": "off",
-    "react/display-name": "off",
-    "linebreak-style": 0
+    "react/display-name": "off"
   },
   "overrides": [
     {

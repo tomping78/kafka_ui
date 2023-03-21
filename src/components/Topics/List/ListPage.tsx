@@ -61,20 +61,22 @@ const ListPage: React.FC = () => {
           </ActionButton>
         )}
       </PageHeading>
-      <ControlPanelWrapper hasInput>
-        <Search placeholder="Search by Topic Name" />
-        <label>
-          <Switch
-            name="ShowInternalTopics"
-            checked={!searchParams.has('hideInternal')}
-            onChange={handleSwitch}
-          />
-          Show Internal Topics
-        </label>
-      </ControlPanelWrapper>
-      <Suspense fallback={<PageLoader />}>
-        <TopicTable />
-      </Suspense>
+      <div style={{ padding: 20, backgroundColor: 'white', borderRadius: 20 }}>
+        <ControlPanelWrapper hasInput>
+          <Search placeholder="Search by Topic Name" />
+          <label>
+            <Switch
+              name="ShowInternalTopics"
+              checked={!searchParams.has('hideInternal')}
+              onChange={handleSwitch}
+            />
+            Show Internal Topics
+          </label>
+        </ControlPanelWrapper>
+        <Suspense fallback={<PageLoader />}>
+          <TopicTable />
+        </Suspense>
+      </div>
     </>
   );
 };

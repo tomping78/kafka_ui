@@ -4,7 +4,11 @@ import NavBar from 'components/NavBar/NavBar';
 import * as S from 'components/PageContainer/PageContainer.styled';
 import Nav from 'components/Nav/Nav';
 import useBoolean from 'lib/hooks/useBoolean';
+import styled from 'styled-components';
 
+const ContainerWrap = styled.div`
+  padding: 35px 50px;
+`;
 const PageContainer: React.FC<PropsWithChildren<unknown>> = ({ children }) => {
   const {
     value: isSidebarVisible,
@@ -32,7 +36,7 @@ const PageContainer: React.FC<PropsWithChildren<unknown>> = ({ children }) => {
           aria-hidden="true"
           aria-label="Overlay"
         />
-        {children}
+        <ContainerWrap>{children}</ContainerWrap>
       </S.Container>
     </>
   );

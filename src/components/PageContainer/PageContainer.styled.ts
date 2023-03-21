@@ -4,8 +4,10 @@ export const Container = styled.main(
   ({ theme }) => css`
     margin-top: ${theme.layout.navBarHeight};
     margin-left: ${theme.layout.navBarWidth};
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
     position: relative;
-    padding-bottom: 30px;
     z-index: 20;
     max-width: calc(100vw - ${theme.layout.navBarWidth});
     @media screen and (max-width: 1023px) {
@@ -22,6 +24,7 @@ export const Sidebar = styled.div<{ $visible: boolean }>(
     flex-direction: column;
     border-right: 1px solid ${theme.layout.stuffBorderColor};
     position: fixed;
+    font-family: Titillium Web, sans-serif;
     top: ${theme.layout.navBarHeight};
     left: 0;
     bottom: 0;

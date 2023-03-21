@@ -4,6 +4,7 @@
   "homepage": "./",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
     "@floating-ui/react": "^0.19.2",
     "@hookform/error-message": "^2.0.0",
     "@hookform/resolvers": "^2.7.1",

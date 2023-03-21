@@ -33,9 +33,9 @@ export const Link = styled(NavLink)(
 export const ListItem = styled('li').attrs({ role: 'menuitem' })<{
   $isTopLevel?: boolean;
 }>`
-  font-size: 14px;
+  font-size: 22px;
   font-weight: ${({ $isTopLevel }) => ($isTopLevel ? 500 : 'normal')};
-  height: 32px;
+  /* height: 32px; */
   display: flex;
   user-select: none;
 `;

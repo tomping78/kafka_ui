@@ -5,7 +5,7 @@ export const Wrapper = styled.li.attrs({ role: 'menuitem' })<{
   isOpen: boolean;
 }>(
   ({ theme, isOpen }) => css`
-    font-size: 14px;
+    font-size: 22px;
     font-weight: 500;
     user-select: none;
 

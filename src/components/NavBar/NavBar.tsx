@@ -1,8 +1,7 @@
 import React from 'react';
 import Logo from 'components/common/Logo/Logo';
 import Version from 'components/Version/Version';
-import GitIcon from 'components/common/Icons/GitIcon';
-import DiscordIcon from 'components/common/Icons/DiscordIcon';
+import { SettingOutlined, LogoutOutlined } from '@ant-design/icons';
 
 import * as S from './NavBar.styled';
 import UserInfo from './UserInfo/UserInfo';
@@ -30,7 +29,7 @@ const NavBar: React.FC<Props> = ({ onBurgerClick }) => {
 
           <S.Hyperlink to="/">
             <Logo />
-            TCV for Kafka
+            TCV <span>/ Apache kafka /</span>
           </S.Hyperlink>
 
           <S.NavbarItem>
@@ -43,13 +42,13 @@ const NavBar: React.FC<Props> = ({ onBurgerClick }) => {
           href="https://github.com/provectus/kafka-ui"
           target="_blank"
         >
-          <GitIcon />
+          <SettingOutlined />
         </S.SocialLink>
         <S.SocialLink
           href="https://discord.com/invite/4DWzD7pGE5"
           target="_blank"
         >
-          <DiscordIcon />
+          <LogoutOutlined />
         </S.SocialLink>
         <UserInfo />
       </S.NavbarSocial>

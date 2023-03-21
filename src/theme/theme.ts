@@ -34,9 +34,10 @@ const Colors = {
     '10': '#D1D1FA',
     '15': '#B8BEF9',
     '20': '#A3A3F5',
-    '50': '#4C4CFF',
+    '50': '#187fde',
     '60': '#1717CF',
     '70': '#1414B8',
+    '80': '#101240',
   },
   red: {
     '10': '#FAD1D1',
@@ -90,8 +91,8 @@ const theme = {
   layout: {
     backgroundColor: Colors.neutral[0],
     minWidth: '1200px',
-    navBarWidth: '201px',
-    navBarHeight: '51px',
+    navBarWidth: '301px',
+    navBarHeight: '70px',
     rightSidebarWidth: '70vw',
     filtersSidebarWidth: '300px',
 
@@ -154,15 +155,15 @@ const theme = {
       fontSize: '14px',
     },
     base: {
-      fontFamily: 'Inter, sans-serif',
+      fontFamily: 'Titillium Web, sans-serif',
       fontStyle: 'normal',
       fontWeight: 500,
       color: Colors.neutral[100],
     },
     variants: {
       1: {
-        fontSize: '20px',
-        lineHeight: '32px',
+        fontSize: '40px',
+        lineHeight: '52px',
       },
       2: {
         fontSize: '20px',
@@ -278,8 +279,10 @@ const theme = {
       normal: Colors.neutral[0],
       hover: Colors.neutral[3],
       active: Colors.neutral[5],
+      primary: Colors.brand[80],
     },
     color: {
+      white: Colors.neutral[0],
       normal: Colors.neutral[50],
       hover: Colors.neutral[70],
       active: Colors.brand[70],

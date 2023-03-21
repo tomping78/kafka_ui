@@ -8,14 +8,14 @@ export const Navbar = styled.nav(
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid ${theme.layout.stuffBorderColor};
+    /* border-bottom: 1px solid ${theme.layout.stuffBorderColor}; */
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 30;
-    background-color: ${theme.menu.backgroundColor.normal};
-    min-height: 3.25rem;
+    background-color: ${theme.menu.backgroundColor.primary};
+    min-height: 70px;
   `
 );
 
@@ -25,26 +25,22 @@ export const NavbarBrand = styled.div`
   align-items: center !important;
   flex-shrink: 0;
   min-height: 3.25rem;
+  padding-left: 25px;
 `;
 
 export const SocialLink = styled.a(
   ({ theme: { layout, icons } }) => css`
     display: block;
-    margin-top: 5px;
+    font-size: 24px;
+    color: rgb(255, 255, 255, 0.8);
     cursor: pointer;
     fill: ${layout.socialLink.color};
 
     &:hover {
-      ${DiscordIcon} {
-        fill: ${icons.discord.hover};
-      }
-
-      ${GitIcon} {
-        fill: ${icons.git.hover};
-      }
+      color: rgb(255, 255, 255, 1);
     }
 
-    &:active {
+    /* &:active {
       ${DiscordIcon} {
         fill: ${icons.discord.active};
       }
@@ -52,15 +48,15 @@ export const SocialLink = styled.a(
       ${GitIcon} {
         fill: ${icons.git.active};
       }
-    }
+    } */
   `
 );
 
 export const NavbarSocial = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 10px;
+  gap: 20px;
+  margin-right: 50px;
 `;
 
 export const NavbarItem = styled.div`
@@ -131,16 +127,21 @@ export const Hyperlink = styled(Link)(
     gap: 8px;
 
     margin: 0;
-    padding: 0.5rem 0.75rem;
+    padding: 0;
 
-    font-family: Inter, sans-serif;
+    font-family: Titillium Web, sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 22px;
     line-height: 16px;
-    color: ${theme.menu.color.active};
+    color: ${theme.menu.color.white};
     text-decoration: none;
     word-break: break-word;
     cursor: pointer;
+    span {
+      font-weight: normal;
+      font-size: 17px;
+      color: #a2a2a2;
+    }
   `
 );
