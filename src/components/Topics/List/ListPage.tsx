@@ -12,6 +12,7 @@ import PlusIcon from 'components/common/Icons/PlusIcon';
 import PageLoader from 'components/common/PageLoader/PageLoader';
 import TopicTable from 'components/Topics/List/TopicTable';
 import { Action, ResourceType } from 'generated-sources';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 const ListPage: React.FC = () => {
   const { isReadOnly } = React.useContext(ClusterContext);
@@ -61,7 +62,7 @@ const ListPage: React.FC = () => {
           </ActionButton>
         )}
       </PageHeading>
-      <div style={{ padding: 20, backgroundColor: 'white', borderRadius: 20 }}>
+      <ContentArea>
         <ControlPanelWrapper hasInput>
           <Search placeholder="Search by Topic Name" />
           <label>
@@ -76,7 +77,7 @@ const ListPage: React.FC = () => {
         <Suspense fallback={<PageLoader />}>
           <TopicTable />
         </Suspense>
-      </div>
+      </ContentArea>
     </>
   );
 };

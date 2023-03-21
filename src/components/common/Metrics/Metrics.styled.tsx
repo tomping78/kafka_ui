@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
-  padding: 1.5rem 1rem;
+  padding: 1rem 0;
   background: ${({ theme }) => theme.metrics.backgroundColor};
-  margin-bottom: 0.5rem !important;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
@@ -19,7 +18,7 @@ export const IndicatorWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding: 12px 16px;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.07);
   flex-grow: 1;
 `;
 
@@ -38,7 +37,7 @@ export const IndicatorsWrapper = styled.div`
   flex-wrap: wrap;
   border-radius: 8px;
   overflow: auto;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.07);
 `;
 
 export const SectionTitle = styled.h5`

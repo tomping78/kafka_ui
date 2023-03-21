@@ -8,6 +8,9 @@ import styled from 'styled-components';
 
 const ContainerWrap = styled.div`
   padding: 35px 50px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
 `;
 const PageContainer: React.FC<PropsWithChildren<unknown>> = ({ children }) => {
   const {

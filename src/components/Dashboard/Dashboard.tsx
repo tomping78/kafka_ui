@@ -11,6 +11,7 @@ import useBoolean from 'lib/hooks/useBoolean';
 import { Button } from 'components/common/Button/Button';
 import { clusterNewConfigPath } from 'lib/paths';
 import { GlobalSettingsContext } from 'components/contexts/GlobalSettingsContext';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import * as S from './Dashboard.styled';
 import ClusterName from './ClusterName';
@@ -70,27 +71,33 @@ const Dashboard: React.FC = () => {
           </Metrics.Indicator>
         </Metrics.Section>
       </Metrics.Wrapper>
-      <S.Toolbar>
-        <div>
-          <Switch
-            name="switchRoundedDefault"
-            checked={showOfflineOnly}
-            onChange={toggle}
-          />
-          <label>Only offline clusters</label>
-        </div>
-        {appInfo.hasDynamicConfig && (
-          <Button buttonType="primary" buttonSize="M" to={clusterNewConfigPath}>
-            Configure new cluster
-          </Button>
-        )}
-      </S.Toolbar>
-      <Table
-        columns={columns}
-        data={config?.list}
-        enableSorting
-        emptyMessage={clusters.isFetched ? 'No clusters found' : 'Loading...'}
-      />
+      <ContentArea>
+        <S.Toolbar>
+          <div>
+            <Switch
+              name="switchRoundedDefault"
+              checked={showOfflineOnly}
+              onChange={toggle}
+            />
+            <label>Only offline clusters</label>
+          </div>
+          {appInfo.hasDynamicConfig && (
+            <Button
+              buttonType="primary"
+              buttonSize="M"
+              to={clusterNewConfigPath}
+            >
+              Configure new cluster
+            </Button>
+          )}
+        </S.Toolbar>
+        <Table
+          columns={columns}
+          data={config?.list}
+          enableSorting
+          emptyMessage={clusters.isFetched ? 'No clusters found' : 'Loading...'}
+        />
+      </ContentArea>
     </>
   );
 };
