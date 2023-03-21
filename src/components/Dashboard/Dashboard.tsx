@@ -1,25 +1,20 @@
 import React from 'react';
-import {
-  Statistic,
-  Row,
-  Col,
-  Switch,
-  Table,
-  Button,
-  Tag,
-  Space,
-  Layout,
-  Card,
-} from 'antd';
+import PageHeading from 'components/common/PageHeading/PageHeading';
+import * as Metrics from 'components/common/Metrics';
+import { Tag } from 'components/common/Tag/Tag.styled';
+import Switch from 'components/common/Switch/Switch';
 import { useClusters } from 'lib/hooks/api/clusters';
-import { ServerStatus } from 'generated-sources';
+import { Cluster, ServerStatus } from 'generated-sources';
+import { ColumnDef } from '@tanstack/react-table';
+import Table, { SizeCell } from 'components/common/NewTable';
+import useBoolean from 'lib/hooks/useBoolean';
+import { Button } from 'components/common/Button/Button';
 import { clusterNewConfigPath } from 'lib/paths';
 import { GlobalSettingsContext } from 'components/contexts/GlobalSettingsContext';
-import PageHeading from 'components/common/PageHeading/PageHeading';
-import useBoolean from 'lib/hooks/useBoolean';
-import BytesFormatted from 'components/common/BytesFormatted/BytesFormatted';
 
-const { Content } = Layout;
+import * as S from './Dashboard.styled';
+import ClusterName from './ClusterName';
+import ClusterTableActionsCell from './ClusterTableActionsCell';
 
 const Dashboard: React.FC = () => {
   const clusters = useClusters();
@@ -38,36 +33,22 @@ const Dashboard: React.FC = () => {
     };
   }, [clusters, showOfflineOnly]);
 
-  const columns = React.useMemo(() => {
-    const initialColumns = [
-      { title: 'Cluster name', dataIndex: 'name', key: 'name' },
-      { title: 'Version', dataIndex: 'version', key: 'version' },
-      { title: 'Brokers count', dataIndex: 'brokerCount', key: 'brokerCount' },
-      {
-        title: 'Partitions',
-        dataIndex: 'onlinePartitionCount',
-        key: 'onlinePartitionCount',
-      },
-      { title: 'Topics', dataIndex: 'topicCount', key: 'topicCount' },
-      {
-        title: 'Production',
-        dataIndex: 'bytesInPerSec',
-        key: 'bytesInPerSec',
-        render: (bytes: string | number) => <BytesFormatted value={bytes} />,
-      },
-      {
-        title: 'Consumption',
-        dataIndex: 'bytesOutPerSec',
-        key: 'bytesOutPerSec',
-        render: (bytes: string | number) => <BytesFormatted value={bytes} />,
-      },
+  const columns = React.useMemo<ColumnDef<Cluster>[]>(() => {
+    const initialColumns: ColumnDef<Cluster>[] = [
+      { header: 'Cluster name', accessorKey: 'name', cell: ClusterName },
+      { header: 'Version', accessorKey: 'version' },
+      { header: 'Brokers count', accessorKey: 'brokerCount' },
+      { header: 'Partitions', accessorKey: 'onlinePartitionCount' },
+      { header: 'Topics', accessorKey: 'topicCount' },
+      { header: 'Production', accessorKey: 'bytesInPerSec', cell: SizeCell },
+      { header: 'Consumption', accessorKey: 'bytesOutPerSec', cell: SizeCell },
     ];
 
     if (appInfo.hasDynamicConfig) {
       initialColumns.push({
-        title: '',
-        dataIndex: 'actions',
-        key: 'actions',
+        header: '',
+        id: 'actions',
+        cell: ClusterTableActionsCell,
       });
     }
 
@@ -77,78 +58,39 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <PageHeading text="Dashboard_TEST_KIMIDATA" />
-      <Content style={{ padding: '24px' }}>
-        <Row
-          gutter={[16, 24]}
-          style={{
-            backgroundColor: 'rgb(241, 242, 243)',
-            borderRadius: '8px',
-            padding: '16px',
-          }}
-          key="top"
-        >
-          <Col span={12} key="online">
-            <Card
-              bodyStyle={{ backgroundColor: 'white' }}
-              style={{ borderRadius: '8px' }}
-            >
-              <Statistic
-                title={<Tag color="green">Online</Tag>}
-                value={config.online || 0}
-                suffix="clusters"
-              />
-            </Card>
-          </Col>
-          <Col span={12} key="offline">
-            <Card
-              bodyStyle={{ backgroundColor: 'white' }}
-              style={{ borderRadius: '8px' }}
-            >
-              <Statistic
-                title={<Tag color="gray">Offline</Tag>}
-                value={config.offline || 0}
-                suffix="clusters"
-              />
-            </Card>
-          </Col>
-        </Row>
-        <Row style={{ marginTop: '16px' }} key="middle">
-          <Col>
-            <Space style={{ width: '100%', justifyContent: 'space-between' }}>
-              <div>
-                <Switch checked={showOfflineOnly} onChange={toggle} />
-                <label style={{ marginLeft: '8px' }}>
-                  Only offline clusters
-                </label>
-              </div>
-              {appInfo.hasDynamicConfig && (
-                <Button
-                  type="primary"
-                  size="middle"
-                  href={clusterNewConfigPath}
-                >
-                  Configure new cluster
-                </Button>
-              )}
-            </Space>
-          </Col>
-        </Row>
-        <Row style={{ marginTop: '16px' }} key="bottom">
-          <Col span={24}>
-            <Table
-              columns={columns}
-              dataSource={config.list}
-              rowKey="id"
-              pagination={false}
-              locale={{
-                emptyText: clusters.isFetched
-                  ? 'No clusters found'
-                  : 'Loading...',
-              }}
-            />
-          </Col>
-        </Row>
-      </Content>
+      <Metrics.Wrapper>
+        <Metrics.Section>
+          <Metrics.Indicator label={<Tag color="green">Online</Tag>}>
+            <span>{config.online || 0}</span>{' '}
+            <Metrics.LightText>clusters</Metrics.LightText>
+          </Metrics.Indicator>
+          <Metrics.Indicator label={<Tag color="gray">Offline</Tag>}>
+            <span>{config.offline || 0}</span>{' '}
+            <Metrics.LightText>clusters</Metrics.LightText>
+          </Metrics.Indicator>
+        </Metrics.Section>
+      </Metrics.Wrapper>
+      <S.Toolbar>
+        <div>
+          <Switch
+            name="switchRoundedDefault"
+            checked={showOfflineOnly}
+            onChange={toggle}
+          />
+          <label>Only offline clusters</label>
+        </div>
+        {appInfo.hasDynamicConfig && (
+          <Button buttonType="primary" buttonSize="M" to={clusterNewConfigPath}>
+            Configure new cluster
+          </Button>
+        )}
+      </S.Toolbar>
+      <Table
+        columns={columns}
+        data={config?.list}
+        enableSorting
+        emptyMessage={clusters.isFetched ? 'No clusters found' : 'Loading...'}
+      />
     </>
   );
 };
