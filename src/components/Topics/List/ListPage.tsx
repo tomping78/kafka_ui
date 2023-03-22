@@ -8,7 +8,7 @@ import { ActionButton } from 'components/common/ActionComponent';
 import PageHeading from 'components/common/PageHeading/PageHeading';
 import { ControlPanelWrapper } from 'components/common/ControlPanel/ControlPanel.styled';
 import Switch from 'components/common/Switch/Switch';
-import PlusIcon from 'components/common/Icons/PlusIcon';
+import { AppstoreAddOutlined } from '@ant-design/icons';
 import PageLoader from 'components/common/PageLoader/PageLoader';
 import TopicTable from 'components/Topics/List/TopicTable';
 import { Action, ResourceType } from 'generated-sources';
@@ -51,14 +51,14 @@ const ListPage: React.FC = () => {
         {!isReadOnly && (
           <ActionButton
             buttonType="primary"
-            buttonSize="M"
+            buttonSize="L"
             to={clusterTopicNewRelativePath}
             permission={{
               resource: ResourceType.TOPIC,
               action: Action.CREATE,
             }}
           >
-            <PlusIcon /> Add a Topic
+            <AppstoreAddOutlined /> Add a Topic
           </ActionButton>
         )}
       </PageHeading>

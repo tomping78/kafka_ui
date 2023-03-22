@@ -9,6 +9,7 @@ export const Breadcrumbs = styled.div`
 export const BackLink = styled(NavLink)`
   color: ${({ theme }) => theme.pageHeading.backLink.color.normal};
   position: relative;
+  font-size: 18px;
 
   &:hover {
     ${({ theme }) => theme.pageHeading.backLink.color.hover};

@@ -74,27 +74,33 @@ export const Th = styled.th<ThProps>(
     sortOrder,
     expander,
   }) => `
-  padding: 8px 0 8px 24px;
-  border-bottom-width: 1px;
+  padding: 15px 0 15px 24px;
+  border-top:2px solid #333;
+  border-bottom: 1px solid #333;
   vertical-align: middle;
   text-align: left;
-  font-family: Inter, sans-serif;
-  font-size: 12px;
+  font-family: Titillium Web, sans-serif;
+  font-size: 17px;
   font-style: normal;
   font-weight: 400;
+  color:#333;
   line-height: 16px;
   letter-spacing: 0em;
   text-align: left;
-  background: ${th.backgroundColor.normal};
+  background: #FAF1E2;
   width: ${expander ? '5px' : 'auto'};
   white-space: nowrap;
 
   & > div {
     cursor: default;
-    color: ${th.color.normal};
+    color: #333;
     ${sortable ? sortableMixin(th.color.sortable, th.color.hover) : ''}
     ${sortable && sortOrder === 'asc' && ASCMixin(th.color.active)}
     ${sortable && sortOrder === 'desc' && DESCMixin(th.color.active)}
+  }
+  & > div > div {
+    display:flex;
+    align-items: center;
   }
 `
 );
@@ -108,6 +114,9 @@ export const Row = styled.tr<RowProps>(
   ({ theme: { table }, expanded, clickable }) => `
   cursor: ${clickable ? 'pointer' : 'default'};
   background-color: ${table.tr.backgroundColor[expanded ? 'hover' : 'normal']};
+  &:nth-child(even) {
+    background:#f8f8f8;
+  }
   &:hover {
     background-color: ${table.tr.backgroundColor.hover};
   }
@@ -138,10 +147,10 @@ export const Table = styled.table(
   width: 100%;
 
   td {
-    border-top: 1px #f1f2f3 solid;
+    border-bottom: 1px solid #dadada;
     font-size: 14px;
     font-weight: 400;
-    padding: 8px 8px 8px 24px;
+    padding: 12px 8px 12px 24px;
     color: ${table.td.color.normal};
     vertical-align: middle;
     word-wrap: break-word;

@@ -11,15 +11,15 @@ export interface ClusterTabProps {
 }
 
 const ClusterTab: React.FC<ClusterTabProps> = ({
-  status,
   title,
-  isOpen,
+  // status,
+  // isOpen,
   toggleClusterMenu,
 }) => (
   <S.Wrapper onClick={toggleClusterMenu} isOpen>
     <S.Title title={title}>{title}</S.Title>
 
-    <S.StatusIconWrapper>
+    {/* <S.StatusIconWrapper>
       <S.StatusIcon status={status} aria-label="status">
         <title>{status}</title>
       </S.StatusIcon>
@@ -27,7 +27,7 @@ const ClusterTab: React.FC<ClusterTabProps> = ({
 
     <S.ChevronWrapper>
       <S.ChevronIcon $open={isOpen} />
-    </S.ChevronWrapper>
+    </S.ChevronWrapper> */}
   </S.Wrapper>
 );
 

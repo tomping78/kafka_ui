@@ -3,7 +3,7 @@ import { createGlobalStyle, css } from 'styled-components';
 export default createGlobalStyle(
   ({ theme }) => css`
     html {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Titillium Web', sans-serif;
       font-size: 14px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -22,7 +22,7 @@ export default createGlobalStyle(
       width: 100%;
       position: relative;
       margin: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Titillium Web', sans-serif;
       font-size: 14px;
       font-weight: 400;
       line-height: 20px;

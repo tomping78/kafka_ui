@@ -1,4 +1,5 @@
 import React, { PropsWithChildren } from 'react';
+import styled from 'styled-components';
 import SpinnerIcon from 'components/common/Icons/SpinnerIcon';
 
 import * as S from './Metrics.styled';
@@ -10,6 +11,11 @@ export interface Props {
   title?: string;
   alertType?: 'success' | 'error' | 'warning' | 'info';
 }
+const Span = styled.span`
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+`;
 
 const Indicator: React.FC<PropsWithChildren<Props>> = ({
   label,
@@ -29,7 +35,7 @@ const Indicator: React.FC<PropsWithChildren<Props>> = ({
           </S.CircularAlertWrapper>
         )}
       </S.IndicatorTitle>
-      <span>{fetching ? <SpinnerIcon /> : children}</span>
+      <Span>{fetching ? <SpinnerIcon /> : children}</Span>
     </div>
   </S.IndicatorWrapper>
 );

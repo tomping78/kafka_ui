@@ -1,6 +1,7 @@
 const Colors = {
   neutral: {
     '0': '#FFFFFF',
+    '2': '#333333',
     '3': '#f9fafa',
     '4': '#f0f0f0',
     '5': '#F1F2F3',
@@ -26,12 +27,12 @@ const Colors = {
     '10': '#D6F5E0',
     '15': '#C2F0D1',
     '30': '#85E0A3',
-    '40': '#5CD685',
+    '40': '#32943f',
     '60': '#29A352',
   },
   brand: {
     '5': '#E8E8FC',
-    '10': '#D1D1FA',
+    '10': '#1071ca',
     '15': '#B8BEF9',
     '20': '#cccccc',
     '50': '#187fde',
@@ -47,7 +48,7 @@ const Colors = {
     '60': '#B81414',
   },
   yellow: {
-    '10': '#FFEECC',
+    '10': '#fafcf4',
     '20': '#FFDD57',
   },
   blue: {
@@ -218,12 +219,12 @@ const theme = {
   button: {
     primary: {
       backgroundColor: {
-        normal: Colors.brand[5],
+        normal: Colors.brand[50],
         hover: Colors.brand[10],
         active: Colors.brand[20],
-        disabled: Colors.neutral[5],
+        disabled: Colors.neutral[30],
       },
-      color: Colors.neutral[90],
+      color: Colors.neutral[0],
       invertedColors: {
         normal: Colors.brand[50],
         hover: Colors.brand[60],
@@ -266,7 +267,7 @@ const theme = {
     fontSize: {
       S: '14px',
       M: '14px',
-      L: '16px',
+      L: '17px',
     },
     border: {
       normal: Colors.neutral[50],
@@ -283,6 +284,7 @@ const theme = {
     },
     color: {
       white: Colors.neutral[0],
+      backthree: Colors.neutral[2],
       normal: Colors.neutral[50],
       hover: Colors.neutral[70],
       active: Colors.brand[70],
@@ -331,7 +333,7 @@ const theme = {
       color: {
         sortable: Colors.neutral[30],
         normal: Colors.neutral[60],
-        hover: Colors.brand[50],
+        hover: Colors.neutral[100],
         active: Colors.brand[50],
       },
       previewColor: {
@@ -346,7 +348,7 @@ const theme = {
     tr: {
       backgroundColor: {
         normal: Colors.neutral[0],
-        hover: Colors.neutral[5],
+        hover: Colors.yellow[10],
       },
     },
     link: {
@@ -367,13 +369,13 @@ const theme = {
     color: {
       normal: Colors.neutral[50],
       hover: Colors.neutral[90],
-      active: Colors.neutral[90],
+      active: Colors.neutral[2],
       disabled: Colors.neutral[30],
     },
     borderColor: {
       normal: 'transparent',
       hover: 'transparent',
-      active: Colors.brand[50],
+      active: Colors.neutral[2],
       nav: Colors.neutral[10],
     },
   },
@@ -488,7 +490,7 @@ const theme = {
       backgroundColor: Colors.neutral[0],
       titleColor: Colors.neutral[50],
       warningTextColor: Colors.red[50],
-      lightTextColor: Colors.neutral[30],
+      lightTextColor: Colors.neutral[20],
     },
     filters: {
       color: {

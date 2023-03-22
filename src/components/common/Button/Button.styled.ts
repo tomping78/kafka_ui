@@ -10,10 +10,11 @@ const StyledButton = styled.button<ButtonProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  padding: 0 12px;
+  justify-content: space-between;
+  padding: 8px 15px;
+  min-width: 150px;
   border: none;
-  border-radius: 4px;
+  border-radius: 0px;
   white-space: nowrap;
 
   background: ${(props) =>
@@ -50,7 +51,7 @@ const StyledButton = styled.button<ButtonProps>`
         : props.theme.button[props.buttonType].color};
   }
   &:disabled {
-    opacity: 0.5;
+    opacity: 0.7;
     cursor: not-allowed;
   }
 
@@ -60,7 +61,8 @@ const StyledButton = styled.button<ButtonProps>`
 
   & :first-of-type {
     svg {
-      margin-right: 7px;
+      margin-right: 15px;
+      font-size: 20px;
     }
   }
 `;

@@ -13,8 +13,8 @@ const HeadingBase = styled.h1<HeadingBaseProps>`
     content: '';
     display: block;
     position: absolute;
-    top: 40px;
-    width: 20px;
+    top: 35px;
+    width: 22px;
     height: 5px;
     border-radius: 20px;
     background: #187fde;

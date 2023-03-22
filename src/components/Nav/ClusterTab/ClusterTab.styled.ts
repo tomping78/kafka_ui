@@ -5,28 +5,31 @@ export const Wrapper = styled.li.attrs({ role: 'menuitem' })<{
   isOpen: boolean;
 }>(
   ({ theme, isOpen }) => css`
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 500;
     user-select: none;
+    border-radius: 50px;
 
     display: grid;
     grid-template-columns: min-content min-content auto min-content;
     grid-template-areas: 'title status . chevron';
     gap: 0 5px;
 
-    padding: 0.5em 0.75em;
+    padding: 15px 25px;
     cursor: pointer;
     text-decoration: none;
     margin: 0;
     line-height: 20px;
     align-items: center;
-    color: ${isOpen ? theme.menu.color.isOpen : theme.menu.color.normal};
-    background-color: ${theme.menu.backgroundColor.normal};
+    color: ${isOpen ? theme.menu.color.white : theme.menu.color.backthree};
+    background-color: ${isOpen
+      ? theme.menu.color.backthree
+      : theme.menu.color.white};
 
-    &:hover {
+    /* &:hover {
       background-color: ${theme.menu.backgroundColor.hover};
       color: ${theme.menu.color.hover};
-    }
+    } */
   `
 );
 
@@ -36,6 +39,7 @@ export const Title = styled.div`
   max-width: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
+  /* padding: 10px 20px; */
 `;
 
 export const StatusIconWrapper = styled.svg.attrs({

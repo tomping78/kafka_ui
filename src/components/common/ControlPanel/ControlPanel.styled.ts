@@ -7,7 +7,7 @@ interface Props {
 export const ControlPanelWrapper = styled.div<Props>`
   display: flex;
   align-items: center;
-  padding: 0px 16px;
+  padding: 0;
   margin: 0px 0px 16px;
   width: 100%;
   gap: 16px;

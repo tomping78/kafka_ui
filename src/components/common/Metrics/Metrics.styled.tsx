@@ -10,21 +10,35 @@ export const Wrapper = styled.div`
 
 export const IndicatorWrapper = styled.div`
   background-color: ${({ theme }) => theme.metrics.indicator.backgroundColor};
-  height: 68px;
+  /* height: 68px; */
   width: fit-content;
-  min-width: 150px;
+  position: relative;
+  min-width: 170px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 12px 16px;
+  padding: 20px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.07);
   flex-grow: 1;
+  &::after {
+    content: '';
+    width: 1px;
+    height: 35px;
+    background: #dedede;
+    position: absolute;
+    right: 0;
+  }
+  &:last-child::after {
+    width: 0;
+    background: #fff;
+  }
 `;
 
 export const IndicatorTitle = styled.div`
   font-weight: 500;
-  font-size: 12px;
+  font-size: 14px;
+  padding-bottom: 5px;
   color: ${({ theme }) => theme.metrics.indicator.titleColor};
   display: flex;
   align-items: center;
@@ -33,27 +47,29 @@ export const IndicatorTitle = styled.div`
 
 export const IndicatorsWrapper = styled.div`
   display: flex;
-  gap: 2px;
+  position: relative;
+  gap: 0;
   flex-wrap: wrap;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: auto;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.07);
 `;
 
 export const SectionTitle = styled.h5`
   font-weight: 500;
-  margin: 0 0 0.5rem 16px;
-  font-size: 100%;
+  margin: 0 0 15px 10px;
+  font-size: 21px;
+  color: #333;
 `;
 
 export const LightText = styled.span`
   color: ${({ theme }) => theme.metrics.indicator.lightTextColor};
-  font-size: 14px;
+  font-size: 18px;
 `;
 
 export const RedText = styled.span`
   color: ${({ theme }) => theme.metrics.indicator.warningTextColor};
-  font-size: 14px;
+  font-size: 18px;
 `;
 
 export const CircularAlertWrapper = styled.svg.attrs({
@@ -63,8 +79,8 @@ export const CircularAlertWrapper = styled.svg.attrs({
 })`
   grid-area: status;
   fill: none;
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
 `;
 
 export const CircularAlert = styled.circle.attrs({
