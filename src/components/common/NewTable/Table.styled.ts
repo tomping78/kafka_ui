@@ -135,11 +135,11 @@ export const Nowrap = styled.div`
 `;
 
 export const TableActionsBar = styled.div`
-  padding: 8px;
+  padding: 0;
   background-color: ${({ theme }) => theme.table.actionBar.backgroundColor};
-  margin: 16px 0;
+  margin: 0 0 16px 0;
   display: flex;
-  gap: 8px;
+  gap: 5px;
 `;
 
 export const Table = styled.table(

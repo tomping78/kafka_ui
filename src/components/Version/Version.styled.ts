@@ -34,4 +34,7 @@ export const SymbolWrapper = styled.span(
 
 export const CurrentCommitLink = styled.a`
   ${textStyle}
+  &:hover {
+    color: #b84260;
+  }
 `;

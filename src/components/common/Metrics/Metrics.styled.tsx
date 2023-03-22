@@ -13,7 +13,7 @@ export const IndicatorWrapper = styled.div`
   /* height: 68px; */
   width: fit-content;
   position: relative;
-  min-width: 170px;
+  min-width: 155px;
   display: flex;
   flex-direction: column;
   justify-content: center;

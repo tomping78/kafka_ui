@@ -135,6 +135,9 @@ export const Hyperlink = styled(Link)(
     font-size: 22px;
     line-height: 16px;
     color: ${theme.menu.color.white};
+    &:hover {
+      color: ${theme.menu.color.white};
+    }
     text-decoration: none;
     word-break: break-word;
     cursor: pointer;
