@@ -3,7 +3,6 @@ import { TopicConfigParams, TopicFormData } from 'redux/interfaces';
 import { useFieldArray, useFormContext, useWatch } from 'react-hook-form';
 import { Button } from 'components/common/Button/Button';
 import { TOPIC_CUSTOM_PARAMS_PREFIX } from 'lib/constants';
-import PlusIcon from 'components/common/Icons/PlusIcon';
 
 import CustomParamField from './CustomParamField';
 import * as S from './CustomParams.styled';
@@ -67,7 +66,6 @@ const CustomParams: React.FC<CustomParamsProps> = ({
             append({ name: '', value: '' }, { shouldFocus: false })
           }
         >
-          <PlusIcon />
           Add Custom Parameter
         </Button>
       </div>

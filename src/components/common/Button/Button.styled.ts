@@ -10,11 +10,12 @@ const StyledButton = styled.button<ButtonProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: ${(props) =>
+    props.buttonSize === 'S' ? 'center' : 'space-between'};
   padding: 8px 15px;
-  min-width: 85px;
+  min-width: ${(props) => (props.buttonSize === 'L' ? '120px' : '85px')};
   border: none;
-  border-radius: 0px;
+  border-radius: ${(props) => (props.buttonSize === 'M' ? '5px' : '0px')};
   white-space: nowrap;
 
   background: ${(props) =>
@@ -61,8 +62,8 @@ const StyledButton = styled.button<ButtonProps>`
 
   & :first-of-type {
     svg {
-      margin-right: 15px;
-      font-size: 20px;
+      margin-right: ${(props) => (props.buttonSize === 'L' ? '15px' : '0px')};
+      font-size: ${(props) => (props.buttonSize === 'M' ? '12px' : '18px')};
     }
   }
 `;

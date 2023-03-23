@@ -12,6 +12,8 @@ import { StyledForm } from 'components/common/Form/Form.styled';
 import { clusterTopicPath } from 'lib/paths';
 import { useNavigate } from 'react-router-dom';
 import useAppParams from 'lib/hooks/useAppParams';
+import { StarFilled } from '@ant-design/icons';
+import { Divider } from 'antd';
 import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import CustomParams from './CustomParams/CustomParams';
@@ -93,7 +95,10 @@ const TopicForm: React.FC<Props> = ({
             <S.Column>
               <S.NameField>
                 <InputLabel htmlFor="topicFormName">
-                  Topic Name <span>*</span>
+                  Topic Name
+                  <span>
+                    <StarFilled />
+                  </span>
                 </InputLabel>
                 <Input
                   id="topicFormName"
@@ -112,7 +117,10 @@ const TopicForm: React.FC<Props> = ({
               {!isEditing && (
                 <div>
                   <InputLabel htmlFor="topicFormNumberOfPartitions">
-                    Number of partitions *
+                    Number of partitions
+                    <span>
+                      <StarFilled />
+                    </span>
                   </InputLabel>
                   <Input
                     id="topicFormNumberOfPartitions"
@@ -246,6 +254,7 @@ const TopicForm: React.FC<Props> = ({
             </div>
           </S.Column>
 
+          <Divider dashed style={{ borderColor: '#dadada' }} />
           <S.CustomParamsHeading>Custom parameters</S.CustomParamsHeading>
           <CustomParams
             config={config}

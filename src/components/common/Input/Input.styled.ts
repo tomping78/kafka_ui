@@ -29,8 +29,8 @@ export const Wrapper = styled.div`
 
 export const Input = styled.input<InputProps>(
   ({ theme: { input }, inputSize, search }) => css`
-    border: 1px ${input.borderColor.normal} solid;
-    border-radius: 4px;
+    border: 1px #dedede solid;
+    border-radius: 5px;
     height: ${inputSize && INPUT_SIZES[inputSize]
       ? INPUT_SIZES[inputSize]
       : '40px'};

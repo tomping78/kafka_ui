@@ -20,6 +20,7 @@ import PageHeading from 'components/common/PageHeading/PageHeading';
 import { schemaAdded } from 'redux/reducers/schemas/schemasSlice';
 import { useAppDispatch } from 'lib/hooks/redux';
 import useAppParams from 'lib/hooks/useAppParams';
+import { StarFilled } from '@ant-design/icons';
 import { showServerError } from 'lib/errorHandling';
 import { schemasApiClient } from 'lib/api';
 import yup from 'lib/yupExtended';
@@ -101,9 +102,14 @@ const New: React.FC = () => {
       <ContentArea>
         <S.Form onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <InputLabel>Subject *</InputLabel>
+            <InputLabel>
+              Subject
+              <span>
+                <StarFilled />
+              </span>
+            </InputLabel>
             <Input
-              inputSize="M"
+              inputSize="L"
               placeholder="Schema Name"
               autoFocus
               name="subject"
@@ -116,7 +122,12 @@ const New: React.FC = () => {
           </div>
 
           <div>
-            <InputLabel>Schema *</InputLabel>
+            <InputLabel>
+              Schema
+              <span>
+                <StarFilled />
+              </span>
+            </InputLabel>
             <Textarea
               {...register('schema', {
                 required: 'Schema is required.',
@@ -136,7 +147,7 @@ const New: React.FC = () => {
               defaultValue={SchemaTypeOptions[0].value as SchemaType}
               render={({ field: { name, onChange, value } }) => (
                 <Select
-                  selectSize="M"
+                  selectSize="L"
                   name={name}
                   value={value}
                   onChange={onChange}

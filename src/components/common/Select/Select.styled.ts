@@ -20,11 +20,9 @@ export const Select = styled.ul<Props>`
   height: ${(props) => (props.selectSize === 'M' ? '32px' : '40px')};
   border: 1px
     ${({ theme, disabled }) =>
-      disabled
-        ? theme.select.borderColor.disabled
-        : theme.select.borderColor.normal}
+      disabled ? theme.select.borderColor.disabled : '#dedede'}
     solid;
-  border-radius: 4px;
+  border-radius: 5px;
   font-size: 14px;
   width: fit-content;
   padding-left: 16px;

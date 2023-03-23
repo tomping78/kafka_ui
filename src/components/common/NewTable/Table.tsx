@@ -18,6 +18,12 @@ import { useSearchParams } from 'react-router-dom';
 import { PER_PAGE } from 'lib/constants';
 import { Button } from 'components/common/Button/Button';
 import Input from 'components/common/Input/Input';
+import {
+  DoubleLeftOutlined,
+  DoubleRightOutlined,
+  LeftOutlined,
+  RightOutlined,
+} from '@ant-design/icons';
 
 import * as S from './Table.styled';
 import updateSortingState from './utils/updateSortingState';
@@ -300,7 +306,7 @@ const Table: React.FC<TableProps<any>> = ({
               onClick={() => table.setPageIndex(0)}
               disabled={!table.getCanPreviousPage()}
             >
-              ⇤
+              <DoubleLeftOutlined /> First
             </Button>
             <Button
               buttonType="secondary"
@@ -308,7 +314,7 @@ const Table: React.FC<TableProps<any>> = ({
               onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}
             >
-              ← Previous
+              <LeftOutlined /> Prev
             </Button>
             <Button
               buttonType="secondary"
@@ -316,7 +322,7 @@ const Table: React.FC<TableProps<any>> = ({
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
             >
-              Next →
+              Next <RightOutlined />
             </Button>
             <Button
               buttonType="secondary"
@@ -324,7 +330,7 @@ const Table: React.FC<TableProps<any>> = ({
               onClick={() => table.setPageIndex(table.getPageCount() - 1)}
               disabled={!table.getCanNextPage()}
             >
-              ⇥
+              Last <DoubleRightOutlined />
             </Button>
 
             <S.GoToPage>

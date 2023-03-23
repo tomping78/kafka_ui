@@ -4,7 +4,7 @@ export const ValueWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   button {
-    margin: 0 10px;
+    margin: 0 3px;
   }
 `;
 
