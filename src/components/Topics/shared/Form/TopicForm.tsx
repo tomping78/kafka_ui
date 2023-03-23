@@ -12,6 +12,7 @@ import { StyledForm } from 'components/common/Form/Form.styled';
 import { clusterTopicPath } from 'lib/paths';
 import { useNavigate } from 'react-router-dom';
 import useAppParams from 'lib/hooks/useAppParams';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import CustomParams from './CustomParams/CustomParams';
 import TimeToRetain from './TimeToRetain';
@@ -85,189 +86,193 @@ const TopicForm: React.FC<Props> = ({
   };
 
   return (
-    <StyledForm onSubmit={onSubmit} aria-label="topic form">
-      <fieldset disabled={isSubmitting}>
-        <fieldset disabled={isEditing}>
-          <S.Column>
-            <S.NameField>
-              <InputLabel htmlFor="topicFormName">Topic Name *</InputLabel>
-              <Input
-                id="topicFormName"
-                autoFocus
-                name="name"
-                placeholder="Topic Name"
-                defaultValue={topicName}
-              />
-              <FormError>
-                <ErrorMessage errors={errors} name="name" />
-              </FormError>
-            </S.NameField>
-          </S.Column>
-
-          <S.Column>
-            {!isEditing && (
-              <div>
-                <InputLabel htmlFor="topicFormNumberOfPartitions">
-                  Number of partitions *
+    <ContentArea>
+      <StyledForm onSubmit={onSubmit} aria-label="topic form">
+        <fieldset disabled={isSubmitting}>
+          <fieldset disabled={isEditing}>
+            <S.Column>
+              <S.NameField>
+                <InputLabel htmlFor="topicFormName">
+                  Topic Name <span>*</span>
                 </InputLabel>
                 <Input
-                  id="topicFormNumberOfPartitions"
-                  type="number"
-                  placeholder="Number of partitions"
-                  min="1"
-                  name="partitions"
-                  positiveOnly
-                  integerOnly
+                  id="topicFormName"
+                  autoFocus
+                  name="name"
+                  placeholder="Topic Name"
+                  defaultValue={topicName}
                 />
                 <FormError>
-                  <ErrorMessage errors={errors} name="partitions" />
+                  <ErrorMessage errors={errors} name="name" />
                 </FormError>
-              </div>
-            )}
+              </S.NameField>
+            </S.Column>
 
-            <div>
-              <InputLabel
-                id="topicFormCleanupPolicyLabel"
-                htmlFor="topicFormCleanupPolicy"
-              >
-                Cleanup policy
-              </InputLabel>
-              <Controller
-                defaultValue={CleanupPolicyOptions[0].value}
-                control={control}
-                name="cleanupPolicy"
-                render={({ field: { name, onChange } }) => (
-                  <Select
-                    id="topicFormCleanupPolicy"
-                    aria-labelledby="topicFormCleanupPolicyLabel"
-                    name={name}
-                    value={getCleanUpPolicy}
-                    onChange={onChange}
-                    minWidth="250px"
-                    options={CleanupPolicyOptions}
+            <S.Column>
+              {!isEditing && (
+                <div>
+                  <InputLabel htmlFor="topicFormNumberOfPartitions">
+                    Number of partitions *
+                  </InputLabel>
+                  <Input
+                    id="topicFormNumberOfPartitions"
+                    type="number"
+                    placeholder="Number of partitions"
+                    min="1"
+                    name="partitions"
+                    positiveOnly
+                    integerOnly
                   />
-                )}
-              />
-            </div>
-          </S.Column>
-        </fieldset>
+                  <FormError>
+                    <ErrorMessage errors={errors} name="partitions" />
+                  </FormError>
+                </div>
+              )}
 
-        <S.Column>
-          <div>
-            <InputLabel htmlFor="topicFormMinInSyncReplicas">
-              Min In Sync Replicas
-            </InputLabel>
-            <Input
-              id="topicFormMinInSyncReplicas"
-              type="number"
-              placeholder="Min In Sync Replicas"
-              min="1"
-              name="minInSyncReplicas"
-              positiveOnly
-              integerOnly
-            />
-            <FormError>
-              <ErrorMessage errors={errors} name="minInSyncReplicas" />
-            </FormError>
-          </div>
-          {!isEditing && (
+              <div>
+                <InputLabel
+                  id="topicFormCleanupPolicyLabel"
+                  htmlFor="topicFormCleanupPolicy"
+                >
+                  Cleanup policy
+                </InputLabel>
+                <Controller
+                  defaultValue={CleanupPolicyOptions[0].value}
+                  control={control}
+                  name="cleanupPolicy"
+                  render={({ field: { name, onChange } }) => (
+                    <Select
+                      id="topicFormCleanupPolicy"
+                      aria-labelledby="topicFormCleanupPolicyLabel"
+                      name={name}
+                      value={getCleanUpPolicy}
+                      onChange={onChange}
+                      minWidth="250px"
+                      options={CleanupPolicyOptions}
+                    />
+                  )}
+                />
+              </div>
+            </S.Column>
+          </fieldset>
+
+          <S.Column>
             <div>
-              <InputLabel htmlFor="topicFormReplicationFactor">
-                Replication Factor
+              <InputLabel htmlFor="topicFormMinInSyncReplicas">
+                Min In Sync Replicas
               </InputLabel>
               <Input
-                id="topicFormReplicationFactor"
+                id="topicFormMinInSyncReplicas"
                 type="number"
-                placeholder="Replication Factor"
+                placeholder="Min In Sync Replicas"
                 min="1"
-                name="replicationFactor"
+                name="minInSyncReplicas"
                 positiveOnly
                 integerOnly
               />
               <FormError>
-                <ErrorMessage errors={errors} name="replicationFactor" />
+                <ErrorMessage errors={errors} name="minInSyncReplicas" />
               </FormError>
             </div>
-          )}
-        </S.Column>
-
-        <S.Column>
-          <div>
-            <TimeToRetain isSubmitting={isSubmitting} />
-          </div>
-        </S.Column>
-
-        <S.Column>
-          <div>
-            <InputLabel
-              id="topicFormRetentionBytesLabel"
-              htmlFor="topicFormRetentionBytes"
-            >
-              Max size on disk in GB
-            </InputLabel>
-            <Controller
-              control={control}
-              name="retentionBytes"
-              defaultValue={RetentionBytesOptions[0].value}
-              render={({ field: { name, onChange } }) => (
-                <Select
-                  id="topicFormRetentionBytes"
-                  aria-labelledby="topicFormRetentionBytesLabel"
-                  name={name}
-                  value={getRetentionBytes}
-                  onChange={onChange}
-                  minWidth="100%"
-                  options={RetentionBytesOptions}
+            {!isEditing && (
+              <div>
+                <InputLabel htmlFor="topicFormReplicationFactor">
+                  Replication Factor
+                </InputLabel>
+                <Input
+                  id="topicFormReplicationFactor"
+                  type="number"
+                  placeholder="Replication Factor"
+                  min="1"
+                  name="replicationFactor"
+                  positiveOnly
+                  integerOnly
                 />
-              )}
-            />
-          </div>
+                <FormError>
+                  <ErrorMessage errors={errors} name="replicationFactor" />
+                </FormError>
+              </div>
+            )}
+          </S.Column>
 
-          <div>
-            <InputLabel htmlFor="topicFormMaxMessageBytes">
-              Maximum message size in bytes
-            </InputLabel>
-            <Input
-              id="topicFormMaxMessageBytes"
-              type="number"
-              placeholder="Maximum message size"
-              min="1"
-              name="maxMessageBytes"
-              positiveOnly
-              integerOnly
-            />
-            <FormError>
-              <ErrorMessage errors={errors} name="maxMessageBytes" />
-            </FormError>
-          </div>
-        </S.Column>
+          <S.Column>
+            <div>
+              <TimeToRetain isSubmitting={isSubmitting} />
+            </div>
+          </S.Column>
 
-        <S.CustomParamsHeading>Custom parameters</S.CustomParamsHeading>
-        <CustomParams
-          config={config}
-          isSubmitting={isSubmitting}
-          isEditing={isEditing}
-        />
-        <S.ButtonWrapper>
-          <Button
-            type="button"
-            buttonType="primary"
-            buttonSize="L"
-            onClick={onCancel}
-          >
-            Cancel
-          </Button>
-          <Button
-            type="submit"
-            buttonType="primary"
-            buttonSize="L"
-            disabled={!isValid || isSubmitting || !isDirty}
-          >
-            {isEditing ? 'Update topic' : 'Create topic'}
-          </Button>
-        </S.ButtonWrapper>
-      </fieldset>
-    </StyledForm>
+          <S.Column>
+            <div>
+              <InputLabel
+                id="topicFormRetentionBytesLabel"
+                htmlFor="topicFormRetentionBytes"
+              >
+                Max size on disk in GB
+              </InputLabel>
+              <Controller
+                control={control}
+                name="retentionBytes"
+                defaultValue={RetentionBytesOptions[0].value}
+                render={({ field: { name, onChange } }) => (
+                  <Select
+                    id="topicFormRetentionBytes"
+                    aria-labelledby="topicFormRetentionBytesLabel"
+                    name={name}
+                    value={getRetentionBytes}
+                    onChange={onChange}
+                    minWidth="100%"
+                    options={RetentionBytesOptions}
+                  />
+                )}
+              />
+            </div>
+
+            <div>
+              <InputLabel htmlFor="topicFormMaxMessageBytes">
+                Maximum message size in bytes
+              </InputLabel>
+              <Input
+                id="topicFormMaxMessageBytes"
+                type="number"
+                placeholder="Maximum message size"
+                min="1"
+                name="maxMessageBytes"
+                positiveOnly
+                integerOnly
+              />
+              <FormError>
+                <ErrorMessage errors={errors} name="maxMessageBytes" />
+              </FormError>
+            </div>
+          </S.Column>
+
+          <S.CustomParamsHeading>Custom parameters</S.CustomParamsHeading>
+          <CustomParams
+            config={config}
+            isSubmitting={isSubmitting}
+            isEditing={isEditing}
+          />
+          <S.ButtonWrapper>
+            <Button
+              type="button"
+              buttonType="secondary"
+              buttonSize="L"
+              onClick={onCancel}
+            >
+              Cancel
+            </Button>
+            <Button
+              type="submit"
+              buttonType="primary"
+              buttonSize="L"
+              disabled={!isValid || isSubmitting || !isDirty}
+            >
+              {isEditing ? 'Update topic' : 'Create topic'}
+            </Button>
+          </S.ButtonWrapper>
+        </fieldset>
+      </StyledForm>
+    </ContentArea>
   );
 };
 

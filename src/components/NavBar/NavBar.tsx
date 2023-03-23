@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from 'components/common/Logo/Logo';
 import Version from 'components/Version/Version';
-import { SettingOutlined, LogoutOutlined } from '@ant-design/icons';
+import { GitlabOutlined, LogoutOutlined } from '@ant-design/icons';
 
 import * as S from './NavBar.styled';
 import UserInfo from './UserInfo/UserInfo';
@@ -42,7 +42,7 @@ const NavBar: React.FC<Props> = ({ onBurgerClick }) => {
           href="https://github.com/provectus/kafka-ui"
           target="_blank"
         >
-          <SettingOutlined />
+          <GitlabOutlined />
         </S.SocialLink>
         <S.SocialLink
           href="https://discord.com/invite/4DWzD7pGE5"

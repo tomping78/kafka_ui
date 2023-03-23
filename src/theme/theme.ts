@@ -19,7 +19,7 @@ const Colors = {
     '100': '#000',
   },
   transparency: {
-    '10': 'rgba(10, 10, 10, 0.1)',
+    '10': 'rgba(10, 10, 10, 0.3)',
     '20': 'rgba(0, 0, 0, 0.1)',
     '50': 'rgba(34, 41, 47, 0.5)',
   },
@@ -153,7 +153,7 @@ const theme = {
     },
     h3: {
       color: Colors.neutral[50],
-      fontSize: '14px',
+      fontSize: '24px',
     },
     base: {
       fontFamily: 'Titillium Web, sans-serif',
@@ -164,21 +164,21 @@ const theme = {
     variants: {
       1: {
         fontSize: '40px',
-        lineHeight: '52px',
+        lineHeight: '54px',
       },
       2: {
-        fontSize: '20px',
-        lineHeight: '32px',
+        fontSize: '30px',
+        lineHeight: '42px',
       },
       3: {
-        fontSize: '16px',
-        lineHeight: '24px',
+        fontSize: '24px',
+        lineHeight: '36px',
         fontWeight: 400,
         marginBottom: '16px',
       },
       4: {
-        fontSize: '14px',
-        lineHeight: '20px',
+        fontSize: '18px',
+        lineHeight: '24px',
         fontWeight: 500,
       },
       5: {

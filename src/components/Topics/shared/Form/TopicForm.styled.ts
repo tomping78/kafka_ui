@@ -11,8 +11,10 @@ export const NameField = styled.div`
   flex-grow: 1;
 `;
 
-export const CustomParamsHeading = styled.h4`
-  font-weight: 500;
+export const CustomParamsHeading = styled.h3`
+  font-weight: 600;
+  font-size: 22px;
+  color: #333;
 `;
 
 export const Label = styled.div`

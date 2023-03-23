@@ -31,7 +31,7 @@ export const Modal = styled.div(
     display: flex;
     flex-direction: column;
     width: 560px;
-    border-radius: 8px;
+    /* border-radius: 8px; */
 
     background-color: ${modal.backgroundColor};
     filter: drop-shadow(0px 4px 16px ${modal.shadow});
@@ -51,6 +51,7 @@ export const Content = styled.div(
     width: 100%;
     border-top: 1px solid ${modal.border.top};
     border-bottom: 1px solid ${modal.border.bottom};
+    min-height: 100px;
   `
 );
 

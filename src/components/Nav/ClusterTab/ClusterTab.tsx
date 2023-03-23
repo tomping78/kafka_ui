@@ -13,7 +13,7 @@ export interface ClusterTabProps {
 const ClusterTab: React.FC<ClusterTabProps> = ({
   title,
   // status,
-  // isOpen,
+  isOpen,
   toggleClusterMenu,
 }) => (
   <S.Wrapper onClick={toggleClusterMenu} isOpen>
@@ -23,11 +23,11 @@ const ClusterTab: React.FC<ClusterTabProps> = ({
       <S.StatusIcon status={status} aria-label="status">
         <title>{status}</title>
       </S.StatusIcon>
-    </S.StatusIconWrapper>
+    </S.StatusIconWrapper> */}
 
     <S.ChevronWrapper>
       <S.ChevronIcon $open={isOpen} />
-    </S.ChevronWrapper> */}
+    </S.ChevronWrapper>
   </S.Wrapper>
 );
 
