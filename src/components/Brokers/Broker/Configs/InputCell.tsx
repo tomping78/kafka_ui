@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { CellContext } from '@tanstack/react-table';
-import CheckmarkIcon from 'components/common/Icons/CheckmarkIcon';
-import EditIcon from 'components/common/Icons/EditIcon';
-import CancelIcon from 'components/common/Icons/CancelIcon';
+
 import { useConfirm } from 'lib/hooks/useConfirm';
 import { Action, BrokerConfig, ResourceType } from 'generated-sources';
 import { Button } from 'components/common/Button/Button';
@@ -51,15 +49,15 @@ const InputCell: React.FC<InputCellProps> = ({ row, getValue, onUpdate }) => {
           aria-label="confirmAction"
           onClick={onSave}
         >
-          <CheckmarkIcon /> Save
+          Save
         </Button>
         <Button
-          buttonType="primary"
+          buttonType="secondary"
           buttonSize="S"
           aria-label="cancelAction"
           onClick={() => setIsEdit(false)}
         >
-          <CancelIcon /> Cancel
+          Cancel
         </Button>
       </S.ButtonsWrapper>
     </S.ValueWrapper>
@@ -82,7 +80,7 @@ const InputCell: React.FC<InputCellProps> = ({ row, getValue, onUpdate }) => {
           action: Action.EDIT,
         }}
       >
-        <EditIcon /> Edit
+        Edit
       </ActionButton>
     </S.ValueWrapper>
   );

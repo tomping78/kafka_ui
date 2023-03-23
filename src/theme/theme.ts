@@ -17,6 +17,7 @@ const Colors = {
     '80': '#2F3639',
     '90': '#171A1C',
     '100': '#000',
+    '110': '#555',
   },
   transparency: {
     '10': 'rgba(10, 10, 10, 0.3)',
@@ -233,11 +234,11 @@ const theme = {
     },
     secondary: {
       backgroundColor: {
-        normal: Colors.neutral[5],
-        hover: Colors.neutral[10],
+        normal: Colors.neutral[2],
+        hover: Colors.neutral[110],
         active: Colors.neutral[15],
       },
-      color: Colors.neutral[90],
+      color: Colors.neutral[0],
       isActiveColor: Colors.neutral[0],
       invertedColors: {
         normal: Colors.neutral[50],

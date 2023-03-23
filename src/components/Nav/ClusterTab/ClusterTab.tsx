@@ -16,7 +16,7 @@ const ClusterTab: React.FC<ClusterTabProps> = ({
   isOpen,
   toggleClusterMenu,
 }) => (
-  <S.Wrapper onClick={toggleClusterMenu} isOpen>
+  <S.Wrapper onClick={toggleClusterMenu} isOpen={isOpen}>
     <S.Title title={title}>{title}</S.Title>
 
     {/* <S.StatusIconWrapper>

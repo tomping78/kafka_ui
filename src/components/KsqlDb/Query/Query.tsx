@@ -12,6 +12,7 @@ import { clusterKsqlDbPath, ClusterNameRoute } from 'lib/paths';
 import { useAppDispatch, useAppSelector } from 'lib/hooks/redux';
 import { showAlert, showSuccessAlert } from 'lib/errorHandling';
 import PageHeading from 'components/common/PageHeading/PageHeading';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import type { FormValues } from './QueryForm/QueryForm';
 import * as S from './Query.styled';
@@ -209,15 +210,17 @@ const Query: FC = () => {
         backText="KSQL DB"
         backTo={clusterKsqlDbPath(clusterName)}
       />
-      <QueryForm
-        fetching={fetching}
-        hasResults={!!KSQLTable}
-        handleClearResults={() => setKSQLTable(null)}
-        handleSSECancel={handleSSECancel}
-        submitHandler={submitHandler}
-      />
-      {KSQLTable && <TableRenderer table={KSQLTable} />}
-      {fetching && <S.ContinuousLoader />}
+      <ContentArea>
+        <QueryForm
+          fetching={fetching}
+          hasResults={!!KSQLTable}
+          handleClearResults={() => setKSQLTable(null)}
+          handleSSECancel={handleSSECancel}
+          submitHandler={submitHandler}
+        />
+        {KSQLTable && <TableRenderer table={KSQLTable} />}
+        {fetching && <S.ContinuousLoader />}
+      </ContentArea>
     </>
   );
 };

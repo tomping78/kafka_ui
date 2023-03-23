@@ -21,7 +21,7 @@ export const ButtonsWrapper = styled.div`
   display: flex;
 `;
 export const SearchWrapper = styled.div`
-  margin: 10px;
+  margin-bottom: 10px;
   width: 21%;
 `;
 

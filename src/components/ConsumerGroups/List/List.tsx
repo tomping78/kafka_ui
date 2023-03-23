@@ -15,6 +15,7 @@ import { ColumnDef } from '@tanstack/react-table';
 import Table, { TagCell, LinkCell } from 'components/common/NewTable';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { PER_PAGE } from 'lib/constants';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 export interface Props {
   consumerGroups: ConsumerGroupDetails[];
@@ -90,22 +91,24 @@ const List: React.FC<Props> = ({ consumerGroups, totalPages }) => {
   return (
     <>
       <PageHeading text="Consumers" />
-      <ControlPanelWrapper hasInput>
-        <Search placeholder="Search by Consumer Group ID" />
-      </ControlPanelWrapper>
-      <Table
-        columns={columns}
-        pageCount={totalPages}
-        data={consumerGroups}
-        emptyMessage="No active consumer groups found"
-        serverSideProcessing
-        enableSorting
-        onRowClick={({ original }) =>
-          navigate(
-            clusterConsumerGroupDetailsPath(clusterName, original.groupId)
-          )
-        }
-      />
+      <ContentArea>
+        <ControlPanelWrapper hasInput>
+          <Search placeholder="Search by Consumer Group ID" />
+        </ControlPanelWrapper>
+        <Table
+          columns={columns}
+          pageCount={totalPages}
+          data={consumerGroups}
+          emptyMessage="No active consumer groups found"
+          serverSideProcessing
+          enableSorting
+          onRowClick={({ original }) =>
+            navigate(
+              clusterConsumerGroupDetailsPath(clusterName, original.groupId)
+            )
+          }
+        />
+      </ContentArea>
     </>
   );
 };

@@ -24,6 +24,7 @@ import { showServerError } from 'lib/errorHandling';
 import { schemasApiClient } from 'lib/api';
 import yup from 'lib/yupExtended';
 import { yupResolver } from '@hookform/resolvers/yup';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import * as S from './New.styled';
 
@@ -97,67 +98,69 @@ const New: React.FC = () => {
         backText="Schema Registry"
         backTo={clusterSchemasPath(clusterName)}
       />
-      <S.Form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <InputLabel>Subject *</InputLabel>
-          <Input
-            inputSize="M"
-            placeholder="Schema Name"
-            autoFocus
-            name="subject"
-            autoComplete="off"
-            disabled={isSubmitting}
-          />
-          <FormError>
-            <ErrorMessage errors={errors} name="subject" />
-          </FormError>
-        </div>
+      <ContentArea>
+        <S.Form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <InputLabel>Subject *</InputLabel>
+            <Input
+              inputSize="M"
+              placeholder="Schema Name"
+              autoFocus
+              name="subject"
+              autoComplete="off"
+              disabled={isSubmitting}
+            />
+            <FormError>
+              <ErrorMessage errors={errors} name="subject" />
+            </FormError>
+          </div>
 
-        <div>
-          <InputLabel>Schema *</InputLabel>
-          <Textarea
-            {...register('schema', {
-              required: 'Schema is required.',
-            })}
-            disabled={isSubmitting}
-          />
-          <FormError>
-            <ErrorMessage errors={errors} name="schema" />
-          </FormError>
-        </div>
+          <div>
+            <InputLabel>Schema *</InputLabel>
+            <Textarea
+              {...register('schema', {
+                required: 'Schema is required.',
+              })}
+              disabled={isSubmitting}
+            />
+            <FormError>
+              <ErrorMessage errors={errors} name="schema" />
+            </FormError>
+          </div>
 
-        <div>
-          <InputLabel>Schema Type *</InputLabel>
-          <Controller
-            control={control}
-            name="schemaType"
-            defaultValue={SchemaTypeOptions[0].value as SchemaType}
-            render={({ field: { name, onChange, value } }) => (
-              <Select
-                selectSize="M"
-                name={name}
-                value={value}
-                onChange={onChange}
-                minWidth="100%"
-                disabled={isSubmitting}
-                options={SchemaTypeOptions}
-              />
-            )}
-          />
-          <FormError>
-            <ErrorMessage errors={errors} name="schemaType" />
-          </FormError>
-        </div>
+          <div>
+            <InputLabel>Schema Type *</InputLabel>
+            <Controller
+              control={control}
+              name="schemaType"
+              defaultValue={SchemaTypeOptions[0].value as SchemaType}
+              render={({ field: { name, onChange, value } }) => (
+                <Select
+                  selectSize="M"
+                  name={name}
+                  value={value}
+                  onChange={onChange}
+                  minWidth="100%"
+                  disabled={isSubmitting}
+                  options={SchemaTypeOptions}
+                />
+              )}
+            />
+            <FormError>
+              <ErrorMessage errors={errors} name="schemaType" />
+            </FormError>
+          </div>
 
-        <Button
-          buttonSize="M"
-          buttonType="primary"
-          type="submit"
-          disabled={!isValid || isSubmitting || !isDirty}
-        >
-          Submit
-        </Button>
-      </S.Form>
+          <Button
+            buttonSize="M"
+            buttonType="primary"
+            type="submit"
+            disabled={!isValid || isSubmitting || !isDirty}
+          >
+            Submit
+          </Button>
+        </S.Form>
+      </ContentArea>
     </FormProvider>
   );
 };

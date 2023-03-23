@@ -17,6 +17,8 @@ import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
 import { fetchKsqlDbTables } from 'redux/reducers/ksqlDb/ksqlDbSlice';
 import { useAppDispatch, useAppSelector } from 'lib/hooks/redux';
 import { Action, ResourceType } from 'generated-sources';
+import { CloudUploadOutlined } from '@ant-design/icons';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import KsqlDbItem, { KsqlDbItemType } from './KsqlDbItem/KsqlDbItem';
 
@@ -37,12 +39,13 @@ const List: FC = () => {
         <ActionButton
           to={clusterKsqlDbQueryRelativePath}
           buttonType="primary"
-          buttonSize="M"
+          buttonSize="L"
           permission={{
             resource: ResourceType.KSQL,
             action: Action.EXECUTE,
           }}
         >
+          <CloudUploadOutlined />
           Execute KSQL Request
         </ActionButton>
       </PageHeading>
@@ -60,50 +63,52 @@ const List: FC = () => {
           </Metrics.Indicator>
         </Metrics.Section>
       </Metrics.Wrapper>
-      <div>
-        <Navbar role="navigation">
-          <NavLink
-            to={clusterKsqlDbTablesPath(clusterName)}
-            className={({ isActive }) => (isActive ? 'is-active' : '')}
-            end
-          >
-            Tables
-          </NavLink>
-          <NavLink
-            to={clusterKsqlDbStreamsPath(clusterName)}
-            className={({ isActive }) => (isActive ? 'is-active' : '')}
-            end
-          >
-            Streams
-          </NavLink>
-        </Navbar>
-        <Routes>
-          <Route
-            index
-            element={<Navigate to={clusterKsqlDbTablesRelativePath} />}
-          />
-          <Route
-            path={clusterKsqlDbTablesRelativePath}
-            element={
-              <KsqlDbItem
-                type={KsqlDbItemType.Tables}
-                fetching={fetching}
-                rows={rows}
-              />
-            }
-          />
-          <Route
-            path={clusterKsqlDbStreamsRelativePath}
-            element={
-              <KsqlDbItem
-                type={KsqlDbItemType.Streams}
-                fetching={fetching}
-                rows={rows}
-              />
-            }
-          />
-        </Routes>
-      </div>
+      <ContentArea>
+        <div>
+          <Navbar role="navigation">
+            <NavLink
+              to={clusterKsqlDbTablesPath(clusterName)}
+              className={({ isActive }) => (isActive ? 'is-active' : '')}
+              end
+            >
+              Tables
+            </NavLink>
+            <NavLink
+              to={clusterKsqlDbStreamsPath(clusterName)}
+              className={({ isActive }) => (isActive ? 'is-active' : '')}
+              end
+            >
+              Streams
+            </NavLink>
+          </Navbar>
+          <Routes>
+            <Route
+              index
+              element={<Navigate to={clusterKsqlDbTablesRelativePath} />}
+            />
+            <Route
+              path={clusterKsqlDbTablesRelativePath}
+              element={
+                <KsqlDbItem
+                  type={KsqlDbItemType.Tables}
+                  fetching={fetching}
+                  rows={rows}
+                />
+              }
+            />
+            <Route
+              path={clusterKsqlDbStreamsRelativePath}
+              element={
+                <KsqlDbItem
+                  type={KsqlDbItemType.Streams}
+                  fetching={fetching}
+                  rows={rows}
+                />
+              }
+            />
+          </Routes>
+        </div>
+      </ContentArea>
     </>
   );
 };

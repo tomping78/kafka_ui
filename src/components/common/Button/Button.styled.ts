@@ -10,9 +10,9 @@ const StyledButton = styled.button<ButtonProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 8px 15px;
-  min-width: 150px;
+  min-width: 85px;
   border: none;
   border-radius: 0px;
   white-space: nowrap;
@@ -51,7 +51,7 @@ const StyledButton = styled.button<ButtonProps>`
         : props.theme.button[props.buttonType].color};
   }
   &:disabled {
-    opacity: 0.7;
+    opacity: 0.3;
     cursor: not-allowed;
   }
 

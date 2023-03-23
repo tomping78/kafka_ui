@@ -19,12 +19,13 @@ import PageLoader from 'components/common/PageLoader/PageLoader';
 import { resetLoaderById } from 'redux/reducers/loader/loaderSlice';
 import { ControlPanelWrapper } from 'components/common/ControlPanel/ControlPanel.styled';
 import Search from 'components/common/Search/Search';
-import PlusIcon from 'components/common/Icons/PlusIcon';
+import { AppstoreAddOutlined } from '@ant-design/icons';
 import Table, { LinkCell } from 'components/common/NewTable';
 import { ColumnDef } from '@tanstack/react-table';
 import { Action, SchemaSubject, ResourceType } from 'generated-sources';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { PER_PAGE } from 'lib/constants';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import GlobalSchemaSelector from './GlobalSchemaSelector/GlobalSchemaSelector';
 
@@ -80,7 +81,7 @@ const List: React.FC = () => {
           <>
             <GlobalSchemaSelector />
             <ActionButton
-              buttonSize="M"
+              buttonSize="L"
               buttonType="primary"
               to={clusterSchemaNewRelativePath}
               permission={{
@@ -88,28 +89,30 @@ const List: React.FC = () => {
                 action: Action.CREATE,
               }}
             >
-              <PlusIcon /> Create Schema
+              <AppstoreAddOutlined /> Create Schema
             </ActionButton>
           </>
         )}
       </PageHeading>
-      <ControlPanelWrapper hasInput>
-        <Search placeholder="Search by Schema Name" />
-      </ControlPanelWrapper>
-      {isFetched ? (
-        <Table
-          columns={columns}
-          data={schemas}
-          pageCount={totalPages}
-          emptyMessage="No schemas found"
-          onRowClick={(row) =>
-            navigate(clusterSchemaPath(clusterName, row.original.subject))
-          }
-          serverSideProcessing
-        />
-      ) : (
-        <PageLoader />
-      )}
+      <ContentArea>
+        <ControlPanelWrapper hasInput>
+          <Search placeholder="Search by Schema Name" />
+        </ControlPanelWrapper>
+        {isFetched ? (
+          <Table
+            columns={columns}
+            data={schemas}
+            pageCount={totalPages}
+            emptyMessage="No schemas found"
+            onRowClick={(row) =>
+              navigate(clusterSchemaPath(clusterName, row.original.subject))
+            }
+            serverSideProcessing
+          />
+        ) : (
+          <PageLoader />
+        )}
+      </ContentArea>
     </>
   );
 };
