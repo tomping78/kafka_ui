@@ -514,7 +514,7 @@ const theme = {
     backgroundColor: Colors.neutral[5],
   },
   topicFormLabel: {
-    color: Colors.neutral[50],
+    color: Colors.red[50],
   },
   topicMetaData: {
     backgroundColor: Colors.neutral[5],

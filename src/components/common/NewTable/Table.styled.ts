@@ -80,9 +80,9 @@ export const Th = styled.th<ThProps>(
   vertical-align: middle;
   text-align: left;
   font-family: Titillium Web, sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   color:#333;
   line-height: 16px;
   letter-spacing: 0em;

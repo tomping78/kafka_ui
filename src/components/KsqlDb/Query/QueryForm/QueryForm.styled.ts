@@ -13,6 +13,7 @@ export const KSQLInputsWrapper = styled.div`
   padding-bottom: 16px;
   & > div {
     flex-grow: 1;
+    flex: 1 1 50%;
   }
 `;
 
@@ -23,14 +24,15 @@ export const KSQLInputHeader = styled.div`
 
 export const KSQLButtons = styled.div`
   display: flex;
-  gap: 16px;
+  justify-content: right;
+  gap: 10px;
 `;
 
 export const StreamPropertiesContainer = styled.label`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 50%;
+  width: 100%;
 `;
 
 export const InputsContainer = styled.div`
@@ -65,7 +67,7 @@ export const DeleteButtonWrapper = styled.div`
 `;
 
 export const Fieldset = styled.fieldset`
-  width: 50%;
+  width: 100%;
 `;
 
 export const SQLEditor = styled(BaseSQLEditor)(

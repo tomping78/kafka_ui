@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Textarea = styled.textarea(
   ({ theme: { textArea } }) => css`
-    border: 1px ${textArea.borderColor.normal} solid;
+    border: 1px #dedede solid;
     border-radius: 4px;
     width: 100%;
     padding: 12px;

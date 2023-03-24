@@ -7,8 +7,9 @@ import IconButtonWrapper from 'components/common/Icons/IconButtonWrapper';
 import CloseIcon from 'components/common/Icons/CloseIcon';
 import { yupResolver } from '@hookform/resolvers/yup';
 import yup from 'lib/yupExtended';
-import PlusIcon from 'components/common/Icons/PlusIcon';
+import { Card } from 'antd';
 import ReactAce from 'react-ace/lib/ace';
+import styled from 'styled-components';
 
 import * as S from './QueryForm.styled';
 
@@ -87,113 +88,125 @@ const QueryForm: React.FC<Props> = ({
     }
   };
 
+  const CardWrap = styled(Card)`
+    font-family: 'Titillium Web', sans-serif;
+    border: 1px solid #dedede;
+    & .ant-card-head {
+      background: #f5f5f5;
+    }
+  `;
+
   return (
     <S.QueryWrapper>
       <form onSubmit={handleSubmit(submitHandler)}>
         <S.KSQLInputsWrapper>
-          <S.Fieldset aria-labelledby="ksqlLabel">
-            <S.KSQLInputHeader>
-              <label id="ksqlLabel">KSQL</label>
+          <CardWrap
+            type="inner"
+            title="KSQL"
+            extra={
               <Button
-                onClick={() => setValue('ksql', '')}
                 buttonType="primary"
                 buttonSize="S"
+                onClick={() => setValue('ksql', '')}
                 isInverted
               >
                 Clear
               </Button>
-            </S.KSQLInputHeader>
-            <Controller
-              control={control}
-              name="ksql"
-              render={({ field }) => (
-                <S.SQLEditor
-                  {...field}
-                  commands={[
-                    {
-                      // commands is array of key bindings.
-                      // name for the key binding.
-                      name: 'commandName',
-                      // key combination used for the command.
-                      bindKey: { win: 'Ctrl-Enter', mac: 'Command-Enter' },
-                      // function to execute when keys are pressed.
-                      exec: () => {
-                        handleSubmit(submitHandler)();
+            }
+          >
+            <S.Fieldset aria-labelledby="ksqlLabel">
+              <Controller
+                control={control}
+                name="ksql"
+                render={({ field }) => (
+                  <S.SQLEditor
+                    {...field}
+                    commands={[
+                      {
+                        // commands is array of key bindings.
+                        // name for the key binding.
+                        name: 'commandName',
+                        // key combination used for the command.
+                        bindKey: { win: 'Ctrl-Enter', mac: 'Command-Enter' },
+                        // function to execute when keys are pressed.
+                        exec: () => {
+                          handleSubmit(submitHandler)();
+                        },
                       },
-                    },
-                  ]}
-                  readOnly={fetching}
-                  ref={inputRef}
-                />
-              )}
-            />
-            <FormError>
-              <ErrorMessage errors={errors} name="ksql" />
-            </FormError>
-          </S.Fieldset>
-
-          <S.StreamPropertiesContainer>
-            Stream properties:
-            {fields.map((item, index) => (
-              <S.InputsContainer key={item.id}>
-                <S.StreamPropertiesInputWrapper>
-                  <Controller
-                    control={control}
-                    name={`streamsProperties.${index}.key`}
-                    render={({ field }) => (
-                      <input
-                        {...field}
-                        placeholder="Key"
-                        aria-label="key"
-                        type="text"
-                      />
-                    )}
+                    ]}
+                    readOnly={fetching}
+                    ref={inputRef}
                   />
-                  <FormError>
-                    <ErrorMessage
-                      errors={errors}
+                )}
+              />
+              <FormError>
+                <ErrorMessage errors={errors} name="ksql" />
+              </FormError>
+            </S.Fieldset>
+          </CardWrap>
+
+          <CardWrap type="inner" title="Stream properties:">
+            <S.StreamPropertiesContainer>
+              {fields.map((item, index) => (
+                <S.InputsContainer key={item.id}>
+                  <S.StreamPropertiesInputWrapper>
+                    <Controller
+                      control={control}
                       name={`streamsProperties.${index}.key`}
+                      render={({ field }) => (
+                        <input
+                          {...field}
+                          placeholder="Key"
+                          aria-label="key"
+                          type="text"
+                        />
+                      )}
                     />
-                  </FormError>
-                </S.StreamPropertiesInputWrapper>
-                <S.StreamPropertiesInputWrapper>
-                  <Controller
-                    control={control}
-                    name={`streamsProperties.${index}.value`}
-                    render={({ field }) => (
-                      <input
-                        {...field}
-                        placeholder="Value"
-                        aria-label="value"
-                        type="text"
+                    <FormError>
+                      <ErrorMessage
+                        errors={errors}
+                        name={`streamsProperties.${index}.key`}
                       />
-                    )}
-                  />
-                  <FormError>
-                    <ErrorMessage
-                      errors={errors}
+                    </FormError>
+                  </S.StreamPropertiesInputWrapper>
+                  <S.StreamPropertiesInputWrapper>
+                    <Controller
+                      control={control}
                       name={`streamsProperties.${index}.value`}
+                      render={({ field }) => (
+                        <input
+                          {...field}
+                          placeholder="Value"
+                          aria-label="value"
+                          type="text"
+                        />
+                      )}
                     />
-                  </FormError>
-                </S.StreamPropertiesInputWrapper>
+                    <FormError>
+                      <ErrorMessage
+                        errors={errors}
+                        name={`streamsProperties.${index}.value`}
+                      />
+                    </FormError>
+                  </S.StreamPropertiesInputWrapper>
 
-                <S.DeleteButtonWrapper onClick={() => remove(index)}>
-                  <IconButtonWrapper aria-label="deleteProperty">
-                    <CloseIcon aria-hidden />
-                  </IconButtonWrapper>
-                </S.DeleteButtonWrapper>
-              </S.InputsContainer>
-            ))}
-            <Button
-              type="button"
-              buttonSize="M"
-              buttonType="secondary"
-              onClick={handleAddNewProperty}
-            >
-              <PlusIcon />
-              Add Stream Property
-            </Button>
-          </S.StreamPropertiesContainer>
+                  <S.DeleteButtonWrapper onClick={() => remove(index)}>
+                    <IconButtonWrapper aria-label="deleteProperty">
+                      <CloseIcon aria-hidden />
+                    </IconButtonWrapper>
+                  </S.DeleteButtonWrapper>
+                </S.InputsContainer>
+              ))}
+              <Button
+                type="button"
+                buttonSize="M"
+                buttonType="secondary"
+                onClick={handleAddNewProperty}
+              >
+                Add Stream Property
+              </Button>
+            </S.StreamPropertiesContainer>
+          </CardWrap>
         </S.KSQLInputsWrapper>
         <S.KSQLButtons>
           <Button

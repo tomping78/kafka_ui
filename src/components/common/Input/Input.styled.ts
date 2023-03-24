@@ -13,10 +13,12 @@ const INPUT_SIZES = {
 
 export const Wrapper = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
 
   svg:first-child {
     position: absolute;
-    top: 8px;
+    /* top: 8px; */
     line-height: 0;
     z-index: 1;
     left: 12px;
