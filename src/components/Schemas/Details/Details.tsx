@@ -34,6 +34,7 @@ import {
   ActionButton,
   ActionDropdownItem,
 } from 'components/common/ActionComponent';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import LatestVersionItem from './LatestVersion/LatestVersionItem';
 import SchemaVersion from './SchemaVersion/SchemaVersion';
@@ -144,19 +145,21 @@ const Details: React.FC = () => {
           </>
         )}
       </PageHeading>
-      <LatestVersionItem schema={schema} />
-      <TableTitle>Old versions</TableTitle>
-      {areVersionsFetched ? (
-        <Table
-          columns={columns}
-          data={versions}
-          getRowCanExpand={() => true}
-          renderSubComponent={SchemaVersion}
-          enableSorting
-        />
-      ) : (
-        <PageLoader />
-      )}
+      <ContentArea>
+        <LatestVersionItem schema={schema} />
+        <TableTitle>Old versions</TableTitle>
+        {areVersionsFetched ? (
+          <Table
+            columns={columns}
+            data={versions}
+            getRowCanExpand={() => true}
+            renderSubComponent={SchemaVersion}
+            enableSorting
+          />
+        ) : (
+          <PageLoader />
+        )}
+      </ContentArea>
     </>
   );
 };

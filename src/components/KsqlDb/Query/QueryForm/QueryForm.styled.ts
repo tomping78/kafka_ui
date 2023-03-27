@@ -2,13 +2,13 @@ import styled, { css } from 'styled-components';
 import BaseSQLEditor from 'components/common/SQLEditor/SQLEditor';
 
 export const QueryWrapper = styled.div`
-  padding: 16px;
+  padding: 0;
 `;
 
 export const KSQLInputsWrapper = styled.div`
   width: 100%;
   display: flex;
-  gap: 24px;
+  gap: 16px;
 
   padding-bottom: 16px;
   & > div {

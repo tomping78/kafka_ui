@@ -165,7 +165,7 @@ const theme = {
     variants: {
       1: {
         fontSize: '40px',
-        lineHeight: '54px',
+        lineHeight: '70px',
       },
       2: {
         fontSize: '30px',
@@ -541,7 +541,7 @@ const theme = {
     color: Colors.neutral[30],
   },
   tooltip: {
-    bg: Colors.neutral[70],
+    bg: Colors.neutral[90],
     text: Colors.neutral[0],
   },
   topicsList: {
@@ -557,7 +557,7 @@ const theme = {
   },
   icons: {
     chevronDownIcon: Colors.neutral[90],
-    closeIcon: Colors.neutral[30],
+    closeIcon: Colors.neutral[90],
     deleteIcon: Colors.red[20],
     warningIcon: Colors.yellow[20],
     messageToggleIcon: {

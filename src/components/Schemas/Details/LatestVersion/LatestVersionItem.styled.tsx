@@ -5,33 +5,46 @@ import theme from 'theme/theme';
 
 export const Wrapper = styled.div`
   width: 100%;
-  background-color: ${theme.layout.stuffColor};
-  padding: 16px;
+  /* background-color: ${theme.layout.stuffColor}; */
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: stretch;
-  gap: 2px;
+  gap: 16px;
+  margin-bottom: 20px;
   max-height: 700px;
 
   & > * {
     background-color: ${theme.panelColor};
-    padding: 24px;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   & > div:first-child {
-    border-radius: 8px 0 0 8px;
     flex-grow: 2;
   }
 
   & > div:last-child {
-    border-radius: 0 8px 8px 0;
     flex-grow: 1;
+    padding: 24px;
 
     & > div {
-      display: flex;
-      gap: 16px;
-      padding-bottom: 16px;
+      display: block;
+      padding: 0;
+      border-top: 2px solid #333;
+      & > div {
+        display: flex;
+        padding: 0;
+        border-bottom: 1px solid #ccc;
+        & > div {
+          min-width: 200px;
+          padding: 16px;
+          background: #faf1e2;
+          font-weight: 600;
+        }
+        & > p {
+          padding: 16px;
+        }
+      }
     }
   }
 `;

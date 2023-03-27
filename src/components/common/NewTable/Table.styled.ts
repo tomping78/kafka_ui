@@ -82,7 +82,7 @@ export const Th = styled.th<ThProps>(
   font-family: Titillium Web, sans-serif;
   font-size: 16px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   color:#333;
   line-height: 16px;
   letter-spacing: 0em;

@@ -8,7 +8,7 @@ export const Textarea = styled.textarea(
     padding: 12px;
     padding-top: 6px;
     &::placeholder {
-      color: ${textArea.color.placeholder.normal};
+      color: ${textArea.borderColor.hover};
       font-size: 14px;
     }
     &:hover {

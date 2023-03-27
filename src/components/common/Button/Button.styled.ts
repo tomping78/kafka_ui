@@ -14,9 +14,11 @@ const StyledButton = styled.button<ButtonProps>`
     props.buttonSize === 'S' ? 'center' : 'space-between'};
   padding: 8px 15px;
   min-width: ${(props) => (props.buttonSize === 'L' ? '120px' : '85px')};
-  border: none;
+  border: ${(props) =>
+    props.buttonSize === 'L' ? '1px solid #f2f3f6' : 'none'};
   border-radius: ${(props) => (props.buttonSize === 'M' ? '5px' : '0px')};
   white-space: nowrap;
+  box-sizing: border-box;
 
   background: ${(props) =>
     props.isInverted

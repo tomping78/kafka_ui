@@ -2,7 +2,11 @@ import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 export const List = styled.ul.attrs({ role: 'menu' })`
-  padding-bottom: 4px;
+  /* padding-bottom: 4px; */
+  border-top: 1px solid #e5e5e5;
+  &:first-child {
+    border-top: none;
+  }
 
   & > li {
     /* background: #333;
@@ -20,6 +24,9 @@ export const List = styled.ul.attrs({ role: 'menu' })`
     border-radius: 50px;
     color: #fff;
   }
+  & > ul {
+    border-top: none;
+  }
   & > ul > li {
     background: #fff;
     border-radius: 50px;
@@ -27,13 +34,15 @@ export const List = styled.ul.attrs({ role: 'menu' })`
   }
   & > ul > li > a {
     color: #aaa;
-    font-size: 18px;
+    font-size: 16px;
     background: none !important;
-    padding: 10px 25px;
-    padding-left: 15px;
+    padding: 10px;
+    padding-left: 20px;
     position: relative;
-
-    border-bottom: 1px solid #dedede;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  & > ul > li:last-child > a {
+    border-bottom: 0;
   }
   & > ul > li > a.active {
     color: #333;
@@ -47,7 +56,7 @@ export const List = styled.ul.attrs({ role: 'menu' })`
     border-radius: 20px;
     background: #187fde;
     position: absolute;
-    left: 0;
+    left: 5px;
     top: 17px;
   }
 `;

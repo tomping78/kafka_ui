@@ -23,6 +23,7 @@ export const Select = styled.ul<Props>`
       disabled ? theme.select.borderColor.disabled : '#dedede'}
     solid;
   border-radius: 5px;
+  background: #fff;
   font-size: 14px;
   width: fit-content;
   padding-left: 16px;

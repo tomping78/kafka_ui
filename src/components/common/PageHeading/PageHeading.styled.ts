@@ -35,7 +35,7 @@ export const Wrapper = styled.div`
 
   & > div {
     display: flex;
-    gap: 16px;
+    gap: 10px;
   }
 
   & > ${Breadcrumbs} {

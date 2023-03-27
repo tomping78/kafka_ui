@@ -8,7 +8,7 @@ interface HeadingBaseProps {
 const HeadingBase = styled.h1<HeadingBaseProps>`
   ${({ theme }) => theme.heading?.base}
   ${({ theme, $level }) => theme.heading?.variants[$level]}
-  line-height: 70px;
+  /* line-height: 70px; */
   &::before {
     content: '';
     display: block;

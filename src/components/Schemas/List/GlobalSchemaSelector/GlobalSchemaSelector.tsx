@@ -84,7 +84,7 @@ const GlobalSchemaSelector: React.FC = () => {
     <S.Wrapper>
       <div>Global Compatibility Level: </div>
       <ActionSelect
-        selectSize="M"
+        selectSize="L"
         defaultValue={currentCompatibilityLevel}
         minWidth="200px"
         onChange={handleChangeCompatibilityLevel}
