@@ -28,6 +28,9 @@ import {
 import PageLoader from 'components/common/PageLoader/PageLoader';
 import { schemasApiClient } from 'lib/api';
 import { showServerError } from 'lib/errorHandling';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
+import styled from 'styled-components';
+import { Card } from 'antd';
 
 import * as S from './Edit.styled';
 
@@ -56,6 +59,14 @@ const Form: React.FC = () => {
       newSchema: formatedSchema,
     },
   });
+
+  const CardWrap = styled(Card)`
+    font-family: 'Titillium Web', sans-serif;
+    border: 1px solid #dedede;
+    & .ant-card-head {
+      background: #f5f5f5;
+    }
+  `;
 
   const {
     formState: { isDirty, isSubmitting, dirtyFields },
@@ -114,95 +125,95 @@ const Form: React.FC = () => {
         backText="Schema Registry"
         backTo={clusterSchemasPath(clusterName)}
       />
-      <S.EditWrapper>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
+      <ContentArea>
+        <S.EditWrapper>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div>
-              <InputLabel>Type</InputLabel>
-              <Controller
-                control={control}
-                rules={{ required: true }}
-                name="schemaType"
-                render={({ field: { name, onChange, value } }) => (
-                  <Select
-                    name={name}
-                    value={value}
-                    onChange={onChange}
-                    minWidth="100%"
-                    disabled
-                    options={Object.keys(SchemaType).map((type) => ({
-                      value: type,
-                      label: type,
-                    }))}
-                  />
-                )}
-              />
-            </div>
-
-            <div>
-              <InputLabel>Compatibility level</InputLabel>
-              <Controller
-                control={control}
-                name="compatibilityLevel"
-                render={({ field: { name, onChange, value } }) => (
-                  <Select
-                    name={name}
-                    value={value}
-                    onChange={onChange}
-                    minWidth="100%"
-                    disabled={isSubmitting}
-                    options={Object.keys(
-                      CompatibilityLevelCompatibilityEnum
-                    ).map((level) => ({ value: level, label: level }))}
-                  />
-                )}
-              />
-            </div>
-          </div>
-          <S.EditorsWrapper>
-            <div>
-              <S.EditorContainer>
-                <h4>Latest schema</h4>
-                <Editor
-                  schemaType={schema?.schemaType}
-                  isFixedHeight
-                  readOnly
-                  height="372px"
-                  value={formatedSchema}
-                  name="latestSchema"
-                  highlightActiveLine={false}
-                />
-              </S.EditorContainer>
-            </div>
-            <div>
-              <S.EditorContainer>
-                <h4>New schema</h4>
+              <div>
+                <InputLabel>Type</InputLabel>
                 <Controller
                   control={control}
-                  name="newSchema"
+                  rules={{ required: true }}
+                  name="schemaType"
                   render={({ field: { name, onChange, value } }) => (
-                    <Editor
-                      schemaType={schema?.schemaType}
-                      readOnly={isSubmitting}
-                      defaultValue={value}
+                    <Select
                       name={name}
+                      value={value}
                       onChange={onChange}
+                      minWidth="100%"
+                      disabled
+                      options={Object.keys(SchemaType).map((type) => ({
+                        value: type,
+                        label: type,
+                      }))}
                     />
                   )}
                 />
-              </S.EditorContainer>
-              <Button
-                buttonType="primary"
-                buttonSize="M"
-                type="submit"
-                disabled={!isDirty || isSubmitting}
-              >
-                Submit
-              </Button>
+              </div>
+
+              <div>
+                <InputLabel>Compatibility level</InputLabel>
+                <Controller
+                  control={control}
+                  name="compatibilityLevel"
+                  render={({ field: { name, onChange, value } }) => (
+                    <Select
+                      name={name}
+                      value={value}
+                      onChange={onChange}
+                      minWidth="100%"
+                      disabled={isSubmitting}
+                      options={Object.keys(
+                        CompatibilityLevelCompatibilityEnum
+                      ).map((level) => ({ value: level, label: level }))}
+                    />
+                  )}
+                />
+              </div>
             </div>
-          </S.EditorsWrapper>
-        </form>
-      </S.EditWrapper>
+            <S.EditorsWrapper>
+              <div>
+                <CardWrap type="inner" title="Latest schema">
+                  <Editor
+                    schemaType={schema?.schemaType}
+                    isFixedHeight
+                    readOnly
+                    height="372px"
+                    value={formatedSchema}
+                    name="latestSchema"
+                    highlightActiveLine={false}
+                  />
+                </CardWrap>
+              </div>
+              <div>
+                <CardWrap type="inner" title="New schema">
+                  <Controller
+                    control={control}
+                    name="newSchema"
+                    render={({ field: { name, onChange, value } }) => (
+                      <Editor
+                        schemaType={schema?.schemaType}
+                        readOnly={isSubmitting}
+                        defaultValue={value}
+                        name={name}
+                        onChange={onChange}
+                      />
+                    )}
+                  />
+                </CardWrap>
+              </div>
+            </S.EditorsWrapper>
+            <Button
+              buttonType="primary"
+              buttonSize="M"
+              type="submit"
+              disabled={!isDirty || isSubmitting}
+            >
+              Submit
+            </Button>
+          </form>
+        </S.EditWrapper>
+      </ContentArea>
     </FormProvider>
   );
 };

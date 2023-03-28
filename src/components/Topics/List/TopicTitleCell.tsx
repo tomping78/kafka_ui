@@ -12,7 +12,7 @@ export const TopicTitleCell: React.FC<CellContext<Topic, unknown>> = ({
     <NavLink to={name} title={name}>
       {internal && (
         <>
-          <Tag color="gray">IN</Tag>
+          <Tag color="blue">IN</Tag>
           &nbsp;
         </>
       )}

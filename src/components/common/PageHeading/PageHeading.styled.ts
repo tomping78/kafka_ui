@@ -18,7 +18,7 @@ export const BackLink = styled(NavLink)`
   &::after {
     content: '';
     position: absolute;
-    right: -11px;
+    left: -11px;
     bottom: 2px;
     border-left: 1px solid ${({ theme }) => theme.pageHeading.dividerColor};
     height: 20px;
@@ -35,10 +35,22 @@ export const Wrapper = styled.div`
 
   & > div {
     display: flex;
-    gap: 10px;
+    gap: 5px;
   }
 
   & > ${Breadcrumbs} {
     gap: 20px;
+  }
+  & > div > h1 {
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 35px;
+      width: 22px;
+      height: 5px;
+      border-radius: 20px;
+      background: #187fde;
+    }
   }
 `;

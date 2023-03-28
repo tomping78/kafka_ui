@@ -17,13 +17,10 @@ interface MessageLoadingSpinnerProps {
 export const FiltersWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 16px;
-  padding-right: 16px;
 
   & > div:first-child {
     display: flex;
     justify-content: space-between;
-    padding-top: 2px;
     align-items: flex-end;
   }
 `;

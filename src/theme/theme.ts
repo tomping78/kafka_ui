@@ -57,7 +57,7 @@ const Colors = {
     '20': '#bbdefb',
     '30': '#90caf9',
     '40': '#64b5f6',
-    '45': '#5865F2',
+    '45': '#187fde',
     '50': '#5B67E3',
   },
 };
@@ -466,14 +466,14 @@ const theme = {
   },
   tag: {
     backgroundColor: {
-      green: Colors.green[10],
-      gray: Colors.neutral[5],
+      green: Colors.green[40],
+      gray: Colors.neutral[40],
       yellow: Colors.yellow[10],
       white: Colors.neutral[10],
       red: Colors.red[10],
-      blue: Colors.blue[10],
+      blue: Colors.blue[45],
     },
-    color: Colors.neutral[90],
+    color: Colors.neutral[0],
   },
   switch: {
     unchecked: Colors.brand[20],

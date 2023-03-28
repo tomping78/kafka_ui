@@ -5,6 +5,7 @@ import useAppParams from 'lib/hooks/useAppParams';
 import { useTopicConfig } from 'lib/hooks/api/topics';
 import { CellContext, ColumnDef } from '@tanstack/react-table';
 import { TopicConfig } from 'generated-sources';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import * as S from './Settings.styled';
 
@@ -56,7 +57,11 @@ const Settings: React.FC = () => {
     []
   );
 
-  return <Table columns={columns} data={data} />;
+  return (
+    <ContentArea>
+      <Table columns={columns} data={data} />
+    </ContentArea>
+  );
 };
 
 export default Settings;

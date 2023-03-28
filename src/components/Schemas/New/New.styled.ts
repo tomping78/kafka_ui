@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  padding: 16px;
-  padding-top: 0;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 50%;
+  width: 100%;
 
   & > button {
     align-self: flex-start;

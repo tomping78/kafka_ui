@@ -1,11 +1,16 @@
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
-  padding: 1rem 0;
+  padding: 0 0 1rem 0;
   background: ${({ theme }) => theme.metrics.backgroundColor};
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
 `;
 
 export const IndicatorWrapper = styled.div`
@@ -13,7 +18,7 @@ export const IndicatorWrapper = styled.div`
   /* height: 68px; */
   width: fit-content;
   position: relative;
-  min-width: 170px;
+  min-width: 155px;
   display: flex;
   flex-direction: column;
   justify-content: center;

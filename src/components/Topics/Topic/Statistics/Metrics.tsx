@@ -16,6 +16,7 @@ import BytesFormatted from 'components/common/BytesFormatted/BytesFormatted';
 import { calculateTimer, formatTimestamp } from 'lib/dateTimeHelpers';
 import { Action, ResourceType } from 'generated-sources';
 import { ActionButton } from 'components/common/ActionComponent';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import * as S from './Statistics.styles';
 import Total from './Indicators/Total';
@@ -101,8 +102,8 @@ const Metrics: React.FC = () => {
             await analyzeTopic.mutateAsync();
             setIsAnalyzing(true);
           }}
-          buttonType="primary"
-          buttonSize="S"
+          buttonType="secondary"
+          buttonSize="M"
           permission={{
             resource: ResourceType.TOPIC,
             action: Action.MESSAGES_READ,
@@ -121,7 +122,9 @@ const Metrics: React.FC = () => {
           <SizeStats stats={totalStats.valueSize} title="Value size" />
         )}
       </Informers.Wrapper>
-      <PartitionTable data={partitionStats} />
+      <ContentArea>
+        <PartitionTable data={partitionStats} />
+      </ContentArea>
     </>
   );
 };

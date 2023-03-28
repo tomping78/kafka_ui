@@ -35,6 +35,7 @@ import {
   ActionDropdownItem,
 } from 'components/common/ActionComponent';
 import ContentArea from 'components/common/ContentArea/ContentArea.styled';
+import { MergeCellsOutlined, InteractionOutlined } from '@ant-design/icons';
 
 import LatestVersionItem from './LatestVersion/LatestVersionItem';
 import SchemaVersion from './SchemaVersion/SchemaVersion';
@@ -103,18 +104,19 @@ const Details: React.FC = () => {
         {!isReadOnly && (
           <>
             <Button
-              buttonSize="M"
+              buttonSize="L"
               buttonType="primary"
               to={{
                 pathname: clusterSchemaSchemaComparePageRelativePath,
                 search: `leftVersion=${versions[0]?.version}&rightVersion=${versions[0]?.version}`,
               }}
             >
+              <MergeCellsOutlined />
               Compare Versions
             </Button>
             <ActionButton
-              buttonSize="M"
-              buttonType="primary"
+              buttonSize="L"
+              buttonType="secondary"
               to={clusterSchemaEditPageRelativePath}
               permission={{
                 resource: ResourceType.SCHEMA,
@@ -122,6 +124,7 @@ const Details: React.FC = () => {
                 value: subject,
               }}
             >
+              <InteractionOutlined />
               Edit Schema
             </ActionButton>
             <Dropdown>

@@ -8,6 +8,7 @@ import { RouteParamsClusterTopic } from 'lib/paths';
 import useAppParams from 'lib/hooks/useAppParams';
 import { useTopicDetails } from 'lib/hooks/api/topics';
 import { ColumnDef } from '@tanstack/react-table';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import * as S from './Overview.styled';
 import ActionsCell from './ActionsCell';
@@ -128,7 +129,7 @@ const Overview: React.FC = () => {
             <Metrics.LightText> of {data?.replicas}</Metrics.LightText>
           </Metrics.Indicator>
           <Metrics.Indicator label="Type">
-            <Tag color="gray">{data?.internal ? 'Internal' : 'External'}</Tag>
+            <Tag color="blue">{data?.internal ? 'Internal' : 'External'}</Tag>
           </Metrics.Indicator>
           <Metrics.Indicator label="Segment Size" title="">
             <BytesFormatted value={data?.segmentSize} />
@@ -137,19 +138,21 @@ const Overview: React.FC = () => {
             {data?.segmentCount}
           </Metrics.Indicator>
           <Metrics.Indicator label="Clean Up Policy">
-            <Tag color="gray">{data?.cleanUpPolicy || 'Unknown'}</Tag>
+            <Tag color="green">{data?.cleanUpPolicy || 'Unknown'}</Tag>
           </Metrics.Indicator>
           <Metrics.Indicator label="Message Count">
             {messageCount}
           </Metrics.Indicator>
         </Metrics.Section>
       </Metrics.Wrapper>
-      <Table
-        columns={columns}
-        data={newData}
-        enableSorting
-        emptyMessage="No Partitions found "
-      />
+      <ContentArea>
+        <Table
+          columns={columns}
+          data={newData}
+          enableSorting
+          emptyMessage="No Partitions found "
+        />
+      </ContentArea>
     </>
   );
 };

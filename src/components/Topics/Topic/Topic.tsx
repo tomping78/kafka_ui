@@ -33,6 +33,7 @@ import { Action, CleanUpPolicy, ResourceType } from 'generated-sources';
 import PageLoader from 'components/common/PageLoader/PageLoader';
 import SlidingSidebar from 'components/common/SlidingSidebar';
 import useBoolean from 'lib/hooks/useBoolean';
+import { ProfileOutlined } from '@ant-design/icons';
 
 import Messages from './Messages/Messages';
 import Overview from './Overview/Overview';
@@ -80,7 +81,7 @@ const Topic: React.FC = () => {
         backTo={clusterTopicsPath(clusterName)}
       >
         <ActionButton
-          buttonSize="M"
+          buttonSize="L"
           buttonType="primary"
           onClick={openSidebar}
           disabled={isReadOnly}
@@ -90,6 +91,7 @@ const Topic: React.FC = () => {
             value: topicName,
           }}
         >
+          <ProfileOutlined />
           Produce Message
         </ActionButton>
         <Dropdown disabled={isReadOnly || data?.internal}>

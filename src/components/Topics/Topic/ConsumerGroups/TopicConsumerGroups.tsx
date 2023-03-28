@@ -5,6 +5,7 @@ import useAppParams from 'lib/hooks/useAppParams';
 import { useTopicConsumerGroups } from 'lib/hooks/api/topics';
 import { ColumnDef } from '@tanstack/react-table';
 import Table, { LinkCell, TagCell } from 'components/common/NewTable';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 const TopicConsumerGroups: React.FC = () => {
   const { clusterName, topicName } = useAppParams<RouteParamsClusterTopic>();
@@ -61,12 +62,14 @@ const TopicConsumerGroups: React.FC = () => {
     []
   );
   return (
-    <Table
-      columns={columns}
-      data={consumerGroups}
-      enableSorting
-      emptyMessage="No active consumer groups"
-    />
+    <ContentArea>
+      <Table
+        columns={columns}
+        data={consumerGroups}
+        enableSorting
+        emptyMessage="No active consumer groups"
+      />
+    </ContentArea>
   );
 };
 

@@ -28,7 +28,7 @@ const Statistics: React.FC = () => {
                   resetErrorBoundary();
                 }}
                 buttonType="primary"
-                buttonSize="M"
+                buttonSize="L"
                 permission={{
                   resource: ResourceType.TOPIC,
                   action: Action.MESSAGES_READ,

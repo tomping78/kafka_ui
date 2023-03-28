@@ -7,6 +7,7 @@ import useAppParams from 'lib/hooks/useAppParams';
 import { RouteParamsClusterTopic } from 'lib/paths';
 import { getDefaultSerdeName } from 'components/Topics/Topic/Messages/getDefaultSerdeName';
 import { MESSAGES_PER_PAGE } from 'lib/constants';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import MessagesTable from './MessagesTable';
 import FiltersContainer from './Filters/FiltersContainer';
@@ -94,8 +95,10 @@ const Messages: React.FC = () => {
 
   return (
     <TopicMessagesContext.Provider value={contextValue}>
-      <FiltersContainer />
-      <MessagesTable />
+      <ContentArea>
+        <FiltersContainer />
+        <MessagesTable />
+      </ContentArea>
     </TopicMessagesContext.Provider>
   );
 };

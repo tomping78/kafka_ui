@@ -7,9 +7,9 @@ interface HeadingBaseProps {
 }
 const HeadingBase = styled.h1<HeadingBaseProps>`
   ${({ theme }) => theme.heading?.base}
-  ${({ theme, $level }) => theme.heading?.variants[$level]}
-  /* line-height: 70px; */
-  &::before {
+  ${({ theme, $level }) =>
+    theme.heading?.variants[$level]} /* line-height: 70px; */
+  /* &::before {
     content: '';
     display: block;
     position: absolute;
@@ -18,7 +18,7 @@ const HeadingBase = styled.h1<HeadingBaseProps>`
     height: 5px;
     border-radius: 20px;
     background: #187fde;
-  }
+  } */
 `;
 
 interface HeadingProps {

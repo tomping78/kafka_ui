@@ -20,8 +20,8 @@ const PageHeading: React.FC<PropsWithChildren<PageHeadingProps>> = ({
   return (
     <S.Wrapper>
       <S.Breadcrumbs>
-        {isBackButtonVisible && <S.BackLink to={backTo}>{backText}</S.BackLink>}
         <Heading>{text}</Heading>
+        {isBackButtonVisible && <S.BackLink to={backTo}>{backText}</S.BackLink>}
       </S.Breadcrumbs>
       <div>{children}</div>
     </S.Wrapper>

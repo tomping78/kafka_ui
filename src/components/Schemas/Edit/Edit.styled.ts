@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
 
 export const EditWrapper = styled.div`
-  padding: 16px;
-  padding-top: 0px;
   & > form {
     display: flex;
     flex-direction: column;
@@ -36,7 +34,7 @@ export const EditorsWrapper = styled.div`
 export const EditorContainer = styled.div(
   ({ theme }) => css`
     border: 1px solid ${theme.layout.stuffBorderColor};
-    border-radius: 8px;
+    border-radius: 10px;
     margin-bottom: 16px;
     padding: 16px;
     & > h4 {
