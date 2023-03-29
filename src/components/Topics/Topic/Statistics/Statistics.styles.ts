@@ -23,14 +23,14 @@ export const ActionsBar = styled.div`
   padding: 10px 0;
   align-items: center;
   position: absolute;
-  top: 115px;
+  top: 110px;
   right: 35px;
 `;
 
 export const CreatedAt = styled.div`
-  font-size: 12px;
-  line-height: 1.5;
-  color: ${({ theme }) => theme.statictics.createdAtColor};
+  font-size: 13px;
+  line-height: 2;
+  color: #333;
 `;
 
 export const PartitionInfo = styled.div`

@@ -4,8 +4,8 @@ export const InputLabel = styled.label`
   display: flex;
   align-items: center;
   font-weight: 500;
-  font-size: 13px;
-  line-height: 24px;
+  font-size: 15px;
+  line-height: 28px;
   color: ${({ theme }) => theme.input.label.color};
   input[type='checkbox'] {
     display: inline-block;

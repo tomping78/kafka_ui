@@ -116,5 +116,25 @@ export default createGlobalStyle(
         opacity: 1;
       }
     }
+    /* antd variation */
+    .ant-card-head {
+      background: #ececec !important;
+      min-height: 50px !important;
+    }
+    .ant-card-head-title {
+      font-size: 16px !important;
+    }
+    .ace_variable {
+      color: #e12324 !important;
+    }
+    .ace_string {
+      color: #237800 !important;
+    }
+    .ant-divider-dashed {
+      border-color: rgba(5, 5, 5, 0.1);
+    }
+    .ant-divider-horizontal {
+      margin: 10px 0 !important;
+    }
   `
 );

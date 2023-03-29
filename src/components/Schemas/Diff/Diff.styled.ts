@@ -26,11 +26,11 @@ export const Section = styled.div`
 
 export const DiffBox = styled.div`
   flex-direction: column;
-  margin-left: -0.75rem;
+  /* margin-left: -0.75rem;
   margin-right: -0.75rem;
   margin-top: -0.75rem;
   box-shadow: none;
-  padding: 1.25rem;
+  padding: 1.25rem; */
   &:last-child {
     margin-bottom: -0.75rem;
   }

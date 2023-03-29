@@ -18,6 +18,7 @@ import { useAppDispatch } from 'lib/hooks/redux';
 import { resetLoaderById } from 'redux/reducers/loader/loaderSlice';
 import useAppParams from 'lib/hooks/useAppParams';
 import PageHeading from 'components/common/PageHeading/PageHeading';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import * as S from './Diff.styled';
 
@@ -77,113 +78,117 @@ const Diff: React.FC<DiffProps> = ({ versions, areVersionsFetched }) => {
         backText="Schema Registry"
         backTo={clusterSchemasPath(clusterName)}
       />
-      <S.Section>
-        {areVersionsFetched ? (
-          <S.DiffBox>
-            <S.DiffTilesWrapper>
-              <S.DiffTile>
-                <S.DiffVersionsSelect>
-                  <Controller
-                    defaultValue={leftVersion}
-                    control={control}
-                    rules={{ required: true }}
-                    name="schemaType"
-                    render={({ field: { name } }) => (
-                      <Select
-                        id="left-select"
-                        name={name}
-                        value={
-                          leftVersion === '' ? versions[0].version : leftVersion
-                        }
-                        onChange={(event) => {
-                          navigate(
-                            clusterSchemaComparePath(clusterName, subject)
-                          );
-                          searchParams.set('leftVersion', event.toString());
-                          searchParams.set(
-                            'rightVersion',
-                            rightVersion === ''
-                              ? versions[0].version
-                              : rightVersion
-                          );
-                          navigate({
-                            search: `?${searchParams.toString()}`,
-                          });
-                          setLeftVersion(event.toString());
-                        }}
-                        minWidth="100%"
-                        disabled={isSubmitting}
-                        options={versions.map((type) => ({
-                          value: type.version,
-                          label: `Version ${type.version}`,
-                        }))}
-                      />
-                    )}
-                  />
-                </S.DiffVersionsSelect>
-              </S.DiffTile>
-              <S.DiffTile>
-                <S.DiffVersionsSelect>
-                  <Controller
-                    defaultValue={rightVersion}
-                    control={control}
-                    rules={{ required: true }}
-                    name="schemaType"
-                    render={({ field: { name } }) => (
-                      <Select
-                        id="right-select"
-                        name={name}
-                        value={
-                          rightVersion === ''
-                            ? versions[0].version
-                            : rightVersion
-                        }
-                        onChange={(event) => {
-                          navigate(
-                            clusterSchemaComparePath(clusterName, subject)
-                          );
-                          searchParams.set(
-                            'leftVersion',
+      <ContentArea>
+        <S.Section>
+          {areVersionsFetched ? (
+            <S.DiffBox>
+              <S.DiffTilesWrapper>
+                <S.DiffTile>
+                  <S.DiffVersionsSelect>
+                    <Controller
+                      defaultValue={leftVersion}
+                      control={control}
+                      rules={{ required: true }}
+                      name="schemaType"
+                      render={({ field: { name } }) => (
+                        <Select
+                          id="left-select"
+                          name={name}
+                          value={
                             leftVersion === ''
                               ? versions[0].version
                               : leftVersion
-                          );
-                          searchParams.set('rightVersion', event.toString());
-                          navigate({
-                            search: `?${searchParams.toString()}`,
-                          });
-                          setRightVersion(event.toString());
-                        }}
-                        minWidth="100%"
-                        disabled={isSubmitting}
-                        options={versions.map((type) => ({
-                          value: type.version,
-                          label: `Version ${type.version}`,
-                        }))}
-                      />
-                    )}
-                  />
-                </S.DiffVersionsSelect>
-              </S.DiffTile>
-            </S.DiffTilesWrapper>
-            <S.DiffWrapper>
-              <DiffViewer
-                value={[
-                  getSchemaContent(versions, leftVersion),
-                  getSchemaContent(versions, rightVersion),
-                ]}
-                setOptions={{
-                  autoScrollEditorIntoView: true,
-                }}
-                isFixedHeight={false}
-                schemaType={getSchemaType(versions)}
-              />
-            </S.DiffWrapper>
-          </S.DiffBox>
-        ) : (
-          <PageLoader />
-        )}
-      </S.Section>
+                          }
+                          onChange={(event) => {
+                            navigate(
+                              clusterSchemaComparePath(clusterName, subject)
+                            );
+                            searchParams.set('leftVersion', event.toString());
+                            searchParams.set(
+                              'rightVersion',
+                              rightVersion === ''
+                                ? versions[0].version
+                                : rightVersion
+                            );
+                            navigate({
+                              search: `?${searchParams.toString()}`,
+                            });
+                            setLeftVersion(event.toString());
+                          }}
+                          minWidth="100%"
+                          disabled={isSubmitting}
+                          options={versions.map((type) => ({
+                            value: type.version,
+                            label: `Version ${type.version}`,
+                          }))}
+                        />
+                      )}
+                    />
+                  </S.DiffVersionsSelect>
+                </S.DiffTile>
+                <S.DiffTile>
+                  <S.DiffVersionsSelect>
+                    <Controller
+                      defaultValue={rightVersion}
+                      control={control}
+                      rules={{ required: true }}
+                      name="schemaType"
+                      render={({ field: { name } }) => (
+                        <Select
+                          id="right-select"
+                          name={name}
+                          value={
+                            rightVersion === ''
+                              ? versions[0].version
+                              : rightVersion
+                          }
+                          onChange={(event) => {
+                            navigate(
+                              clusterSchemaComparePath(clusterName, subject)
+                            );
+                            searchParams.set(
+                              'leftVersion',
+                              leftVersion === ''
+                                ? versions[0].version
+                                : leftVersion
+                            );
+                            searchParams.set('rightVersion', event.toString());
+                            navigate({
+                              search: `?${searchParams.toString()}`,
+                            });
+                            setRightVersion(event.toString());
+                          }}
+                          minWidth="100%"
+                          disabled={isSubmitting}
+                          options={versions.map((type) => ({
+                            value: type.version,
+                            label: `Version ${type.version}`,
+                          }))}
+                        />
+                      )}
+                    />
+                  </S.DiffVersionsSelect>
+                </S.DiffTile>
+              </S.DiffTilesWrapper>
+              <S.DiffWrapper>
+                <DiffViewer
+                  value={[
+                    getSchemaContent(versions, leftVersion),
+                    getSchemaContent(versions, rightVersion),
+                  ]}
+                  setOptions={{
+                    autoScrollEditorIntoView: true,
+                  }}
+                  isFixedHeight={false}
+                  schemaType={getSchemaType(versions)}
+                />
+              </S.DiffWrapper>
+            </S.DiffBox>
+          ) : (
+            <PageLoader />
+          )}
+        </S.Section>
+      </ContentArea>
     </>
   );
 };

@@ -6,7 +6,7 @@ const Colors = {
     '4': '#f0f0f0',
     '5': '#F1F2F3',
     '10': '#E3E6E8',
-    '15': '#D5DADD',
+    '15': '#CCCCCC',
     '20': '#C7CED1',
     '25': '#C4C4C4',
     '30': '#ABB5BA',
@@ -164,12 +164,12 @@ const theme = {
     },
     variants: {
       1: {
-        fontSize: '40px',
-        lineHeight: '70px',
+        fontSize: '35px',
+        lineHeight: '65px',
       },
       2: {
         fontSize: '30px',
-        lineHeight: '42px',
+        lineHeight: '45px',
       },
       3: {
         fontSize: '24px',
@@ -246,6 +246,48 @@ const theme = {
         active: Colors.neutral[90],
       },
     },
+    modal_close: {
+      backgroundColor: {
+        normal: Colors.neutral[0],
+        hover: Colors.neutral[0],
+        active: Colors.neutral[15],
+      },
+      color: Colors.neutral[90],
+      isActiveColor: Colors.neutral[0],
+      invertedColors: {
+        normal: Colors.neutral[50],
+        hover: Colors.neutral[70],
+        active: Colors.neutral[90],
+      },
+    },
+    modal_full: {
+      backgroundColor: {
+        normal: Colors.brand[50],
+        hover: Colors.brand[10],
+        active: Colors.brand[20],
+        disabled: Colors.neutral[30],
+      },
+      color: Colors.neutral[0],
+      invertedColors: {
+        normal: Colors.brand[50],
+        hover: Colors.brand[60],
+        active: Colors.brand[60],
+      },
+    },
+    modal_full_secon: {
+      backgroundColor: {
+        normal: Colors.neutral[2],
+        hover: Colors.neutral[110],
+        active: Colors.neutral[15],
+      },
+      color: Colors.neutral[0],
+      isActiveColor: Colors.neutral[0],
+      invertedColors: {
+        normal: Colors.neutral[50],
+        hover: Colors.neutral[70],
+        active: Colors.neutral[90],
+      },
+    },
     danger: {
       backgroundColor: {
         normal: Colors.red[50],
@@ -264,11 +306,13 @@ const theme = {
       S: '24px',
       M: '32px',
       L: '40px',
+      F: '70px',
     },
     fontSize: {
       S: '14px',
       M: '14px',
       L: '17px',
+      F: '24px',
     },
     border: {
       normal: Colors.neutral[50],
@@ -377,7 +421,7 @@ const theme = {
       normal: 'transparent',
       hover: 'transparent',
       active: Colors.neutral[2],
-      nav: Colors.neutral[10],
+      nav: Colors.neutral[25],
     },
   },
   secondaryTab: {
@@ -439,7 +483,7 @@ const theme = {
       color: Colors.neutral[70],
     },
     label: {
-      color: Colors.neutral[70],
+      color: Colors.neutral[100],
     },
   },
   textArea: {

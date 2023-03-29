@@ -1,8 +1,14 @@
+/* eslint-disable no-nested-ternary */
 import styled from 'styled-components';
 
 export interface ButtonProps {
-  buttonType: 'primary' | 'secondary';
-  buttonSize: 'S' | 'M' | 'L';
+  buttonType:
+    | 'primary'
+    | 'secondary'
+    | 'modal_close'
+    | 'modal_full'
+    | 'modal_full_secon';
+  buttonSize: 'S' | 'M' | 'L' | 'F';
   isInverted?: boolean;
 }
 
@@ -11,14 +17,26 @@ const StyledButton = styled.button<ButtonProps>`
   flex-direction: row;
   align-items: center;
   justify-content: ${(props) =>
-    props.buttonSize === 'S' ? 'center' : 'space-between'};
-  padding: 8px 15px;
-  min-width: ${(props) => (props.buttonSize === 'L' ? '120px' : '85px')};
-  border: ${(props) =>
-    props.buttonSize === 'L' ? '1px solid #f2f3f6' : 'none'};
+    props.buttonSize === 'S'
+      ? 'center'
+      : props.buttonSize === 'F'
+      ? 'center'
+      : 'space-between'};
+  padding: ${(props) =>
+    props.buttonType === 'modal_full' ? '20px 15px' : '8px 15px'};
+  /* width: ${(props) =>
+    props.buttonType === 'modal_full' ? '100%' : 'auto'}; */
+  min-width: ${(props) =>
+    props.buttonSize === 'L'
+      ? '120px'
+      : props.buttonSize === 'F'
+      ? 'auto'
+      : '85px'};
+  border: none;
   border-radius: ${(props) => (props.buttonSize === 'M' ? '5px' : '0px')};
   white-space: nowrap;
   box-sizing: border-box;
+  line-height: 100%;
 
   background: ${(props) =>
     props.isInverted
@@ -65,7 +83,12 @@ const StyledButton = styled.button<ButtonProps>`
   & :first-of-type {
     svg {
       margin-right: ${(props) => (props.buttonSize === 'L' ? '15px' : '0px')};
-      font-size: ${(props) => (props.buttonSize === 'M' ? '12px' : '18px')};
+      font-size: ${(props) =>
+        props.buttonSize === 'M'
+          ? '12px'
+          : props.buttonSize === 'F'
+          ? '24px'
+          : '18px'};
     }
   }
 `;

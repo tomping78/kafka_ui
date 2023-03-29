@@ -25,12 +25,13 @@ export const Wrapper = styled.div`
 
   & > div:last-child {
     flex-grow: 1;
-    padding: 24px;
 
-    & > div {
+    & > div.ant-card-body {
       display: block;
-      padding: 0;
-      border-top: 2px solid #333;
+      padding: 24px;
+      & > div:first-child {
+        border-top: 2px solid #333;
+      }
       & > div {
         display: flex;
         padding: 0;

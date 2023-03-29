@@ -234,6 +234,7 @@ const Topic: React.FC = () => {
           <Route path={clusterTopicEditRelativePath} element={<Edit />} />
         </Routes>
       </Suspense>
+
       <SlidingSidebar
         open={isSidebarOpen}
         onClose={closeSidebar}

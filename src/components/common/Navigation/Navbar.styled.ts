@@ -7,7 +7,7 @@ const Navbar = styled.nav`
   margin-bottom: 20px;
 
   & a:last-child {
-    border-right: 1px solid #dedede;
+    border-right: 1px solid #ccc;
   }
   & a {
     height: 40px;
@@ -19,8 +19,8 @@ const Navbar = styled.nav`
     font-weight: 500;
     font-size: 16px;
     white-space: nowrap;
-    color: #bababa;
-    border: 1px solid #dedede;
+    color: #888;
+    border: 1px solid #ccc;
     border-right: 0;
     border-bottom: 0;
     background: #f5f5f5;

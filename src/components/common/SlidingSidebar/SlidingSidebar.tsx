@@ -1,6 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import Heading from 'components/common/heading/Heading.styled';
 import { Button } from 'components/common/Button/Button';
+import { CloseOutlined } from '@ant-design/icons';
 
 import * as S from './SlidingSidebar.styled';
 
@@ -17,15 +18,19 @@ const SlidingSidebar: React.FC<SlidingSidebarProps> = ({
   onClose,
 }) => {
   return (
-    <S.Wrapper $open={open}>
-      <Heading level={3}>
-        <span>{title}</span>
-        <Button buttonSize="M" buttonType="primary" onClick={onClose}>
-          Close
-        </Button>
-      </Heading>
-      <S.Content>{children}</S.Content>
-    </S.Wrapper>
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    <>
+      <S.Shadow $open={open} onClick={onClose} />
+      <S.Wrapper $open={open}>
+        <Heading level={2}>
+          <span>{title}</span>
+          <Button buttonSize="F" buttonType="modal_close" onClick={onClose}>
+            <CloseOutlined />
+          </Button>
+        </Heading>
+        <S.Content>{children}</S.Content>
+      </S.Wrapper>
+    </>
   );
 };
 

@@ -30,7 +30,7 @@ const LatestVersionItem: React.FC<LatestVersionProps> = ({
     <CardWrap type="inner" title="Actual version">
       <EditorViewer data={schema} schemaType={schemaType} maxLines={28} />
     </CardWrap>
-    <CardWrap>
+    <CardWrap type="inner" title="Latest version">
       <InnerList>
         <div>Latest version</div>
         <p>{version}</p>

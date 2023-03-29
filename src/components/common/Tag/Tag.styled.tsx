@@ -18,5 +18,4 @@ export const Tag = styled.span.attrs({ role: 'widget' })<Props>`
   padding-right: 0.75em;
   text-align: center;
   width: max-content;
-  margin: 2px 0;
 `;

@@ -30,7 +30,7 @@ const Editor = React.forwardRef<ReactAce | null, EditorProps>((props, ref) => {
       height={
         isFixedHeight
           ? `${(props.value?.split('\n').length || 32) * 19}px`
-          : '372px'
+          : '150px'
       }
       wrapEnabled
       {...rest}

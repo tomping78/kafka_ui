@@ -1,13 +1,20 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  display: block;
-  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  & > form {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
 `;
 
 export const Columns = styled.div`
-  margin: -0.75rem;
-  margin-bottom: 0.75rem;
+  /* margin: -16px; */
+  /* margin-bottom: 16px; */
+  margin: 10px 0;
 
   @media screen and (min-width: 769px) {
     display: flex;
@@ -15,8 +22,6 @@ export const Columns = styled.div`
 `;
 
 export const Column = styled.div`
-  flex-basis: 0;
-  flex-grow: 1;
-  flex-shrink: 1;
-  padding: 0.75rem;
+  flex: 1 1 auto;
+  padding: 0 8px;
 `;

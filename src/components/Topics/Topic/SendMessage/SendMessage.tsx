@@ -10,6 +10,8 @@ import { useSendMessage, useTopicDetails } from 'lib/hooks/api/topics';
 import { InputLabel } from 'components/common/Input/InputLabel.styled';
 import { useSerdes } from 'lib/hooks/api/topicMessages';
 import { SerdeUsage } from 'generated-sources';
+import { Divider, Card } from 'antd';
+import styled from 'styled-components';
 
 import * as S from './SendMessage.styled';
 import {
@@ -116,124 +118,163 @@ const SendMessage: React.FC<{ onSubmit: () => void }> = ({ onSubmit }) => {
     }
   };
 
+  const CardWrap = styled(Card)`
+    font-family: 'Titillium Web', sans-serif;
+    border: 1px solid #dedede;
+    & .ant-card-head {
+      background: #f5f5f5;
+    }
+  `;
+  const ButtonArea = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    bottom: 0;
+    & > button {
+      flex: 1 1 0;
+    }
+  `;
+  const WrapInner = styled.div`
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+  `;
+
   return (
     <S.Wrapper>
       <form onSubmit={handleSubmit(submit)}>
-        <S.Columns>
-          <S.Column>
-            <InputLabel>Partition</InputLabel>
-            <Controller
-              control={control}
-              name="partition"
-              render={({ field: { name, onChange, value } }) => (
-                <Select
-                  id="selectPartitionOptions"
-                  aria-labelledby="selectPartitionOptions"
-                  name={name}
-                  onChange={onChange}
-                  minWidth="100%"
-                  options={partitionOptions}
-                  value={value}
+        <WrapInner>
+          <S.Columns>
+            <S.Column>
+              <InputLabel>Partition</InputLabel>
+              <Controller
+                control={control}
+                name="partition"
+                render={({ field: { name, onChange, value } }) => (
+                  <Select
+                    id="selectPartitionOptions"
+                    aria-labelledby="selectPartitionOptions"
+                    name={name}
+                    onChange={onChange}
+                    minWidth="100%"
+                    options={partitionOptions}
+                    value={value}
+                  />
+                )}
+              />
+            </S.Column>
+            <S.Column>
+              <InputLabel>Key Serde</InputLabel>
+              <Controller
+                control={control}
+                name="keySerde"
+                render={({ field: { name, onChange, value } }) => (
+                  <Select
+                    id="selectKeySerdeOptions"
+                    aria-labelledby="selectKeySerdeOptions"
+                    name={name}
+                    onChange={onChange}
+                    minWidth="100%"
+                    options={getSerdeOptions(serdes.key || [])}
+                    value={value}
+                  />
+                )}
+              />
+            </S.Column>
+            <S.Column>
+              <InputLabel>Value Serde</InputLabel>
+              <Controller
+                control={control}
+                name="valueSerde"
+                render={({ field: { name, onChange, value } }) => (
+                  <Select
+                    id="selectValueSerdeOptions"
+                    aria-labelledby="selectValueSerdeOptions"
+                    name={name}
+                    onChange={onChange}
+                    minWidth="100%"
+                    options={getSerdeOptions(serdes.value || [])}
+                    value={value}
+                  />
+                )}
+              />
+            </S.Column>
+          </S.Columns>
+          <Divider dashed />
+          <S.Columns>
+            <S.Column>
+              <CardWrap type="inner" title="Key">
+                <Controller
+                  control={control}
+                  name="key"
+                  render={({ field: { name, onChange, value } }) => (
+                    <Editor
+                      readOnly={isSubmitting}
+                      name={name}
+                      onChange={onChange}
+                      value={value}
+                    />
+                  )}
                 />
-              )}
-            />
-          </S.Column>
-          <S.Column>
-            <InputLabel>Key Serde</InputLabel>
-            <Controller
-              control={control}
-              name="keySerde"
-              render={({ field: { name, onChange, value } }) => (
-                <Select
-                  id="selectKeySerdeOptions"
-                  aria-labelledby="selectKeySerdeOptions"
-                  name={name}
-                  onChange={onChange}
-                  minWidth="100%"
-                  options={getSerdeOptions(serdes.key || [])}
-                  value={value}
+              </CardWrap>
+            </S.Column>
+            <S.Column>
+              <CardWrap type="inner" title="Value">
+                <Controller
+                  control={control}
+                  name="content"
+                  render={({ field: { name, onChange, value } }) => (
+                    <Editor
+                      readOnly={isSubmitting}
+                      name={name}
+                      onChange={onChange}
+                      value={value}
+                    />
+                  )}
                 />
-              )}
-            />
-          </S.Column>
-          <S.Column>
-            <InputLabel>Value Serde</InputLabel>
-            <Controller
-              control={control}
-              name="valueSerde"
-              render={({ field: { name, onChange, value } }) => (
-                <Select
-                  id="selectValueSerdeOptions"
-                  aria-labelledby="selectValueSerdeOptions"
-                  name={name}
-                  onChange={onChange}
-                  minWidth="100%"
-                  options={getSerdeOptions(serdes.value || [])}
-                  value={value}
+              </CardWrap>
+            </S.Column>
+          </S.Columns>
+          <S.Columns>
+            <S.Column>
+              <CardWrap type="inner" title="Header">
+                <Controller
+                  control={control}
+                  name="headers"
+                  render={({ field: { name, onChange } }) => (
+                    <Editor
+                      readOnly={isSubmitting}
+                      defaultValue="{}"
+                      name={name}
+                      onChange={onChange}
+                      height="200px"
+                    />
+                  )}
                 />
-              )}
-            />
-          </S.Column>
-        </S.Columns>
-
-        <S.Columns>
-          <S.Column>
-            <InputLabel>Key</InputLabel>
-            <Controller
-              control={control}
-              name="key"
-              render={({ field: { name, onChange, value } }) => (
-                <Editor
-                  readOnly={isSubmitting}
-                  name={name}
-                  onChange={onChange}
-                  value={value}
-                />
-              )}
-            />
-          </S.Column>
-          <S.Column>
-            <InputLabel>Value</InputLabel>
-            <Controller
-              control={control}
-              name="content"
-              render={({ field: { name, onChange, value } }) => (
-                <Editor
-                  readOnly={isSubmitting}
-                  name={name}
-                  onChange={onChange}
-                  value={value}
-                />
-              )}
-            />
-          </S.Column>
-        </S.Columns>
-        <S.Columns>
-          <S.Column>
-            <InputLabel>Headers</InputLabel>
-            <Controller
-              control={control}
-              name="headers"
-              render={({ field: { name, onChange } }) => (
-                <Editor
-                  readOnly={isSubmitting}
-                  defaultValue="{}"
-                  name={name}
-                  onChange={onChange}
-                  height="200px"
-                />
-              )}
-            />
-          </S.Column>
-        </S.Columns>
-        <Button
-          buttonSize="M"
-          buttonType="primary"
-          type="submit"
-          disabled={isSubmitting}
-        >
-          Produce Message
-        </Button>
+              </CardWrap>
+            </S.Column>
+          </S.Columns>
+        </WrapInner>
+        <ButtonArea>
+          <Button
+            buttonSize="F"
+            buttonType="modal_full_secon"
+            type="submit"
+            disabled={isSubmitting}
+          >
+            Cancel
+          </Button>
+          <Button
+            buttonSize="F"
+            buttonType="modal_full"
+            type="submit"
+            disabled={isSubmitting}
+          >
+            Submit
+          </Button>
+        </ButtonArea>
       </form>
     </S.Wrapper>
   );

@@ -80,7 +80,7 @@ export const Th = styled.th<ThProps>(
   vertical-align: middle;
   text-align: left;
   font-family: Titillium Web, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 600;
   color:#333;
@@ -150,7 +150,7 @@ export const Table = styled.table(
     border-bottom: 1px solid #dadada;
     font-size: 14px;
     font-weight: 400;
-    padding: 12px 8px 12px 24px;
+    padding: 11px 8px 11px 24px;
     color: ${table.td.color.normal};
     vertical-align: middle;
     word-wrap: break-word;

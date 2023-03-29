@@ -19,7 +19,7 @@ const DiffViewer = React.forwardRef<DiffEditor | null, DiffViewerProps>(
         ? Math.max(
             props.value[0].split(/\r\n|\r|\n/).length + 1,
             props.value[1].split(/\r\n|\r|\n/).length + 1
-          ) * 16
+          ) * 14
         : 500;
     return (
       <div>
