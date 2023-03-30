@@ -30,7 +30,7 @@ import { schemasApiClient } from 'lib/api';
 import { showServerError } from 'lib/errorHandling';
 import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 import styled from 'styled-components';
-import { Card } from 'antd';
+import { Card, Divider } from 'antd';
 
 import * as S from './Edit.styled';
 
@@ -171,6 +171,7 @@ const Form: React.FC = () => {
                 />
               </div>
             </div>
+            <Divider dashed />
             <S.EditorsWrapper>
               <div>
                 <CardWrap type="inner" title="Latest schema">
@@ -178,7 +179,7 @@ const Form: React.FC = () => {
                     schemaType={schema?.schemaType}
                     isFixedHeight
                     readOnly
-                    height="372px"
+                    height="350px"
                     value={formatedSchema}
                     name="latestSchema"
                     highlightActiveLine={false}
@@ -197,20 +198,24 @@ const Form: React.FC = () => {
                         defaultValue={value}
                         name={name}
                         onChange={onChange}
+                        height="350px"
                       />
                     )}
                   />
                 </CardWrap>
               </div>
             </S.EditorsWrapper>
-            <Button
-              buttonType="primary"
-              buttonSize="M"
-              type="submit"
-              disabled={!isDirty || isSubmitting}
-            >
-              Submit
-            </Button>
+            <Divider dashed />
+            <S.ButtonWrapper>
+              <Button
+                buttonType="primary"
+                buttonSize="M"
+                type="submit"
+                disabled={!isDirty || isSubmitting}
+              >
+                Submit
+              </Button>
+            </S.ButtonWrapper>
           </form>
         </S.EditWrapper>
       </ContentArea>

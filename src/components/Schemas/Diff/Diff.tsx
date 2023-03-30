@@ -19,6 +19,7 @@ import { resetLoaderById } from 'redux/reducers/loader/loaderSlice';
 import useAppParams from 'lib/hooks/useAppParams';
 import PageHeading from 'components/common/PageHeading/PageHeading';
 import ContentArea from 'components/common/ContentArea/ContentArea.styled';
+import { Divider } from 'antd';
 
 import * as S from './Diff.styled';
 
@@ -170,6 +171,7 @@ const Diff: React.FC<DiffProps> = ({ versions, areVersionsFetched }) => {
                   </S.DiffVersionsSelect>
                 </S.DiffTile>
               </S.DiffTilesWrapper>
+              <Divider />
               <S.DiffWrapper>
                 <DiffViewer
                   value={[

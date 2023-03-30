@@ -136,7 +136,7 @@ const SendMessage: React.FC<{ onSubmit: () => void }> = ({ onSubmit }) => {
     }
   `;
   const WrapInner = styled.div`
-    padding: 20px 30px;
+    padding: 20px 26px;
     display: flex;
     flex-direction: column;
     flex: 1 1 100%;

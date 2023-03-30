@@ -46,7 +46,7 @@ export const Wrapper = styled.div`
       content: '';
       display: block;
       position: absolute;
-      top: 35px;
+      top: 32px;
       width: 22px;
       height: 5px;
       border-radius: 20px;

@@ -50,4 +50,5 @@ export const Button = styled.button<{ isActive: boolean }>`
 export const ButtonWrapper = styled.div`
   display: flex;
   gap: 10px;
+  justify-content: right;
 `;

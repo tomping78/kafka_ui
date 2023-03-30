@@ -11,5 +11,5 @@ export const DeleteButtonWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-self: flex-start;
-  margin-top: 32px;
+  margin-top: 38px;
 `;

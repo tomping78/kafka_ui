@@ -4,7 +4,7 @@ export const EditWrapper = styled.div`
   & > form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 
     & > div:first-child {
       display: flex;
@@ -45,3 +45,8 @@ export const EditorContainer = styled.div(
     }
   `
 );
+export const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: right;
+`;

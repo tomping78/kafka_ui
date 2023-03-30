@@ -199,7 +199,7 @@ const QueryForm: React.FC<Props> = ({
               ))}
               <Button
                 type="button"
-                buttonSize="M"
+                buttonSize="S"
                 buttonType="secondary"
                 onClick={handleAddNewProperty}
               >

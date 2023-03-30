@@ -60,7 +60,7 @@ const CustomParams: React.FC<CustomParamsProps> = ({
       <div>
         <Button
           type="button"
-          buttonSize="M"
+          buttonSize="S"
           buttonType="secondary"
           onClick={() =>
             append({ name: '', value: '' }, { shouldFocus: false })

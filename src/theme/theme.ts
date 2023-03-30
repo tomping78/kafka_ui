@@ -164,7 +164,7 @@ const theme = {
     },
     variants: {
       1: {
-        fontSize: '35px',
+        fontSize: '38px',
         lineHeight: '65px',
       },
       2: {
@@ -250,7 +250,7 @@ const theme = {
       backgroundColor: {
         normal: Colors.neutral[0],
         hover: Colors.neutral[0],
-        active: Colors.neutral[15],
+        active: Colors.neutral[0],
       },
       color: Colors.neutral[90],
       isActiveColor: Colors.neutral[0],

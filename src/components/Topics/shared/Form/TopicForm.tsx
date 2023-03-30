@@ -254,18 +254,19 @@ const TopicForm: React.FC<Props> = ({
             </div>
           </S.Column>
 
-          <Divider dashed style={{ borderColor: '#dadada' }} />
+          <Divider dashed />
           <S.CustomParamsHeading>Custom parameters</S.CustomParamsHeading>
           <CustomParams
             config={config}
             isSubmitting={isSubmitting}
             isEditing={isEditing}
           />
+          <Divider dashed />
           <S.ButtonWrapper>
             <Button
               type="button"
               buttonType="secondary"
-              buttonSize="L"
+              buttonSize="M"
               onClick={onCancel}
             >
               Cancel
@@ -273,7 +274,7 @@ const TopicForm: React.FC<Props> = ({
             <Button
               type="submit"
               buttonType="primary"
-              buttonSize="L"
+              buttonSize="M"
               disabled={!isValid || isSubmitting || !isDirty}
             >
               {isEditing ? 'Update topic' : 'Create topic'}

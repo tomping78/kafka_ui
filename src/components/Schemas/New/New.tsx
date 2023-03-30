@@ -26,6 +26,7 @@ import { schemasApiClient } from 'lib/api';
 import yup from 'lib/yupExtended';
 import { yupResolver } from '@hookform/resolvers/yup';
 import ContentArea from 'components/common/ContentArea/ContentArea.styled';
+import { Divider } from 'antd';
 
 import * as S from './New.styled';
 
@@ -161,15 +162,17 @@ const New: React.FC = () => {
               <ErrorMessage errors={errors} name="schemaType" />
             </FormError>
           </div>
-
-          <Button
-            buttonSize="M"
-            buttonType="primary"
-            type="submit"
-            disabled={!isValid || isSubmitting || !isDirty}
-          >
-            Submit
-          </Button>
+          <Divider dashed />
+          <S.ButtonWrapper>
+            <Button
+              buttonSize="M"
+              buttonType="primary"
+              type="submit"
+              disabled={!isValid || isSubmitting || !isDirty}
+            >
+              Submit
+            </Button>
+          </S.ButtonWrapper>
         </S.Form>
       </ContentArea>
     </FormProvider>

@@ -17,3 +17,8 @@ export const Form = styled.form`
     width: 30%;
   }
 `;
+export const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: right;
+`;
