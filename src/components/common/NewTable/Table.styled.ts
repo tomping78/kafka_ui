@@ -184,7 +184,7 @@ export const EmptyTableMessageCell = styled.td`
 export const Pagination = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 16px;
+  padding: 16px 0;
   line-height: 32px;
 `;
 
@@ -210,7 +210,22 @@ export const PageInfo = styled.div`
   font-size: 14px;
   flex-wrap: nowrap;
   white-space: nowrap;
-  margin-left: 16px;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  padding: 0 15px;
+  & span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & > span {
+      margin-right: 15px;
+    }
+    & > i {
+      font-style: normal;
+      font-weight: 600;
+      padding-left: 5px;
+    }
+  }
 `;
 
 export const Ellipsis = styled.div`

@@ -13,6 +13,7 @@ import { Button } from 'components/common/Button/Button';
 import { useSearchParams } from 'react-router-dom';
 import { MESSAGES_PER_PAGE } from 'lib/constants';
 import * as S from 'components/common/NewTable/Table.styled';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 import PreviewModal from './PreviewModal';
 import Message, { PreviewFilter } from './Message';
@@ -122,19 +123,19 @@ const MessagesTable: React.FC = () => {
         <S.Pages>
           <Button
             buttonType="secondary"
-            buttonSize="L"
+            buttonSize="M"
             disabled={isPrevPageButtonDisabled}
             onClick={handlePrevPage}
           >
-            ← Back
+            <LeftOutlined /> Prev
           </Button>
           <Button
             buttonType="secondary"
-            buttonSize="L"
+            buttonSize="M"
             disabled={isNextPageButtonDisabled}
             onClick={handleNextPage}
           >
-            Next →
+            Next <RightOutlined />
           </Button>
         </S.Pages>
       </S.Pagination>

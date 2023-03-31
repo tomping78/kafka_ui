@@ -116,6 +116,23 @@ export default createGlobalStyle(
         opacity: 1;
       }
     }
+    /* scroll */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      height: 30%;
+      background: rgba(59, 59, 59, 0.2);
+      border-radius: 20px;
+      &:hover {
+        background: rgba(59, 59, 59, 0.3);
+      }
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(59, 59, 59, 0.13);
+    }
     /* antd variation */
     .ant-card-head {
       background: #ececec !important;
@@ -134,7 +151,7 @@ export default createGlobalStyle(
       border-color: rgba(5, 5, 5, 0.1);
     }
     .ant-divider-horizontal {
-      margin: 10px 0 !important;
+      margin: 15px 0 !important;
     }
   `
 );

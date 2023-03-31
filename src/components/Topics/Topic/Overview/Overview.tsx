@@ -129,7 +129,7 @@ const Overview: React.FC = () => {
             <Metrics.LightText> of {data?.replicas}</Metrics.LightText>
           </Metrics.Indicator>
           <Metrics.Indicator label="Type">
-            <Tag color="blue">{data?.internal ? 'Internal' : 'External'}</Tag>
+            <Tag color="blue">{data?.internal ? 'INTERNAL' : 'EXTERNAL'}</Tag>
           </Metrics.Indicator>
           <Metrics.Indicator label="Segment Size" title="">
             <BytesFormatted value={data?.segmentSize} />

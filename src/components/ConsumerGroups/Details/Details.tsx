@@ -27,6 +27,7 @@ import { Dropdown } from 'components/common/Dropdown';
 import { ControlPanelWrapper } from 'components/common/ControlPanel/ControlPanel.styled';
 import { Action, ResourceType } from 'generated-sources';
 import { ActionDropdownItem } from 'components/common/ActionComponent';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import ListItem from './ListItem';
 
@@ -72,7 +73,7 @@ const Details: React.FC = () => {
     : Object.keys(partitionsByTopic);
 
   return (
-    <div>
+    <>
       <div>
         <PageHeading
           text={consumerGroupID}
@@ -131,29 +132,31 @@ const Details: React.FC = () => {
           </Metrics.Indicator>
         </Metrics.Section>
       </Metrics.Wrapper>
-      <ControlPanelWrapper hasInput style={{ margin: '16px 0 20px' }}>
-        <Search placeholder="Search by Topic Name" />
-      </ControlPanelWrapper>
-      <Table isFullwidth>
-        <thead>
-          <tr>
-            <TableHeaderCell> </TableHeaderCell>
-            <TableHeaderCell title="Topic" />
-            <TableHeaderCell title="Messages behind" />
-          </tr>
-        </thead>
-        <tbody>
-          {currentPartitionsByTopic.map((key) => (
-            <ListItem
-              clusterName={clusterName}
-              consumers={partitionsByTopic[key]}
-              name={key}
-              key={key}
-            />
-          ))}
-        </tbody>
-      </Table>
-    </div>
+      <ContentArea>
+        <ControlPanelWrapper hasInput style={{ margin: '16px 0 20px' }}>
+          <Search placeholder="Search by Topic Name" />
+        </ControlPanelWrapper>
+        <Table isFullwidth>
+          <thead>
+            <tr>
+              <TableHeaderCell> </TableHeaderCell>
+              <TableHeaderCell title="Topic" />
+              <TableHeaderCell title="Messages behind" />
+            </tr>
+          </thead>
+          <tbody>
+            {currentPartitionsByTopic.map((key) => (
+              <ListItem
+                clusterName={clusterName}
+                consumers={partitionsByTopic[key]}
+                name={key}
+                key={key}
+              />
+            ))}
+          </tbody>
+        </Table>
+      </ContentArea>
+    </>
   );
 };
 

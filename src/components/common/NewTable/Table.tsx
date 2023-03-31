@@ -23,6 +23,7 @@ import {
   DoubleRightOutlined,
   LeftOutlined,
   RightOutlined,
+  FileSearchOutlined,
 } from '@ant-design/icons';
 
 import * as S from './Table.styled';
@@ -351,8 +352,9 @@ const Table: React.FC<TableProps<any>> = ({
           </S.Pages>
           <S.PageInfo>
             <span>
-              Page {table.getState().pagination.pageIndex + 1} of{' '}
-              {table.getPageCount()}{' '}
+              <FileSearchOutlined /> Page{' '}
+              {table.getState().pagination.pageIndex + 1} of{' '}
+              <i>{table.getPageCount()} </i>
             </span>
           </S.PageInfo>
         </S.Pagination>

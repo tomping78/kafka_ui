@@ -69,17 +69,16 @@ const DESCMixin = css(
 
 export const Title = styled.span<TitleProps>(
   ({ isOrderable, isOrdered, sortOrder, theme: { table } }) => css`
-    font-family: Inter, sans-serif;
-    font-size: 12px;
+    font-family: Titillium Web, sans-serif;
+    font-size: 15px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 16px;
     letter-spacing: 0em;
     text-align: left;
     display: inline-block;
     justify-content: start;
     align-items: center;
-    background: ${table.th.backgroundColor.normal};
     cursor: default;
     color: ${table.th.color.normal};
 
@@ -93,13 +92,12 @@ export const Title = styled.span<TitleProps>(
 
 export const Preview = styled.span`
   margin-left: 8px;
-  font-family: Inter, sans-serif;
+  font-family: Titillium Web, sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
   letter-spacing: 0em;
   text-align: left;
-  background: ${(props) => props.theme.table.th.backgroundColor.normal};
   font-size: 14px;
   color: ${(props) => props.theme.table.th.previewColor.normal};
   cursor: pointer;

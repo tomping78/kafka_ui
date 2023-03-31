@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import { ToastTypes } from 'lib/errorHandling';
 
 export const Alert = styled.div<{ $type: ToastTypes }>`
-  background-color: ${({ $type, theme }) => theme.alert.color[$type]};
+  border: 2px solid ${({ $type, theme }) => theme.alert.color[$type]};
+  background: #fff;
   width: 500px;
   min-height: 64px;
   border-radius: 8px;
-  padding: 12px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -16,8 +17,8 @@ export const Alert = styled.div<{ $type: ToastTypes }>`
 `;
 
 export const Title = styled.div`
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 18px;
 `;
 
 export const Message = styled.div`

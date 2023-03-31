@@ -24,8 +24,6 @@ const StyledButton = styled.button<ButtonProps>`
       : 'space-between'};
   padding: ${(props) =>
     props.buttonType === 'modal_full' ? '20px 15px' : '8px 15px'};
-  /* width: ${(props) =>
-    props.buttonType === 'modal_full' ? '100%' : 'auto'}; */
   min-width: ${(props) =>
     props.buttonSize === 'L'
       ? '120px'

@@ -51,6 +51,7 @@ const Colors = {
   yellow: {
     '10': '#fafcf4',
     '20': '#FFDD57',
+    '30': '#ffce0c',
   },
   blue: {
     '10': '#e3f2fd',
@@ -199,10 +200,10 @@ const theme = {
   },
   alert: {
     color: {
-      error: Colors.red[10],
-      success: Colors.green[10],
-      warning: Colors.yellow[10],
-      info: Colors.neutral[10],
+      error: Colors.red[50],
+      success: Colors.green[60],
+      warning: Colors.yellow[30],
+      info: Colors.brand[10],
       loading: Colors.neutral[10],
       blank: Colors.neutral[10],
       custom: Colors.neutral[10],
@@ -377,7 +378,7 @@ const theme = {
       },
       color: {
         sortable: Colors.neutral[30],
-        normal: Colors.neutral[60],
+        normal: Colors.neutral[2],
         hover: Colors.neutral[100],
         active: Colors.brand[50],
       },

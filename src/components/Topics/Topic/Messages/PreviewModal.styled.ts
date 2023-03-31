@@ -12,6 +12,9 @@ export const PreviewModal = styled.div`
   box-shadow: ${({ theme }) => theme.modal.shadow};
   padding: 32px;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 `;
 
 export const ButtonWrapper = styled.div`

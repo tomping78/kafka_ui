@@ -29,7 +29,6 @@ import TopicMessagesContext from 'components/contexts/TopicMessagesContext';
 import useBoolean from 'lib/hooks/useBoolean';
 import { RouteParamsClusterTopic } from 'lib/paths';
 import useAppParams from 'lib/hooks/useAppParams';
-import PlusIcon from 'components/common/Icons/PlusIcon';
 import CloseIcon from 'components/common/Icons/CloseIcon';
 import ClockIcon from 'components/common/Icons/ClockIcon';
 import ArrowDownIcon from 'components/common/Icons/ArrowDownIcon';
@@ -38,6 +37,8 @@ import { useTopicDetails } from 'lib/hooks/api/topics';
 import { InputLabel } from 'components/common/Input/InputLabel.styled';
 import { getSerdeOptions } from 'components/Topics/Topic/SendMessage/utils';
 import { useSerdes } from 'lib/hooks/api/topicMessages';
+import { Divider, Tooltip } from 'antd';
+import { PauseCircleOutlined, ClearOutlined } from '@ant-design/icons';
 
 import * as S from './Filters.styled';
 import {
@@ -491,7 +492,11 @@ const Filters: React.FC<FiltersProps> = ({
               disabled={isTailing}
             />
           </div>
-          <S.ClearAll onClick={handleClearAllFilters}>Clear all</S.ClearAll>
+          <S.ClearAll onClick={handleClearAllFilters}>
+            <Tooltip title="Clear all">
+              <ClearOutlined />
+            </Tooltip>
+          </S.ClearAll>
           <Button
             type="submit"
             buttonType="secondary"
@@ -514,21 +519,60 @@ const Filters: React.FC<FiltersProps> = ({
           isLive={isLive}
         />
       </div>
+      <Divider dashed />
       <S.ActiveSmartFilterWrapper>
-        <Search placeholder="Search" disabled={isTailing} />
+        <S.FiterSearchWrapper>
+          <Search placeholder="Search" disabled={isTailing} />
 
-        <Button buttonType="primary" buttonSize="M" onClick={toggle}>
-          <PlusIcon />
-          Add Filters
-        </Button>
-        {activeFilter.name && (
-          <S.ActiveSmartFilter data-testid="activeSmartFilter">
-            {activeFilter.name}
-            <S.DeleteSavedFilterIcon onClick={deleteActiveFilter}>
-              <CloseIcon />
-            </S.DeleteSavedFilterIcon>
-          </S.ActiveSmartFilter>
-        )}
+          <Button buttonType="primary" buttonSize="M" onClick={toggle}>
+            Add Filters
+          </Button>
+          {activeFilter.name && (
+            <S.ActiveSmartFilter data-testid="activeSmartFilter">
+              {activeFilter.name}
+              <S.DeleteSavedFilterIcon onClick={deleteActiveFilter}>
+                <CloseIcon />
+              </S.DeleteSavedFilterIcon>
+            </S.ActiveSmartFilter>
+          )}
+        </S.FiterSearchWrapper>
+        <S.FiltersMetrics>
+          <p>
+            {seekDirection !== SeekDirection.TAILING &&
+              isFetching &&
+              phaseMessage}
+          </p>
+          <S.MessageLoading isLive={isTailing}>
+            <S.MessageLoadingSpinner isFetching={isFetching} />
+            Loading messages.
+            <S.StopLoading
+              onClick={() => {
+                handleSSECancel();
+                setIsTailing(false);
+              }}
+            >
+              <PauseCircleOutlined /> Stop loading
+            </S.StopLoading>
+          </S.MessageLoading>
+          <S.Metric title="Elapsed Time">
+            <S.MetricsIcon>
+              <ClockIcon />
+            </S.MetricsIcon>
+            <span>{Math.max(elapsedMs || 0, 0)} ms</span>
+          </S.Metric>
+          <S.Metric title="Bytes Consumed">
+            <S.MetricsIcon>
+              <ArrowDownIcon />
+            </S.MetricsIcon>
+            <BytesFormatted value={bytesConsumed} />
+          </S.Metric>
+          <S.Metric title="Messages Consumed">
+            <S.MetricsIcon>
+              <FileIcon />
+            </S.MetricsIcon>
+            <span>{messagesConsumed} messages consumed</span>
+          </S.Metric>
+        </S.FiltersMetrics>
       </S.ActiveSmartFilterWrapper>
       {isOpen && (
         <FilterModal
@@ -541,43 +585,6 @@ const Filters: React.FC<FiltersProps> = ({
           activeFilter={activeFilter}
         />
       )}
-      <S.FiltersMetrics>
-        <p style={{ fontSize: 14 }}>
-          {seekDirection !== SeekDirection.TAILING &&
-            isFetching &&
-            phaseMessage}
-        </p>
-        <S.MessageLoading isLive={isTailing}>
-          <S.MessageLoadingSpinner isFetching={isFetching} />
-          Loading messages.
-          <S.StopLoading
-            onClick={() => {
-              handleSSECancel();
-              setIsTailing(false);
-            }}
-          >
-            Stop loading
-          </S.StopLoading>
-        </S.MessageLoading>
-        <S.Metric title="Elapsed Time">
-          <S.MetricsIcon>
-            <ClockIcon />
-          </S.MetricsIcon>
-          <span>{Math.max(elapsedMs || 0, 0)} ms</span>
-        </S.Metric>
-        <S.Metric title="Bytes Consumed">
-          <S.MetricsIcon>
-            <ArrowDownIcon />
-          </S.MetricsIcon>
-          <BytesFormatted value={bytesConsumed} />
-        </S.Metric>
-        <S.Metric title="Messages Consumed">
-          <S.MetricsIcon>
-            <FileIcon />
-          </S.MetricsIcon>
-          <span>{messagesConsumed} messages consumed</span>
-        </S.Metric>
-      </S.FiltersMetrics>
     </S.FiltersWrapper>
   );
 };

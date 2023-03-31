@@ -3,6 +3,7 @@ import { MultiSelect as ReactMultiSelect } from 'react-multi-select-component';
 
 const MultiSelect = styled(ReactMultiSelect)<{ minWidth?: string }>`
   min-width: ${({ minWidth }) => minWidth || '200px;'};
+  max-width: 550px;
   height: 32px;
   font-size: 14px;
 

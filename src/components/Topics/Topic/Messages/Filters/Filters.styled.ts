@@ -77,8 +77,6 @@ export const FiltersMetrics = styled.div`
   justify-content: flex-end;
   align-items: center;
   gap: 22px;
-  padding-top: 16px;
-  padding-bottom: 16px;
 `;
 
 export const Metric = styled.div`
@@ -94,8 +92,8 @@ export const MetricsIcon = styled.div`
 `;
 
 export const ClearAll = styled.div`
-  color: ${({ theme }) => theme.metrics.filters.color.normal};
-  font-size: 12px;
+  color: #333;
+  font-size: 20px;
   cursor: pointer;
   line-height: 32px;
   margin-left: 8px;
@@ -215,11 +213,16 @@ export const FilterButtonWrapper = styled.div`
 `;
 
 export const ActiveSmartFilterWrapper = styled.div`
-  padding: 8px 0 5px;
   display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-start;
+  gap: 16px;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10px;
+`;
+
+export const FiterSearchWrapper = styled.div`
+  display: flex;
+  gap: 8px;
 `;
 
 export const DeleteSavedFilter = styled.div.attrs({ role: 'deleteIcon' })`
@@ -289,15 +292,16 @@ export const MessageLoading = styled.div.attrs({
   role: 'contentLoader',
 })<MessageLoadingProps>`
   color: ${({ theme }) => theme.heading.h3.color};
-  font-size: ${({ theme }) => theme.heading.h3.fontSize};
+  font-size: 15px;
   display: ${(props) => (props.isLive ? 'flex' : 'none')};
   justify-content: space-around;
-  width: 250px;
+  gap: 16px;
 `;
 
 export const StopLoading = styled.div`
   color: ${({ theme }) => theme.pageLoader.borderColor};
-  font-size: ${({ theme }) => theme.heading.h3.fontSize};
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
 `;
 
