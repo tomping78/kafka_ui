@@ -123,7 +123,7 @@ const PreviewModal: React.FC<InfoModalProps> = ({
         </Button>
         <Button
           buttonSize="M"
-          buttonType="secondary"
+          buttonType="primary"
           type="button"
           onClick={handleOk}
         >

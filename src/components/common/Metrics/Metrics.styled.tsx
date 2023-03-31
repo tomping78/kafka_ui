@@ -70,6 +70,7 @@ export const SectionTitle = styled.h5`
 export const LightText = styled.span`
   color: ${({ theme }) => theme.metrics.indicator.lightTextColor};
   font-size: 18px;
+  font-weight: 500;
 `;
 
 export const RedText = styled.span`
