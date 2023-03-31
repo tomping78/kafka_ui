@@ -29,7 +29,7 @@ export const Sidebar = styled.div<{ $visible: boolean }>(
     left: 0;
     bottom: 0;
     padding: 20px 16px;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     transition: width 0.25s, opacity 0.25s, transform 0.25s,
       -webkit-transform 0.25s;
     background: ${theme.menu.backgroundColor.normal};

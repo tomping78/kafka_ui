@@ -15,8 +15,8 @@ const Span = styled.span`
   font-size: 18px;
   font-weight: 600;
   color: #333;
-  height: 27px;
-  display: block;
+  /* height: 27px;
+  display: block; */
 `;
 
 const Indicator: React.FC<PropsWithChildren<Props>> = ({

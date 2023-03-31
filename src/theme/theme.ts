@@ -126,7 +126,7 @@ const theme = {
     shadow: Colors.transparency[20],
     item: {
       color: {
-        danger: Colors.red[60],
+        danger: Colors.red[50],
       },
       backgroundColor: {
         default: Colors.neutral[0],
@@ -242,7 +242,7 @@ const theme = {
       color: Colors.neutral[0],
       isActiveColor: Colors.neutral[0],
       invertedColors: {
-        normal: Colors.neutral[50],
+        normal: Colors.brand[50],
         hover: Colors.neutral[70],
         active: Colors.neutral[90],
       },

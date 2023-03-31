@@ -51,13 +51,13 @@ export const List = styled.ul.attrs({ role: 'menu' })`
   }
   & > ul > li > a.active::before {
     content: '';
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 3px;
     border-radius: 20px;
     background: #187fde;
     position: absolute;
-    left: 5px;
-    top: 17px;
+    left: 3px;
+    top: 19px;
   }
 `;
 

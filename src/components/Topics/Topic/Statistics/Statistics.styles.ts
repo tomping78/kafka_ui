@@ -20,7 +20,7 @@ export const ActionsBar = styled.div`
   display: flex;
   justify-content: end;
   gap: 8px;
-  padding: 10px 0;
+  padding: 5px 0;
   align-items: center;
   position: absolute;
   top: 110px;
