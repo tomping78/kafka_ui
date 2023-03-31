@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
   }
 
   & > div:first-child {
-    flex-grow: 2;
+    flex-grow: 3;
   }
 
   & > div:last-child {

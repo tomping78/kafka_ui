@@ -29,7 +29,7 @@ const NavBar: React.FC<Props> = ({ onBurgerClick }) => {
 
           <S.Hyperlink to="/">
             <Logo />
-            TCV <span>/ Apache kafka /</span>
+            TCVK <span>/ Apache kafka /</span>
           </S.Hyperlink>
 
           <S.NavbarItem>

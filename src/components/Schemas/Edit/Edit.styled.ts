@@ -27,7 +27,7 @@ export const EditorsWrapper = styled.div`
   gap: 16px;
 
   & > * {
-    flex-grow: 1;
+    flex: 1 1 50%;
   }
 `;
 

@@ -39,6 +39,7 @@ export const Title = styled.div`
   max-width: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
+  /* text-transform: uppercase; */
   /* padding: 10px 20px; */
 `;
 
@@ -48,8 +49,9 @@ export const StatusIconWrapper = styled.svg.attrs({
 })`
   grid-area: status;
   fill: none;
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
+  margin-left: 3px;
 `;
 
 export const StatusIcon = styled.circle.attrs({

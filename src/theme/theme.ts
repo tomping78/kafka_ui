@@ -165,8 +165,8 @@ const theme = {
     },
     variants: {
       1: {
-        fontSize: '38px',
-        lineHeight: '65px',
+        fontSize: '35px',
+        lineHeight: '60px',
       },
       2: {
         fontSize: '30px',

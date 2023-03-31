@@ -132,6 +132,7 @@ export default createGlobalStyle(
 
     ::-webkit-scrollbar-track {
       background: rgba(59, 59, 59, 0.13);
+      border-radius: 20px;
     }
     /* antd variation */
     .ant-card-head {
