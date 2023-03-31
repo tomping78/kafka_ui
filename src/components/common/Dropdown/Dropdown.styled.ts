@@ -62,6 +62,10 @@ export const DropdownButton = styled.button`
   display: flex;
   cursor: pointer;
   align-self: center;
+  & svg {
+    width: 3px;
+    height: 14px;
+  }
 
   &:disabled {
     opacity: 0.5;

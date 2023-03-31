@@ -23,6 +23,20 @@ export const Table = styled.table<Props>`
     text-align: left;
     background: #faf1e2;
     white-space: nowrap;
+    position: relative;
+
+    &::after {
+      content: '';
+      width: 1px;
+      height: 16px;
+      background: #ccc;
+      position: absolute;
+      top: calc(50% - 8px);
+      right: 0;
+    }
+    &:last-child::after {
+      display: none;
+    }
   }
 
   & td {

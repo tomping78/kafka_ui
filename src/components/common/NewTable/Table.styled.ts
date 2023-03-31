@@ -90,6 +90,18 @@ export const Th = styled.th<ThProps>(
   background: #FAF1E2;
   width: ${expander ? '5px' : 'auto'};
   white-space: nowrap;
+  position:relative;
+
+  &::after {
+    content:'';
+    width:1px;
+    height:16px;
+    background:#ccc;
+    position:absolute;
+    top:calc(50% - 8px);
+    right:0;
+  }
+  &:last-child::after {display:none;}
 
   & > div {
     cursor: default;
