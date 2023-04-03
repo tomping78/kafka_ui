@@ -10,7 +10,8 @@ import Table from 'components/common/NewTable';
 import { BrokerConfig, ConfigSource } from 'generated-sources';
 import Search from 'components/common/Search/Search';
 import { InfoCircleFilled } from '@ant-design/icons';
-import Tooltip from 'components/common/Tooltip/Tooltip';
+import { Tooltip } from 'antd';
+// import Tooltip from 'components/common/Tooltip/Tooltip';
 
 import InputCell from './InputCell';
 import * as S from './Configs.styled';
@@ -72,11 +73,14 @@ const Configs: React.FC = () => {
           return (
             <S.Source>
               Source
-              <Tooltip
+              {/* <Tooltip
                 value={<InfoCircleFilled />}
                 content={tooltipContent}
                 placement="top-end"
-              />
+              /> */}
+              <Tooltip title={tooltipContent} placement="topRight">
+                <InfoCircleFilled />
+              </Tooltip>
             </S.Source>
           );
         },

@@ -20,7 +20,7 @@ import PageHeading from 'components/common/PageHeading/PageHeading';
 import { schemaAdded } from 'redux/reducers/schemas/schemasSlice';
 import { useAppDispatch } from 'lib/hooks/redux';
 import useAppParams from 'lib/hooks/useAppParams';
-import { StarFilled } from '@ant-design/icons';
+import { StarFilled, SendOutlined } from '@ant-design/icons';
 import { showServerError } from 'lib/errorHandling';
 import { schemasApiClient } from 'lib/api';
 import yup from 'lib/yupExtended';
@@ -165,11 +165,12 @@ const New: React.FC = () => {
           <Divider dashed />
           <S.ButtonWrapper>
             <Button
-              buttonSize="M"
+              buttonSize="L"
               buttonType="primary"
               type="submit"
               disabled={!isValid || isSubmitting || !isDirty}
             >
+              <SendOutlined />
               Submit
             </Button>
           </S.ButtonWrapper>

@@ -11,6 +11,7 @@ import IconButtonWrapper from 'components/common/Icons/IconButtonWrapper';
 import CloseIcon from 'components/common/Icons/CloseIcon';
 import * as C from 'components/Topics/shared/Form/TopicForm.styled';
 import { ConfigSource } from 'generated-sources';
+import { StarFilled } from '@ant-design/icons';
 
 import * as S from './CustomParams.styled';
 
@@ -73,7 +74,12 @@ const CustomParamField: React.FC<Props> = ({
   return (
     <C.Column>
       <div>
-        <InputLabel>Custom Parameter *</InputLabel>
+        <InputLabel>
+          Custom Parameter{' '}
+          <span>
+            <StarFilled />
+          </span>
+        </InputLabel>
         <Controller
           control={control}
           rules={{ required: 'Custom Parameter is required.' }}
@@ -98,7 +104,12 @@ const CustomParamField: React.FC<Props> = ({
         </FormError>
       </div>
       <div>
-        <InputLabel>Value *</InputLabel>
+        <InputLabel>
+          Value{' '}
+          <span>
+            <StarFilled />
+          </span>
+        </InputLabel>
         <Input
           name={`customParams.${index}.value` as const}
           hookFormOptions={{
