@@ -12,7 +12,12 @@ import { StyledForm } from 'components/common/Form/Form.styled';
 import { clusterTopicPath } from 'lib/paths';
 import { useNavigate } from 'react-router-dom';
 import useAppParams from 'lib/hooks/useAppParams';
-import { StarFilled, HistoryOutlined } from '@ant-design/icons';
+import {
+  StarFilled,
+  HistoryOutlined,
+  CloudUploadOutlined,
+  CloudServerOutlined,
+} from '@ant-design/icons';
 import { Divider } from 'antd';
 import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
@@ -272,14 +277,27 @@ const TopicForm: React.FC<Props> = ({
               <HistoryOutlined />
               Cancel
             </Button>
-            <Button
-              type="submit"
-              buttonType="primary"
-              buttonSize="L"
-              disabled={!isValid || isSubmitting || !isDirty}
-            >
-              {isEditing ? 'Upload Topic' : 'Create Topic'}
-            </Button>
+            {isEditing ? (
+              <Button
+                type="submit"
+                buttonType="primary"
+                buttonSize="L"
+                disabled={!isValid || isSubmitting || !isDirty}
+              >
+                <CloudUploadOutlined />
+                Update Topic
+              </Button>
+            ) : (
+              <Button
+                type="submit"
+                buttonType="primary"
+                buttonSize="L"
+                disabled={!isValid || isSubmitting || !isDirty}
+              >
+                <CloudServerOutlined />
+                Create Topic
+              </Button>
+            )}
           </S.ButtonWrapper>
         </fieldset>
       </StyledForm>

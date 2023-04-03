@@ -154,5 +154,8 @@ export default createGlobalStyle(
     .ant-divider-horizontal {
       margin: 15px 0 !important;
     }
+    .ant-tooltip .ant-tooltip-inner {
+      padding: 20px;
+    }
   `
 );

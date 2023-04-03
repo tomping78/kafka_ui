@@ -5,13 +5,15 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: absolute;
+  top: calc(50% - 180px);
+  left: calc(50% - 100px);
   gap: 35px;
-  margin-top: 100px;
 `;
 
 export const IconPageNot = styled.div`
   display: flex;
-  font-size: 250px;
+  font-size: 200px;
   color: #ccc;
 `;
 
