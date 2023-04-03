@@ -8,6 +8,11 @@ import CloseIcon from 'components/common/Icons/CloseIcon';
 import { yupResolver } from '@hookform/resolvers/yup';
 import yup from 'lib/yupExtended';
 import { Card } from 'antd';
+import {
+  PlayCircleOutlined,
+  PauseCircleOutlined,
+  CheckCircleOutlined,
+} from '@ant-design/icons';
 import ReactAce from 'react-ace/lib/ace';
 import styled from 'styled-components';
 
@@ -199,7 +204,7 @@ const QueryForm: React.FC<Props> = ({
               ))}
               <Button
                 type="button"
-                buttonSize="S"
+                buttonSize="M"
                 buttonType="secondary"
                 onClick={handleAddNewProperty}
               >
@@ -211,27 +216,30 @@ const QueryForm: React.FC<Props> = ({
         <S.KSQLButtons>
           <Button
             buttonType="primary"
-            buttonSize="M"
+            buttonSize="L"
             type="submit"
             disabled={fetching}
             onClick={handleFocus}
           >
+            <PlayCircleOutlined />
             Execute
           </Button>
           <Button
             buttonType="secondary"
-            buttonSize="M"
+            buttonSize="L"
             disabled={!fetching}
             onClick={handleSSECancel}
           >
+            <PauseCircleOutlined />
             Stop query
           </Button>
           <Button
             buttonType="secondary"
-            buttonSize="M"
+            buttonSize="L"
             disabled={fetching || !hasResults}
             onClick={handleClearResults}
           >
+            <CheckCircleOutlined />
             Clear results
           </Button>
         </S.KSQLButtons>

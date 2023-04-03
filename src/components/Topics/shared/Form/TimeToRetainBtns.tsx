@@ -11,7 +11,7 @@ export interface Props {
 
 const TimeToRetainBtnsWrapper = styled.div`
   display: flex;
-  gap: 8px;
+  gap: 1px;
   padding-top: 8px;
 `;
 

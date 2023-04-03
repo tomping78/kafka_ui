@@ -12,7 +12,7 @@ import { StyledForm } from 'components/common/Form/Form.styled';
 import { clusterTopicPath } from 'lib/paths';
 import { useNavigate } from 'react-router-dom';
 import useAppParams from 'lib/hooks/useAppParams';
-import { StarFilled } from '@ant-design/icons';
+import { StarFilled, HistoryOutlined } from '@ant-design/icons';
 import { Divider } from 'antd';
 import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
@@ -266,18 +266,19 @@ const TopicForm: React.FC<Props> = ({
             <Button
               type="button"
               buttonType="secondary"
-              buttonSize="M"
+              buttonSize="L"
               onClick={onCancel}
             >
+              <HistoryOutlined />
               Cancel
             </Button>
             <Button
               type="submit"
               buttonType="primary"
-              buttonSize="M"
+              buttonSize="L"
               disabled={!isValid || isSubmitting || !isDirty}
             >
-              {isEditing ? 'Update topic' : 'Create topic'}
+              {isEditing ? 'Upload Topic' : 'Create Topic'}
             </Button>
           </S.ButtonWrapper>
         </fieldset>

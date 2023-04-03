@@ -23,25 +23,26 @@ export const Label = styled.div`
   align-items: center;
 
   & > span {
-    font-size: 12px;
+    font-size: 15px;
+    font-weight: 600;
     color: ${({ theme }) => theme.topicFormLabel.color};
   }
 `;
 
 export const Button = styled.button<{ isActive: boolean }>`
   background-color: ${({ theme, ...props }) =>
-    props.isActive
-      ? theme.button.secondary.invertedColors.normal
-      : theme.button.secondary.backgroundColor.normal};
+    props.isActive ? theme.button.secondary.invertedColors.normal : '#ccc'};
+  //   '#333'
+  // : '#ccc'};
   color: ${({ theme, ...props }) =>
     props.isActive
       ? theme.button.secondary.isActiveColor
       : theme.button.primary.color};
   height: 24px;
-  padding: 0 5px;
+  padding: 0 10px;
   min-width: 51px;
   border: none;
-  border-radius: 6px;
+  border-radius: 1px;
   &:hover {
     cursor: pointer;
   }
@@ -49,6 +50,6 @@ export const Button = styled.button<{ isActive: boolean }>`
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 5px;
   justify-content: right;
 `;

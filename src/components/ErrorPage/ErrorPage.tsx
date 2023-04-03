@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'components/common/Button/Button';
+import { FrownOutlined } from '@ant-design/icons';
 
 import * as S from './ErrorPage.styled';
 
@@ -16,6 +17,9 @@ const ErrorPage: React.FC<Props> = ({
 }) => {
   return (
     <S.Wrapper>
+      <S.IconPageNot>
+        <FrownOutlined />
+      </S.IconPageNot>
       <S.Number>{status}</S.Number>
       <S.Text>{text}</S.Text>
       <Button buttonType="primary" buttonSize="M" to="/">

@@ -133,7 +133,7 @@ const Details: React.FC = () => {
         </Metrics.Section>
       </Metrics.Wrapper>
       <ContentArea>
-        <ControlPanelWrapper hasInput style={{ margin: '16px 0 20px' }}>
+        <ControlPanelWrapper hasInput>
           <Search placeholder="Search by Topic Name" />
         </ControlPanelWrapper>
         <Table isFullwidth>

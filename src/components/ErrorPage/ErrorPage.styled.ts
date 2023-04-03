@@ -5,14 +5,20 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 35px;
   margin-top: 100px;
 `;
 
+export const IconPageNot = styled.div`
+  display: flex;
+  font-size: 250px;
+  color: #ccc;
+`;
+
 export const Number = styled.div`
-  font-size: 100px;
-  color: ${({ theme }) => theme.errorPage.text};
-  line-height: initial;
+  font-size: 55px;
+  font-weight: 600;
+  color: #333;
 `;
 
 export const Text = styled.div`

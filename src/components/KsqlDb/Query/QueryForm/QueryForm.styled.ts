@@ -41,7 +41,7 @@ export const KSQLInputHeader = styled.div`
 export const KSQLButtons = styled.div`
   display: flex;
   justify-content: right;
-  gap: 10px;
+  gap: 5px;
 `;
 
 export const StreamPropertiesContainer = styled.label`
@@ -52,6 +52,7 @@ export const StreamPropertiesContainer = styled.label`
   width: 100%;
   & button {
     width: 200px;
+    justify-content: center;
   }
 `;
 

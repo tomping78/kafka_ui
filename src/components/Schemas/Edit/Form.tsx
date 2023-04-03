@@ -31,6 +31,7 @@ import { showServerError } from 'lib/errorHandling';
 import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 import styled from 'styled-components';
 import { Card, Divider } from 'antd';
+import { SendOutlined } from '@ant-design/icons';
 
 import * as S from './Edit.styled';
 
@@ -209,10 +210,11 @@ const Form: React.FC = () => {
             <S.ButtonWrapper>
               <Button
                 buttonType="primary"
-                buttonSize="M"
+                buttonSize="L"
                 type="submit"
                 disabled={!isDirty || isSubmitting}
               >
+                <SendOutlined />
                 Submit
               </Button>
             </S.ButtonWrapper>
