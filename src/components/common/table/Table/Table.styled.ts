@@ -8,7 +8,7 @@ export const Table = styled.table<Props>`
   width: ${(props) => (props.isFullwidth ? '100%' : 'auto')};
 
   & th {
-    padding: 15px 0 15px 24px;
+    padding: 15px 10px 15px 15px;
     border-top: 2px solid #333;
     border-bottom: 1px solid #333;
     vertical-align: middle;

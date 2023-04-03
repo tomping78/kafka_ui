@@ -104,7 +104,7 @@ export const Preview = styled.span`
 `;
 
 export const TableHeaderCell = styled.th`
-  padding: 4px 0 4px 24px;
+  padding: 4px 10px 4px 15px;
   border-bottom-width: 1px;
   vertical-align: middle;
   text-align: left;
