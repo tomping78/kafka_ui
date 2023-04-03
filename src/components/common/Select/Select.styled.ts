@@ -28,10 +28,14 @@ export const Select = styled.ul<Props>`
   width: fit-content;
   padding-left: 16px;
   padding-right: 16px;
+  transition: all 0.2s ease-in-out;
   color: ${({ theme, disabled }) =>
     disabled ? theme.select.color.disabled : theme.select.color.normal};
   min-width: ${({ minWidth }) => minWidth || 'auto'};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  &:hover {
+    border-color: ${(props) => props.theme.select.borderColor.hover};
+  }
   &:hover:enabled {
     color: ${(props) => props.theme.select.color.hover};
     border-color: ${(props) => props.theme.select.borderColor.hover};

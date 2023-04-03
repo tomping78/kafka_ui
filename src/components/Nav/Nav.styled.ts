@@ -68,14 +68,15 @@ export const Link = styled(NavLink)(
     cursor: pointer;
     text-decoration: none;
     margin: 0 0;
+    transition: right 0.3s ease-in-out;
     /* font-size: 16px; */
     /* background-color: ${theme.menu.backgroundColor.normal};
     color: ${theme.menu.color.normal}; */
 
-    /* &:hover {
+    &:hover {
       background-color: ${theme.menu.backgroundColor.hover};
       color: ${theme.menu.color.hover};
-    } */
+    }
     /* &.active {
       background-color: ${theme.menu.backgroundColor.active};
       color: ${theme.menu.color.active};

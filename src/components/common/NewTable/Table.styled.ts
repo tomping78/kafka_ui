@@ -126,6 +126,7 @@ export const Row = styled.tr<RowProps>(
   ({ theme: { table }, expanded, clickable }) => `
   cursor: ${clickable ? 'pointer' : 'default'};
   background-color: ${table.tr.backgroundColor[expanded ? 'hover' : 'normal']};
+  transition: all 0.2s ease-in-out;
   &:nth-child(even) {
     background:#f8f8f8;
   }

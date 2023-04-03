@@ -13,6 +13,7 @@ export interface ButtonProps {
 }
 
 const StyledButton = styled.button<ButtonProps>`
+  transition: all 0.2s ease-in-out;
   display: flex;
   flex-direction: row;
   align-items: center;

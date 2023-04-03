@@ -39,6 +39,7 @@ export const Input = styled.input<InputProps>(
     width: 100%;
     padding-left: ${search ? '36px' : '12px'};
     font-size: 14px;
+    transition: all 0.3s ease-in-out;
 
     &::placeholder {
       color: ${input.color.placeholder.normal};
