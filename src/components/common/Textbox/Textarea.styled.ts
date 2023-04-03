@@ -7,6 +7,7 @@ export const Textarea = styled.textarea(
     width: 100%;
     padding: 12px;
     padding-top: 6px;
+    transition: all 0.3s ease-in-out;
     &::placeholder {
       color: ${textArea.borderColor.hover};
       font-size: 14px;

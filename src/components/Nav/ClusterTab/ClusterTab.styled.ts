@@ -15,6 +15,7 @@ export const Wrapper = styled.li.attrs({ role: 'menuitem' })<{
     grid-template-areas: 'title status . chevron';
     gap: 0 5px;
 
+    transition: all 0.3s ease-in-out;
     padding: 15px 25px;
     cursor: pointer;
     text-decoration: none;

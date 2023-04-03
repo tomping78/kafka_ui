@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 export const List = styled.ul.attrs({ role: 'menu' })`
   /* padding-bottom: 4px; */
   border-top: 1px solid #e5e5e5;
+  transition: all 0.3s ease-in-out;
   &:first-child {
     border-top: none;
   }
@@ -68,7 +69,7 @@ export const Link = styled(NavLink)(
     cursor: pointer;
     text-decoration: none;
     margin: 0 0;
-    transition: right 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     /* font-size: 16px; */
     /* background-color: ${theme.menu.backgroundColor.normal};
     color: ${theme.menu.color.normal}; */
@@ -92,4 +93,5 @@ export const ListItem = styled('li').attrs({ role: 'menuitem' })<{
   /* height: 32px; */
   display: flex;
   user-select: none;
+  transition: right 0.3s ease-in-out;
 `;
