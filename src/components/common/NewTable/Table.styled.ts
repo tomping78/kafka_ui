@@ -162,7 +162,7 @@ export const Table = styled.table(
     border-bottom: 1px solid #dadada;
     font-size: 14px;
     font-weight: 400;
-    padding: 11px 8px 11px 24px;
+    padding: 11px 8px 11px 15px;
     color: ${table.td.color.normal};
     vertical-align: middle;
     word-wrap: break-word;
@@ -183,6 +183,9 @@ export const Table = styled.table(
       &:active {
         color: ${table.link.color.active};
       }
+    }
+    & div table th {
+      border-top:none;
     }
   }
 `

@@ -47,9 +47,14 @@ export const Table = styled.table<Props>`
     border-bottom: 1px solid #dadada;
     font-size: 14px;
     font-weight: 400;
-    padding: 11px 8px 11px 24px;
+    padding: 11px 8px 11px 15px;
     vertical-align: middle;
     word-wrap: break-word;
+    & div table th {
+      border-top: 1px solid #dadada;
+      border-bottom: 1px solid #dadada;
+      background: #f5f5f5;
+    }
   }
 
   & tbody > tr {
