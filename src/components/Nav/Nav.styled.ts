@@ -37,8 +37,7 @@ export const List = styled.ul.attrs({ role: 'menu' })`
     color: #aaa;
     font-size: 16px;
     background: none !important;
-    padding: 10px;
-    padding-left: 20px;
+    padding: 10px 10px 10px 20px;
     position: relative;
     border-bottom: 1px solid #e5e5e5;
   }
@@ -59,6 +58,7 @@ export const List = styled.ul.attrs({ role: 'menu' })`
     position: absolute;
     left: 3px;
     top: 19px;
+    transition: all 0.3s ease-in-out;
   }
 `;
 
@@ -70,18 +70,18 @@ export const Link = styled(NavLink)(
     text-decoration: none;
     margin: 0 0;
     transition: all 0.3s ease-in-out;
-    /* font-size: 16px; */
-    /* background-color: ${theme.menu.backgroundColor.normal};
-    color: ${theme.menu.color.normal}; */
+    font-size: 16px;
+    background-color: ${theme.menu.backgroundColor.normal};
+    color: ${theme.menu.color.normal};
 
     &:hover {
       background-color: ${theme.menu.backgroundColor.hover};
       color: ${theme.menu.color.hover};
     }
-    /* &.active {
+    &.active {
       background-color: ${theme.menu.backgroundColor.active};
       color: ${theme.menu.color.active};
-    } */
+    }
   `
 );
 
@@ -93,5 +93,4 @@ export const ListItem = styled('li').attrs({ role: 'menuitem' })<{
   /* height: 32px; */
   display: flex;
   user-select: none;
-  transition: right 0.3s ease-in-out;
 `;

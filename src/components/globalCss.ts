@@ -154,8 +154,18 @@ export default createGlobalStyle(
     .ant-divider-horizontal {
       margin: 15px 0 !important;
     }
+    .ant-tooltip {
+      max-width: 550px;
+    }
     .ant-tooltip .ant-tooltip-inner {
       padding: 20px;
+    }
+    .ant-spin-lg .ant-spin-dot {
+      font-size: 55px;
+    }
+    .ant-spin-lg .ant-spin-dot i {
+      width: 25px;
+      height: 25px;
     }
   `
 );

@@ -295,6 +295,7 @@ export const MessageLoading = styled.div.attrs({
   font-size: 15px;
   display: ${(props) => (props.isLive ? 'flex' : 'none')};
   justify-content: space-around;
+  align-items: center;
   gap: 16px;
 `;
 
@@ -302,7 +303,10 @@ export const StopLoading = styled.div`
   color: ${({ theme }) => theme.pageLoader.borderColor};
   font-size: 15px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  gap: 5px;
 `;
 
 export const MessageLoadingSpinner = styled.div<MessageLoadingSpinnerProps>`
@@ -310,8 +314,8 @@ export const MessageLoadingSpinner = styled.div<MessageLoadingSpinnerProps>`
   border: 3px solid ${({ theme }) => theme.pageLoader.borderColor};
   border-bottom: 3px solid ${({ theme }) => theme.pageLoader.borderBottomColor};
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   animation: spin 1.3s linear infinite;
 
   @keyframes spin {

@@ -1,10 +1,10 @@
 import React from 'react';
-
+import { Spin } from 'antd';
 import * as S from './PageLoader.styled';
 
 const PageLoader: React.FC = () => (
   <S.Wrapper>
-    <S.Spinner role="progressbar" />
+    <Spin size="large" />
   </S.Wrapper>
 );
 

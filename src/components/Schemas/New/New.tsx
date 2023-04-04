@@ -141,7 +141,12 @@ const New: React.FC = () => {
           </div>
 
           <div>
-            <InputLabel>Schema Type *</InputLabel>
+            <InputLabel>
+              Schema Type{' '}
+              <span>
+                <StarFilled />
+              </span>
+            </InputLabel>
             <Controller
               control={control}
               name="schemaType"

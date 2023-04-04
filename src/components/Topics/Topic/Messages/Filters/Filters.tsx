@@ -544,6 +544,7 @@ const Filters: React.FC<FiltersProps> = ({
           </p>
           <S.MessageLoading isLive={isTailing}>
             <S.MessageLoadingSpinner isFetching={isFetching} />
+            {/* <S.Spin size="small" isFetching={isFetching} /> */}
             Loading messages.
             <S.StopLoading
               onClick={() => {
