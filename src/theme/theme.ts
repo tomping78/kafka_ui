@@ -94,10 +94,10 @@ const theme = {
   layout: {
     backgroundColor: Colors.neutral[0],
     minWidth: '1200px',
-    navBarWidth: '301px',
+    navBarWidth: '251px',
     navBarHeight: '70px',
     rightSidebarWidth: '70vw',
-    filtersSidebarWidth: '300px',
+    filtersSidebarWidth: '250px',
 
     stuffColor: Colors.neutral[5],
     stuffBorderColor: Colors.neutral[10],
@@ -158,7 +158,7 @@ const theme = {
       fontSize: '24px',
     },
     base: {
-      fontFamily: 'Titillium Web, sans-serif',
+      fontFamily: 'Titillium Web, sans-serif, Noto Sans KR',
       fontStyle: 'normal',
       fontWeight: 500,
       color: Colors.neutral[100],
