@@ -7,6 +7,7 @@ export interface ClusterTabProps {
   title?: string;
   status: ServerStatus;
   isOpen: boolean;
+  clickedTitle?: string;
   toggleClusterMenu: () => void;
 }
 
@@ -15,8 +16,9 @@ const ClusterTab: React.FC<ClusterTabProps> = ({
   status,
   isOpen,
   toggleClusterMenu,
+  clickedTitle,
 }) => (
-  <S.Wrapper onClick={toggleClusterMenu} isOpen={isOpen}>
+  <S.Wrapper onClick={toggleClusterMenu} isOpen={isOpen} clickedTitle={clickedTitle}>
     <S.Title title={title}>{title}</S.Title>
 
     <S.StatusIconWrapper>

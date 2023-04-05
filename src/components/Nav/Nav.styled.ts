@@ -1,7 +1,8 @@
+/* eslint-disable prettier/prettier */
 import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-export const List = styled.ul.attrs({ role: 'menu' })`
+export const List = styled.ul.attrs({ role: 'menu' })<{ clickedTitle?: string }>`
   /* padding-bottom: 4px; */
   border-top: 1px solid #e5e5e5;
   transition: all 0.3s ease-in-out;
@@ -21,9 +22,11 @@ export const List = styled.ul.attrs({ role: 'menu' })`
     padding-left: 25px;
   }
   & > li > a.active {
-    background: #333;
+    /* background: #333; */
+    background: ${ ({ clickedTitle }) => clickedTitle  === 'Dashboard' ? '#333' : '#fff'};
     border-radius: 50px;
-    color: #fff;
+    /* color: #fff; */
+    color: ${ ({ clickedTitle }) => clickedTitle  === 'Dashboard' ? '#fff' : '#333'};
   }
   & > ul {
     border-top: none;
