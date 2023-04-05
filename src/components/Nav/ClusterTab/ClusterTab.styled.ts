@@ -3,8 +3,9 @@ import { ServerStatus } from 'generated-sources';
 
 export const Wrapper = styled.li.attrs({ role: 'menuitem' })<{
   isOpen: boolean;
+  clickedTitle?: string;
 }>(
-  ({ theme, isOpen }) => css`
+  ({ theme, isOpen, clickedTitle }) => css`
     font-size: 21px;
     font-weight: 500;
     user-select: none;
@@ -22,8 +23,10 @@ export const Wrapper = styled.li.attrs({ role: 'menuitem' })<{
     margin: 0;
     line-height: 20px;
     align-items: center;
-    color: ${isOpen ? theme.menu.color.white : theme.menu.color.backthree};
-    background-color: ${isOpen
+    color: ${isOpen && clickedTitle !== 'Dashboard'
+      ? theme.menu.color.white
+      : theme.menu.color.backthree};
+    background-color: ${isOpen && clickedTitle !== 'Dashboard'
       ? theme.menu.color.backthree
       : theme.menu.color.white};
 

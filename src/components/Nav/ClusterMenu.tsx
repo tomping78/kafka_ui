@@ -16,22 +16,31 @@ import * as S from './Nav.styled';
 interface Props {
   cluster: Cluster;
   singleMode?: boolean;
+  clickedTitle?: string;
 }
 
 const ClusterMenu: React.FC<Props> = ({
   cluster: { name, status, features },
   singleMode,
+  clickedTitle,
 }) => {
   const hasFeatureConfigured = (key: ClusterFeaturesEnum) =>
     features?.includes(key);
   const [isOpen, setIsOpen] = React.useState(!!singleMode);
+
+  React.useEffect(() => {
+    if (clickedTitle === 'Dashboard') {
+      setIsOpen(false);
+    }
+  }, [clickedTitle]);
   return (
-    <S.List>
+    <>
       <ClusterTab
         title={name}
         status={status}
         isOpen={isOpen}
         toggleClusterMenu={() => setIsOpen((prev) => !prev)}
+        clickedTitle={clickedTitle}
       />
       {isOpen && (
         <S.List>
@@ -58,7 +67,7 @@ const ClusterMenu: React.FC<Props> = ({
           )}
         </S.List>
       )}
-    </S.List>
+    </>
   );
 };
 
