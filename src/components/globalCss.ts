@@ -126,12 +126,12 @@ export default createGlobalStyle(
       background: rgba(59, 59, 59, 0.2);
       border-radius: 20px;
       &:hover {
-        background: rgba(59, 59, 59, 0.3);
+        background: rgba(59, 59, 59, 0.35);
       }
     }
 
     ::-webkit-scrollbar-track {
-      background: rgba(59, 59, 59, 0.13);
+      background: rgba(59, 59, 59, 0.2);
       border-radius: 20px;
     }
     /* antd variation */

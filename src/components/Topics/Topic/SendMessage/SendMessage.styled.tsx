@@ -15,7 +15,6 @@ export const Columns = styled.div`
   /* margin: -16px; */
   /* margin-bottom: 16px; */
   margin: 5px 0;
-  gap: 5px;
 
   @media screen and (min-width: 769px) {
     display: flex;

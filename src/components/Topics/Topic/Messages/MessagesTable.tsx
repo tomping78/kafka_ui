@@ -53,7 +53,7 @@ const MessagesTable: React.FC = () => {
   };
 
   return (
-    <div style={{ position: 'relative', overflowX: 'auto' }}>
+    <div style={{ overflowX: 'auto' }}>
       {previewFor !== null && (
         <PreviewModal
           values={previewFor === 'key' ? keyFilters : contentFilters}
@@ -65,6 +65,7 @@ const MessagesTable: React.FC = () => {
           }
         />
       )}
+
       <Table isFullwidth>
         <thead>
           <tr>

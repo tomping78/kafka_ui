@@ -14,28 +14,26 @@ const NavBar: React.FC<Props> = ({ onBurgerClick }) => {
   return (
     <S.Navbar role="navigation" aria-label="Page Header">
       <S.NavbarBrand>
-        <S.NavbarBrand>
-          <S.NavbarBurger
-            onClick={onBurgerClick}
-            onKeyDown={onBurgerClick}
-            role="button"
-            tabIndex={0}
-            aria-label="burger"
-          >
-            <S.Span role="separator" />
-            <S.Span role="separator" />
-            <S.Span role="separator" />
-          </S.NavbarBurger>
+        <S.NavbarBurger
+          onClick={onBurgerClick}
+          onKeyDown={onBurgerClick}
+          role="button"
+          tabIndex={0}
+          aria-label="burger"
+        >
+          <S.Span role="separator" />
+          <S.Span role="separator" />
+          <S.Span role="separator" />
+        </S.NavbarBurger>
 
-          <S.Hyperlink to="/">
-            <Logo />
-            TCVK <span>/ Apache kafka /</span>
-          </S.Hyperlink>
+        <S.Hyperlink to="/">
+          <Logo />
+          TCVK <span>/ Apache kafka /</span>
+        </S.Hyperlink>
 
-          <S.NavbarItem>
-            <Version />
-          </S.NavbarItem>
-        </S.NavbarBrand>
+        <S.NavbarItem>
+          <Version />
+        </S.NavbarItem>
       </S.NavbarBrand>
       <S.NavbarSocial>
         <S.SocialLink

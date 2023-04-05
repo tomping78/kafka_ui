@@ -25,7 +25,7 @@ export const NavbarBrand = styled.div`
   align-items: center !important;
   flex-shrink: 0;
   min-height: 3.25rem;
-  padding-left: 25px;
+  padding-left: 35px;
 `;
 
 export const SocialLink = styled.a(
@@ -56,7 +56,7 @@ export const NavbarSocial = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-right: 50px;
+  margin-right: 35px;
 `;
 
 export const NavbarItem = styled.div`
@@ -76,7 +76,7 @@ export const NavbarBurger = styled.div(
     cursor: pointer;
     height: 3.25rem;
     width: 3.25rem;
-    margin-left: -30px;
+    margin-left: -15px;
     padding: 0;
 
     /* &:hover {
