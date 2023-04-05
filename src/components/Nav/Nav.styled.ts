@@ -18,7 +18,7 @@ export const List = styled.ul.attrs({ role: 'menu' })<{
     border-radius: 50px; */
   }
   & > li > a {
-    font-size: 21px;
+    font-size: 18px;
     color: #333;
     position: relative;
     padding-left: 25px;
@@ -42,7 +42,7 @@ export const List = styled.ul.attrs({ role: 'menu' })<{
   }
   & > ul > li > a {
     color: #aaa;
-    font-size: 16px;
+    font-size: 15px;
     background: none !important;
     padding: 10px 10px 10px 20px;
     position: relative;
@@ -72,11 +72,11 @@ export const List = styled.ul.attrs({ role: 'menu' })<{
 export const Link = styled(NavLink)(
   ({ theme }) => css`
     width: 100%;
-    padding: 15px 25px;
+    padding: 12px 25px;
     cursor: pointer;
     text-decoration: none;
     margin: 0 0;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.1s ease-in-out;
     font-size: 16px;
     background-color: ${theme.menu.backgroundColor.normal};
     color: ${theme.menu.color.normal};
@@ -95,7 +95,7 @@ export const Link = styled(NavLink)(
 export const ListItem = styled('li').attrs({ role: 'menuitem' })<{
   $isTopLevel?: boolean;
 }>`
-  font-size: 21px;
+  font-size: 18px;
   font-weight: ${({ $isTopLevel }) => ($isTopLevel ? 500 : 'normal')};
   /* height: 32px; */
   display: flex;

@@ -6,18 +6,18 @@ export const Wrapper = styled.li.attrs({ role: 'menuitem' })<{
   clickedTitle?: string;
 }>(
   ({ theme, isOpen, clickedTitle }) => css`
-    font-size: 21px;
+    font-size: 18px;
     font-weight: 500;
     user-select: none;
-    border-radius: 50px;
+    /* border-radius: 50px; */
 
     display: grid;
     grid-template-columns: min-content min-content auto min-content;
     grid-template-areas: 'title status . chevron';
     gap: 0 5px;
 
-    transition: all 0.3s ease-in-out;
-    padding: 15px 25px;
+    transition: all 0.1s ease-in-out;
+    padding: 12px 25px;
     cursor: pointer;
     text-decoration: none;
     margin: 0;
@@ -29,6 +29,10 @@ export const Wrapper = styled.li.attrs({ role: 'menuitem' })<{
     background-color: ${isOpen && clickedTitle !== 'Dashboard'
       ? theme.menu.color.backthree
       : theme.menu.color.white};
+    border-radius: ${isOpen && clickedTitle !== 'Dashboard' ? '50px' : '0'};
+    border-top: ${isOpen && clickedTitle !== 'Dashboard'
+      ? '0'
+      : '1px solid #dedede'};
 
     /* &:hover {
       background-color: ${theme.menu.backgroundColor.hover};
