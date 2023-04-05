@@ -61,9 +61,9 @@ export const IndicatorsWrapper = styled.div`
 `;
 
 export const SectionTitle = styled.h5`
-  font-weight: 500;
-  margin: 0 0 15px 10px;
-  font-size: 21px;
+  font-weight: 600;
+  margin: 0 0 8px 5px;
+  font-size: 18px;
   color: #333;
 `;
 
