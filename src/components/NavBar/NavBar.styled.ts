@@ -76,12 +76,12 @@ export const NavbarBurger = styled.div(
     cursor: pointer;
     height: 3.25rem;
     width: 3.25rem;
-    margin: 0;
+    margin-left: -30px;
     padding: 0;
 
-    &:hover {
+    /* &:hover {
       background-color: ${theme.menu.backgroundColor.hover};
-    }
+    } */
 
     @media screen and (min-width: 1024px) {
       display: none;
@@ -93,7 +93,7 @@ export const Span = styled.span(
   ({ theme }) => css`
     display: block;
     position: absolute;
-    background: ${theme.menu.color.active};
+    background: ${theme.menu.color.white};
     height: 1px;
     left: calc(50% - 8px);
     transform-origin: center;

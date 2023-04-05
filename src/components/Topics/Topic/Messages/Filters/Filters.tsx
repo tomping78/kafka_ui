@@ -505,7 +505,6 @@ const Filters: React.FC<FiltersProps> = ({
             onClick={() =>
               isFetching ? handleSSECancel() : handleFiltersSubmit(offset)
             }
-            style={{ fontWeight: 500 }}
           >
             {isFetching ? 'Cancel' : 'Submit'}
           </Button>

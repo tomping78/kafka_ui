@@ -102,7 +102,7 @@ const theme = {
     stuffColor: Colors.neutral[5],
     stuffBorderColor: Colors.neutral[10],
     overlay: {
-      backgroundColor: Colors.neutral[50],
+      backgroundColor: Colors.neutral[100],
     },
     socialLink: {
       color: Colors.neutral[20],

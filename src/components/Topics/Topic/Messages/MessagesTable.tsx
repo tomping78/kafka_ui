@@ -53,7 +53,7 @@ const MessagesTable: React.FC = () => {
   };
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative', overflowX: 'auto' }}>
       {previewFor !== null && (
         <PreviewModal
           values={previewFor === 'key' ? keyFilters : contentFilters}

@@ -25,6 +25,11 @@ export const ActionsBar = styled.div`
   position: absolute;
   top: 110px;
   right: 35px;
+  @media screen and (max-width: 1200px) {
+    position: relative;
+    top: 30px;
+    right: 0;
+  }
 `;
 
 export const CreatedAt = styled.div`

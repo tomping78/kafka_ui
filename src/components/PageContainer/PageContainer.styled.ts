@@ -68,7 +68,7 @@ export const Sidebar = styled.div<{ $visible: boolean }>(
 
 export const Overlay = styled.div<{ $visible: boolean }>(
   ({ theme, $visible }) => css`
-    height: calc(100vh - ${theme.layout.navBarHeight});
+    /* height: calc(100vh - ${theme.layout.navBarHeight}); */
     z-index: 99;
     visibility: hidden;
     opacity: 0;
@@ -82,8 +82,10 @@ export const Overlay = styled.div<{ $visible: boolean }>(
       @media screen and (max-width: 1023px) {
         bottom: 0;
         right: 0;
+        display: flex;
+        position: fixed;
         visibility: visible;
-        opacity: 0.7;
+        opacity: 0.3;
         background-color: ${theme.layout.overlay.backgroundColor};
       }
     `}
