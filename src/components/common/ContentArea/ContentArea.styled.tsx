@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const ContentArea = styled.div`
-  padding: 35px 30px;
+  padding: 30px;
   background: #fff;
   border-radius: 10px;
   display: flex;

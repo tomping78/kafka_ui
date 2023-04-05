@@ -200,7 +200,7 @@ export const EmptyTableMessageCell = styled.td`
 export const Pagination = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 16px 0;
+  padding: 16px 0 0 0;
   line-height: 32px;
 `;
 
@@ -254,4 +254,8 @@ export const Ellipsis = styled.div`
 
 export const TableWrapper = styled.div`
   overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  border-bottom: 1px solid #aaa;
 `;

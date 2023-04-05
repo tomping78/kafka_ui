@@ -53,73 +53,75 @@ const MessagesTable: React.FC = () => {
   };
 
   return (
-    <div style={{ overflowX: 'auto' }}>
-      {previewFor !== null && (
-        <PreviewModal
-          values={previewFor === 'key' ? keyFilters : contentFilters}
-          toggleIsOpen={() => setPreviewFor(null)}
-          setFilters={(payload: PreviewFilter[]) =>
-            previewFor === 'key'
-              ? setKeyFilters(payload)
-              : setContentFilters(payload)
-          }
-        />
-      )}
+    <>
+      <S.TableWrapper>
+        {previewFor !== null && (
+          <PreviewModal
+            values={previewFor === 'key' ? keyFilters : contentFilters}
+            toggleIsOpen={() => setPreviewFor(null)}
+            setFilters={(payload: PreviewFilter[]) =>
+              previewFor === 'key'
+                ? setKeyFilters(payload)
+                : setContentFilters(payload)
+            }
+          />
+        )}
 
-      <Table isFullwidth>
-        <thead>
-          <tr>
-            <TableHeaderCell> </TableHeaderCell>
-            <TableHeaderCell title="Offset" />
-            <TableHeaderCell title="Partition" />
-            <TableHeaderCell title="Timestamp" />
-            <TableHeaderCell
-              title="Key"
-              previewText={`Preview ${
-                keyFilters.length ? `(${keyFilters.length} selected)` : ''
-              }`}
-              onPreview={() => setPreviewFor('key')}
-            />
-            <TableHeaderCell
-              title="Value"
-              previewText={`Preview ${
-                contentFilters.length
-                  ? `(${contentFilters.length} selected)`
-                  : ''
-              }`}
-              onPreview={() => setPreviewFor('content')}
-            />
-            <TableHeaderCell> </TableHeaderCell>
-          </tr>
-        </thead>
-        <tbody>
-          {messages.map((message: TopicMessage) => (
-            <Message
-              key={[
-                message.offset,
-                message.timestamp,
-                message.key,
-                message.partition,
-              ].join('-')}
-              message={message}
-              keyFilters={keyFilters}
-              contentFilters={contentFilters}
-            />
-          ))}
-          {isFetching && isLive && !messages.length && (
+        <Table isFullwidth>
+          <thead>
             <tr>
-              <td colSpan={10}>
-                <PageLoader />
-              </td>
+              <TableHeaderCell> </TableHeaderCell>
+              <TableHeaderCell title="Offset" />
+              <TableHeaderCell title="Partition" />
+              <TableHeaderCell title="Timestamp" />
+              <TableHeaderCell
+                title="Key"
+                previewText={`Preview ${
+                  keyFilters.length ? `(${keyFilters.length} selected)` : ''
+                }`}
+                onPreview={() => setPreviewFor('key')}
+              />
+              <TableHeaderCell
+                title="Value"
+                previewText={`Preview ${
+                  contentFilters.length
+                    ? `(${contentFilters.length} selected)`
+                    : ''
+                }`}
+                onPreview={() => setPreviewFor('content')}
+              />
+              <TableHeaderCell> </TableHeaderCell>
             </tr>
-          )}
-          {messages.length === 0 && !isFetching && (
-            <tr>
-              <td colSpan={10}>No messages found</td>
-            </tr>
-          )}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {messages.map((message: TopicMessage) => (
+              <Message
+                key={[
+                  message.offset,
+                  message.timestamp,
+                  message.key,
+                  message.partition,
+                ].join('-')}
+                message={message}
+                keyFilters={keyFilters}
+                contentFilters={contentFilters}
+              />
+            ))}
+            {isFetching && isLive && !messages.length && (
+              <tr>
+                <td colSpan={10}>
+                  <PageLoader />
+                </td>
+              </tr>
+            )}
+            {messages.length === 0 && !isFetching && (
+              <tr>
+                <td colSpan={10}>No messages found</td>
+              </tr>
+            )}
+          </tbody>
+        </Table>
+      </S.TableWrapper>
       <S.Pagination>
         <S.Pages>
           <Button
@@ -140,7 +142,7 @@ const MessagesTable: React.FC = () => {
           </Button>
         </S.Pages>
       </S.Pagination>
-    </div>
+    </>
   );
 };
 

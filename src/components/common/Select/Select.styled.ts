@@ -56,10 +56,10 @@ export const OptionList = styled.ul`
   top: 100%;
   left: 0;
   max-height: 228px;
-  margin-top: 4px;
+  margin-top: 3px;
   background-color: ${(props) => props.theme.select.backgroundColor.normal};
   border: 1px ${(props) => props.theme.select.borderColor.normal} solid;
-  border-radius: 4px;
+  border-radius: 5px;
   font-size: 14px;
   line-height: 18px;
   color: ${(props) => props.theme.select.color.normal};
@@ -73,7 +73,7 @@ export const OptionList = styled.ul`
   }
 
   &::-webkit-scrollbar-thumb {
-    border-radius: 4px;
+    border-radius: 5px;
     background-color: ${(props) =>
       props.theme.select.optionList.scrollbar.backgroundColor};
   }

@@ -7,11 +7,12 @@ import IconButtonWrapper from 'components/common/Icons/IconButtonWrapper';
 import CloseIcon from 'components/common/Icons/CloseIcon';
 import { yupResolver } from '@hookform/resolvers/yup';
 import yup from 'lib/yupExtended';
-import { Card } from 'antd';
+import { Card, Tooltip } from 'antd';
 import {
   PlayCircleOutlined,
   PauseCircleOutlined,
   CheckCircleOutlined,
+  ClearOutlined,
 } from '@ant-design/icons';
 import ReactAce from 'react-ace/lib/ace';
 import styled from 'styled-components';
@@ -109,14 +110,22 @@ const QueryForm: React.FC<Props> = ({
             type="inner"
             title="KSQL"
             extra={
-              <Button
-                buttonType="primary"
-                buttonSize="S"
-                onClick={() => setValue('ksql', '')}
-                isInverted
-              >
-                Clear
-              </Button>
+              <Tooltip placement="topRight" title="Clear all">
+                <Button
+                  buttonType="modal_close"
+                  buttonSize="S"
+                  style={{
+                    minWidth: 30,
+                    padding: 0,
+                    justifyContent: 'right',
+                    color: '#333',
+                  }}
+                  onClick={() => setValue('ksql', '')}
+                  isInverted
+                >
+                  <ClearOutlined />
+                </Button>
+              </Tooltip>
             }
           >
             <S.Fieldset aria-labelledby="ksqlLabel">
