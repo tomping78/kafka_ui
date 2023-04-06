@@ -18,7 +18,11 @@ const ClusterTab: React.FC<ClusterTabProps> = ({
   toggleClusterMenu,
   clickedTitle,
 }) => (
-  <S.Wrapper onClick={toggleClusterMenu} isOpen={isOpen} clickedTitle={clickedTitle}>
+  <S.Wrapper
+    onClick={toggleClusterMenu}
+    isOpen={isOpen}
+    clickedTitle={clickedTitle}
+  >
     <S.Title title={title}>{title}</S.Title>
 
     <S.StatusIconWrapper>

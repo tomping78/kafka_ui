@@ -16,13 +16,23 @@ import * as S from './Nav.styled';
 interface Props {
   cluster: Cluster;
   singleMode?: boolean;
-  clickedTitle?: string;
+  clickedTitle: string;
+  selectedTab?: string;
 }
+
+const clusterItems = [
+  'Brokers',
+  'Topics',
+  'Consumers',
+  'Schema Registry',
+  'KSQL DB',
+];
 
 const ClusterMenu: React.FC<Props> = ({
   cluster: { name, status, features },
   singleMode,
   clickedTitle,
+  selectedTab,
 }) => {
   const hasFeatureConfigured = (key: ClusterFeaturesEnum) =>
     features?.includes(key);
@@ -31,8 +41,11 @@ const ClusterMenu: React.FC<Props> = ({
   React.useEffect(() => {
     if (clickedTitle === 'Dashboard') {
       setIsOpen(false);
+    } else if (clusterItems.includes(clickedTitle)) {
+      setIsOpen(selectedTab === name);
     }
-  }, [clickedTitle]);
+  }, [selectedTab, clickedTitle]);
+
   return (
     <>
       <ClusterTab
