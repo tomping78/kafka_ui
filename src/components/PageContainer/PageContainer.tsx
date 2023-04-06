@@ -7,7 +7,7 @@ import useBoolean from 'lib/hooks/useBoolean';
 import styled from 'styled-components';
 
 const ContainerWrap = styled.div`
-  padding: 30px 35px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
