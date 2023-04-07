@@ -1,5 +1,6 @@
 import React from 'react';
 import { ServerStatus } from 'generated-sources';
+import { Tooltip } from 'antd';
 
 import * as S from './ClusterTab.styled';
 
@@ -26,9 +27,9 @@ const ClusterTab: React.FC<ClusterTabProps> = ({
     <S.Title title={title}>{title}</S.Title>
 
     <S.StatusIconWrapper>
-      <S.StatusIcon status={status} aria-label="status">
-        <title>{status}</title>
-      </S.StatusIcon>
+      <Tooltip placement="topLeft" title={status}>
+        <S.StatusIcon status={status} aria-label="status" />
+      </Tooltip>
     </S.StatusIconWrapper>
 
     <S.ChevronWrapper>

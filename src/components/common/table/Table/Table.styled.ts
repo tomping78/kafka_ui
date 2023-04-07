@@ -51,6 +51,9 @@ export const Table = styled.table<Props>`
     line-height: 14px;
     vertical-align: middle;
     word-wrap: break-word;
+    & div {
+      line-height: 16px;
+    }
     & div table th {
       border-top: 1px solid #dadada;
       border-bottom: 1px solid #dadada;

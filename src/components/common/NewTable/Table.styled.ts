@@ -168,6 +168,9 @@ export const Table = styled.table(
     color: ${table.td.color.normal};
     vertical-align: middle;
     word-wrap: break-word;
+    & div {
+      line-height:16px;
+    }
 
     & a {
       color: ${table.link.color.normal};

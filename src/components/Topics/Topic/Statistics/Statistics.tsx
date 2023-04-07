@@ -7,6 +7,7 @@ import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Action, ResourceType } from 'generated-sources';
 import { ActionButton } from 'components/common/ActionComponent';
+import { CommentOutlined, PlayCircleOutlined } from '@ant-design/icons';
 
 import * as S from './Statistics.styles';
 import Metrics from './Metrics';
@@ -22,6 +23,9 @@ const Statistics: React.FC = () => {
           onReset={reset}
           fallbackRender={({ resetErrorBoundary }) => (
             <S.ProgressContainer>
+              <CommentOutlined
+                style={{ fontSize: 250, color: '#ccc', marginBottom: 30 }}
+              />
               <ActionButton
                 onClick={async () => {
                   await analyzeTopic.mutateAsync();
@@ -35,7 +39,7 @@ const Statistics: React.FC = () => {
                   value: params.topicName,
                 }}
               >
-                Start Analysis
+                <PlayCircleOutlined /> Start Analysis
               </ActionButton>
             </S.ProgressContainer>
           )}

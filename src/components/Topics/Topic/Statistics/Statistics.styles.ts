@@ -10,6 +10,7 @@ export const ProgressContainer = styled.div`
   flex-direction: column;
   height: 300px;
   text-align: center;
+  flex: 1 1 auto;
 
   ${List} {
     opacity: 0.5;
