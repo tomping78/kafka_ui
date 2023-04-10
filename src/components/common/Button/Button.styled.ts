@@ -30,7 +30,7 @@ const StyledButton = styled.button<ButtonProps>`
       ? '120px'
       : props.buttonSize === 'F'
       ? 'auto'
-      : '85px'};
+      : '75px'};
   border: none;
   border-radius: ${(props) => (props.buttonSize === 'M' ? '5px' : '0px')};
   white-space: nowrap;

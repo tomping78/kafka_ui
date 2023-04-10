@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const ProgressContainer = styled.div`
   padding: 1.5rem 1rem;
-  background: ${({ theme }) => theme.code.backgroundColor};
   justify-content: center;
   align-items: center;
   display: flex;
@@ -11,6 +10,7 @@ export const ProgressContainer = styled.div`
   height: 300px;
   text-align: center;
   flex: 1 1 auto;
+  gap: 35px;
 
   ${List} {
     opacity: 0.5;
@@ -50,4 +50,12 @@ export const ProgressBarWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 280px;
+`;
+export const Title = styled.div`
+  font-size: 55px;
+  font-weight: 600;
+  color: #333;
+`;
+export const Text = styled.div`
+  font-size: 18px;
 `;
