@@ -12,6 +12,8 @@ import {
   useIncreaseTopicPartitionsCount,
   useUpdateTopicReplicationFactor,
 } from 'lib/hooks/api/topics';
+import { StarFilled } from '@ant-design/icons';
+import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import * as S from './DangerZone.styled';
 
@@ -83,93 +85,101 @@ const DangerZone: React.FC<DangerZoneProps> = ({
   };
 
   return (
-    <S.Wrapper>
-      <S.Title>Danger Zone</S.Title>
-      <S.Warning>
-        Change these parameters only if you are absolutely sure what you are
-        doing.
-      </S.Warning>
-      <div>
-        <FormProvider {...partitionsMethods}>
-          <S.Form
-            onSubmit={partitionsMethods.handleSubmit(validatePartitions)}
-            aria-label="Edit number of partitions"
-          >
-            <div>
-              <InputLabel htmlFor="partitions">
-                Number of partitions *
-              </InputLabel>
-              <Input
-                inputSize="M"
-                type="number"
-                id="partitions"
-                name="partitions"
-                hookFormOptions={{
-                  required: 'Partiotions are required',
-                }}
-                placeholder="Number of partitions"
-              />
-            </div>
-            <div>
-              <Button
-                buttonType="primary"
-                buttonSize="M"
-                type="submit"
-                disabled={!partitionsMethods.formState.isDirty}
-              >
-                Submit
-              </Button>
-            </div>
-          </S.Form>
-        </FormProvider>
-        <FormError>
-          <ErrorMessage
-            errors={partitionsMethods.formState.errors}
-            name="partitions"
-          />
-        </FormError>
-        <FormProvider {...replicationFactorMethods}>
-          <S.Form
-            onSubmit={replicationFactorMethods.handleSubmit(
-              validateReplicationFactor
-            )}
-            aria-label="Edit replication factor"
-          >
-            <div>
-              <InputLabel htmlFor="replicationFactor">
-                Replication Factor *
-              </InputLabel>
-              <Input
-                id="replicationFactor"
-                inputSize="M"
-                type="number"
-                placeholder="Replication Factor"
-                name="replicationFactor"
-                hookFormOptions={{
-                  required: 'Replication Factor are required',
-                }}
-              />
-            </div>
-            <div>
-              <Button
-                buttonType="primary"
-                buttonSize="M"
-                type="submit"
-                disabled={!replicationFactorMethods.formState.isDirty}
-              >
-                Submit
-              </Button>
-            </div>
-          </S.Form>
-        </FormProvider>
-        <FormError>
-          <ErrorMessage
-            errors={replicationFactorMethods.formState.errors}
-            name="replicationFactor"
-          />
-        </FormError>
-      </div>
-    </S.Wrapper>
+    <ContentArea style={{ marginTop: 20 }}>
+      <S.Wrapper>
+        <S.Title>Danger Zone</S.Title>
+        <S.Warning>
+          Change these parameters only if you are absolutely sure what you are
+          doing.
+        </S.Warning>
+        <div>
+          <FormProvider {...partitionsMethods}>
+            <S.Form
+              onSubmit={partitionsMethods.handleSubmit(validatePartitions)}
+              aria-label="Edit number of partitions"
+            >
+              <div>
+                <InputLabel htmlFor="partitions">
+                  Number of partitions{' '}
+                  <span>
+                    <StarFilled />
+                  </span>
+                </InputLabel>
+                <Input
+                  inputSize="M"
+                  type="number"
+                  id="partitions"
+                  name="partitions"
+                  hookFormOptions={{
+                    required: 'Partiotions are required',
+                  }}
+                  placeholder="Number of partitions"
+                />
+              </div>
+              <div>
+                <Button
+                  buttonType="secondary"
+                  buttonSize="M"
+                  type="submit"
+                  disabled={!partitionsMethods.formState.isDirty}
+                >
+                  Submit
+                </Button>
+              </div>
+            </S.Form>
+          </FormProvider>
+          <FormError>
+            <ErrorMessage
+              errors={partitionsMethods.formState.errors}
+              name="partitions"
+            />
+          </FormError>
+          <FormProvider {...replicationFactorMethods}>
+            <S.Form
+              onSubmit={replicationFactorMethods.handleSubmit(
+                validateReplicationFactor
+              )}
+              aria-label="Edit replication factor"
+            >
+              <div>
+                <InputLabel htmlFor="replicationFactor">
+                  Replication Factor{' '}
+                  <span>
+                    <StarFilled />
+                  </span>
+                </InputLabel>
+                <Input
+                  id="replicationFactor"
+                  inputSize="M"
+                  type="number"
+                  placeholder="Replication Factor"
+                  name="replicationFactor"
+                  hookFormOptions={{
+                    required: 'Replication Factor are required',
+                  }}
+                />
+              </div>
+              <div>
+                <Button
+                  buttonType="secondary"
+                  buttonSize="M"
+                  type="submit"
+                  disabled={!replicationFactorMethods.formState.isDirty}
+                >
+                  Submit
+                </Button>
+              </div>
+            </S.Form>
+          </FormProvider>
+          <FormError>
+            <ErrorMessage
+              errors={replicationFactorMethods.formState.errors}
+              name="replicationFactor"
+            />
+          </FormError>
+        </div>
+      </S.Wrapper>
+    </ContentArea>
   );
 };
 
