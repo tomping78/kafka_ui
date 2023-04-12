@@ -81,14 +81,15 @@ export const FiltersMetrics = styled.div`
 
 export const Metric = styled.div`
   color: ${({ theme }) => theme.metrics.filters.color.normal};
-  font-size: 12px;
+  font-size: 14px;
   display: flex;
+  align-items: center;
 `;
 
 export const MetricsIcon = styled.div`
   color: ${({ theme }) => theme.metrics.filters.color.icon};
   padding-right: 6px;
-  height: 12px;
+  display: flex;
 `;
 
 export const ClearAll = styled.div`

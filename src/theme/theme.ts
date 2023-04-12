@@ -18,6 +18,7 @@ const Colors = {
     '90': '#171A1C',
     '100': '#000',
     '110': '#555',
+    '120': 'rgba(59, 59, 59, 0.2)',
   },
   transparency: {
     '10': 'rgba(10, 10, 10, 0.3)',
@@ -341,7 +342,7 @@ const theme = {
       offline: Colors.red[50],
       initializing: Colors.yellow[20],
     },
-    chevronIconColor: Colors.neutral[50],
+    chevronIconColor: Colors.neutral[30],
   },
   version: {
     currentVersion: {
@@ -457,7 +458,7 @@ const theme = {
     },
     optionList: {
       scrollbar: {
-        backgroundColor: Colors.neutral[30],
+        backgroundColor: Colors.neutral[120],
       },
     },
   },
@@ -512,7 +513,7 @@ const theme = {
   tag: {
     backgroundColor: {
       green: Colors.green[40],
-      gray: Colors.neutral[40],
+      gray: Colors.neutral[25],
       yellow: Colors.yellow[10],
       white: Colors.neutral[10],
       red: Colors.red[10],
@@ -569,7 +570,7 @@ const theme = {
       meta: Colors.neutral[30],
     },
     liderReplica: {
-      color: Colors.green[60],
+      color: Colors.green[40],
     },
     outOfSync: {
       color: Colors.red[50],

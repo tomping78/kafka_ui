@@ -12,7 +12,7 @@ import {
   useIncreaseTopicPartitionsCount,
   useUpdateTopicReplicationFactor,
 } from 'lib/hooks/api/topics';
-import { StarFilled } from '@ant-design/icons';
+import { StarFilled, AlertFilled } from '@ant-design/icons';
 import ContentArea from 'components/common/ContentArea/ContentArea.styled';
 
 import * as S from './DangerZone.styled';
@@ -87,7 +87,9 @@ const DangerZone: React.FC<DangerZoneProps> = ({
   return (
     <ContentArea style={{ marginTop: 20 }}>
       <S.Wrapper>
-        <S.Title>Danger Zone</S.Title>
+        <S.Title>
+          Danger Zone <AlertFilled />
+        </S.Title>
         <S.Warning>
           Change these parameters only if you are absolutely sure what you are
           doing.

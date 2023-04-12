@@ -149,7 +149,7 @@ export default createGlobalStyle(
       color: #237800 !important;
     }
     .ant-divider-dashed {
-      border-color: rgba(5, 5, 5, 0.1);
+      border-color: rgba(5, 5, 5, 0.15);
     }
     .ant-divider-horizontal {
       margin: 15px 0 !important;

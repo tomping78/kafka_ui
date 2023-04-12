@@ -10,7 +10,7 @@ export const Replica = styled.span.attrs({ 'aria-label': 'replica-info' })<{
     return null;
   }};
 
-  font-weight: ${({ outOfSync }) => (outOfSync ? '500' : null)};
+  font-weight: ${({ outOfSync }) => (outOfSync ? '600' : null)};
 
   &:after {
     content: ', ';

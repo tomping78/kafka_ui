@@ -74,7 +74,7 @@ export const Th = styled.th<ThProps>(
     sortOrder,
     expander,
   }) => `
-  padding: 15px 10px 15px 15px;
+  padding: 13px 10px 13px 15px;
   border-top:2px solid #333;
   border-bottom: 1px solid #333;
   vertical-align: middle;
@@ -163,7 +163,7 @@ export const Table = styled.table(
     border-bottom: 1px solid #dadada;
     font-size: 14px;
     font-weight: 400;
-    padding: 13px 8px 13px 15px;
+    padding: 12px 8px 12px 15px;
     line-height:14px;
     color: ${table.td.color.normal};
     vertical-align: middle;
